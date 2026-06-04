@@ -1,0 +1,216 @@
+/* ============================================================
+   PawCare Pro - Dark Mode Stylesheet
+   ============================================================ */
+
+[data-theme="dark"] {
+  --primary: #66BB6A;
+  --primary-dark: #4CAF50;
+  --primary-light: #388E3C;
+  --primary-rgb: 102, 187, 106;
+
+  --secondary: #FFC857;
+  --secondary-dark: #FFB300;
+
+  --dark: #F1F5F9;
+  --dark-2: #E2E8F0;
+  --dark-3: #CBD5E1;
+
+  --light: #1E2530;
+  --bg: #111827;
+  --bg-2: #1E2530;
+  --bg-3: #2A3441;
+
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+
+  --border: #2A3441;
+  --border-2: #374151;
+
+  --shadow: 0 1px 3px rgba(0,0,0,.3), 0 1px 2px rgba(0,0,0,.2);
+  --shadow-md: 0 4px 6px rgba(0,0,0,.25), 0 2px 4px rgba(0,0,0,.2);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.3), 0 4px 10px rgba(0,0,0,.2);
+  --shadow-xl: 0 20px 40px rgba(0,0,0,.4), 0 8px 16px rgba(0,0,0,.3);
+  --shadow-primary: 0 8px 24px rgba(76,175,80,.25);
+}
+
+/* Backgrounds */
+[data-theme="dark"] body { background-color: var(--bg); color: var(--text-primary); }
+
+[data-theme="dark"] .navbar {
+  background: rgba(17,24,39,.9);
+  border-bottom-color: var(--border);
+}
+[data-theme="dark"] .navbar.scrolled { background: rgba(17,24,39,.98); }
+
+[data-theme="dark"] .hero-main {
+  background: linear-gradient(135deg, #0d1f0e 0%, #111827 40%, #1a1506 100%);
+}
+[data-theme="dark"] .hero-shape-1 {
+  background: radial-gradient(circle, rgba(76,175,80,.2), transparent 70%);
+}
+[data-theme="dark"] .hero-shape-2 {
+  background: radial-gradient(circle, rgba(255,200,87,.15), transparent 70%);
+}
+
+[data-theme="dark"] h1, [data-theme="dark"] h2,
+[data-theme="dark"] h3, [data-theme="dark"] h4,
+[data-theme="dark"] h5, [data-theme="dark"] h6 {
+  color: var(--text-primary);
+}
+
+/* Cards */
+[data-theme="dark"] .card,
+[data-theme="dark"] .service-card,
+[data-theme="dark"] .sitter-card,
+[data-theme="dark"] .feature-card,
+[data-theme="dark"] .testimonial-card,
+[data-theme="dark"] .pricing-card,
+[data-theme="dark"] .blog-card,
+[data-theme="dark"] .faq-item,
+[data-theme="dark"] .pet-card,
+[data-theme="dark"] .stat-card,
+[data-theme="dark"] .visit-card,
+[data-theme="dark"] .contact-info-card,
+[data-theme="dark"] .insurance-badge {
+  background: var(--light);
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .card-glass {
+  background: rgba(30,37,48,.8);
+  border-color: rgba(255,255,255,.08);
+}
+
+[data-theme="dark"] .trust-badge {
+  background: rgba(30,37,48,.8);
+  border-color: var(--border-2);
+}
+
+/* Forms */
+[data-theme="dark"] .form-control,
+[data-theme="dark"] .form-select {
+  background: var(--bg-2);
+  border-color: var(--border-2);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .form-control:focus,
+[data-theme="dark"] .form-select:focus {
+  background: var(--bg-2);
+  border-color: var(--primary);
+}
+
+[data-theme="dark"] .form-control::placeholder { color: var(--text-muted); }
+
+/* Sections */
+[data-theme="dark"] .bg-light-section { background: var(--bg); }
+[data-theme="dark"] .bg-white-section { background: var(--light); }
+[data-theme="dark"] .bg-gradient-light {
+  background: linear-gradient(135deg, #0d1f0e 0%, #111827 50%, #1a1506 100%);
+}
+[data-theme="dark"] .stats-strip {
+  background: var(--light);
+  border-color: var(--border);
+}
+[data-theme="dark"] .page-header {
+  background: linear-gradient(135deg, #0d1f0e 0%, #111827 60%, #1a1506 100%);
+  border-color: var(--border);
+}
+
+/* Mobile Menu */
+[data-theme="dark"] .mobile-menu { background: var(--bg-2); }
+[data-theme="dark"] .mobile-menu-close { background: var(--bg-3); color: var(--text-primary); }
+[data-theme="dark"] .mobile-nav-link { color: var(--text-primary); }
+
+/* Nav Icon Btns */
+[data-theme="dark"] .nav-icon-btn {
+  background: var(--bg-2);
+  border-color: var(--border-2);
+  color: var(--text-secondary);
+}
+
+/* Dropdown */
+[data-theme="dark"] .dropdown-menu-custom {
+  background: var(--bg-2);
+  border-color: var(--border-2);
+}
+
+/* Dashboard */
+[data-theme="dark"] .dashboard-sidebar {
+  background: var(--light);
+  border-right-color: var(--border);
+}
+
+/* FAQ */
+[data-theme="dark"] .faq-question { color: var(--text-primary); }
+[data-theme="dark"] .faq-item.open { border-color: rgba(76,175,80,.3); }
+
+/* Blog */
+[data-theme="dark"] .blog-card-img { background: var(--bg-3); }
+
+/* Pricing */
+[data-theme="dark"] .pricing-card.featured {
+  background: linear-gradient(135deg, rgba(76,175,80,.12), var(--light));
+}
+[data-theme="dark"] .pricing-features li { border-color: var(--bg-3); }
+
+/* Auth */
+[data-theme="dark"] .auth-page {
+  background: linear-gradient(135deg, #0d1f0e 0%, #111827 50%, #1a1506 100%);
+}
+[data-theme="dark"] .auth-card {
+  background: rgba(30,37,48,.95);
+  border-color: var(--border-2);
+}
+
+/* Vacc Table */
+[data-theme="dark"] .vacc-table td { background: var(--light); }
+[data-theme="dark"] .vacc-table tr:hover td { background: var(--bg-3); }
+
+/* Sitter Card */
+[data-theme="dark"] .sitter-card-img {
+  background: linear-gradient(135deg, #1a3a2e, #2a2408);
+}
+
+/* Map Area */
+[data-theme="dark"] .map-placeholder {
+  background: linear-gradient(135deg, #1a3a2e, #0d2818);
+}
+
+/* Scroll Top */
+[data-theme="dark"] .scroll-top { box-shadow: 0 8px 20px rgba(0,0,0,.4); }
+
+/* Section Label */
+[data-theme="dark"] .section-label {
+  background: rgba(76,175,80,.15);
+  color: var(--primary);
+}
+
+/* GPS */
+[data-theme="dark"] .gps-mockup { background: linear-gradient(135deg, #111827, #0d1117); }
+
+/* Footer (stays dark in both modes) */
+#main-footer .footer { background: #0d1117; }
+
+/* Pet Profile Card img */
+[data-theme="dark"] .pet-card-img { background: linear-gradient(135deg, #1a3a2e, #2a2408); }
+
+/* Divider */
+[data-theme="dark"] .divider-deco::before,
+[data-theme="dark"] .divider-deco::after { background: var(--border); }
+
+/* Logo */
+[data-theme="dark"] .nav-logo .logo-name { color: var(--text-primary); }
+
+/* Insurance Badge */
+[data-theme="dark"] .insurance-badge { background: var(--light); border-color: var(--border); }
+
+/* Transition for theme change */
+body, .card, .service-card, .feature-card, .navbar,
+.mobile-menu, .footer, .form-control, .form-select,
+.dropdown-menu-custom, .auth-card, .pricing-card,
+.faq-item, .sitter-card, .pet-card, .stat-card,
+.dashboard-sidebar, .blog-card, .visit-card {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}

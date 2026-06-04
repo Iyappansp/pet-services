@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .role-card { border:2px solid var(--border);border-radius:var(--radius-lg);padding:18px;text-align:center;cursor:pointer;transition:all .2s ease; }
+    .role-card:hover { border-color:var(--primary);background:rgba(76,175,80,.04); }
+    .role-card.selected { border-color:var(--primary);background:rgba(76,175,80,.08); }
+    .strength-bar { height:4px;border-radius:2px;background:var(--bg-3);overflow:hidden;margin-top:6px; }
+    .strength-fill { height:100%;border-radius:2px;transition:width .3s ease,background .3s ease; }
+    .input-eye { position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1rem;color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<div class="auth-page" style="overflow:auto;height:auto;min-height:100vh;">
+  <div class="hero-bg-shape hero-shape-1" style="opacity:.3;"></div>
+  <div class="hero-bg-shape hero-shape-2" style="opacity:.25;"></div>
+
+  <div class="auth-card animate-scale-in" style="max-width:500px;margin:40px auto;">
+    <!-- Logo -->
+    <div style="text-align:center;margin-bottom:28px;">
+      <a href="index.html" class="nav-logo" style="display:inline-flex;justify-content:center;margin-bottom:14px;">
+        <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color:#fff;"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m0-12a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3M5 16a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m14 0a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg></div>
+        <div class="logo-text">
+          <span class="logo-name">Paw<span>Care</span> Pro</span>
+          <span class="logo-tagline">Trusted Pet Services</span>
+        </div>
+      </a>
+      <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:4px;">Create Your Account </h3>
+      <p style="font-size:.875rem;color:var(--text-secondary);">Join 2,400+ pet families who trust PawCare Pro</p>
+    </div>
+
+    <!-- Role Selection -->
+    <div style="margin-bottom:24px;">
+      <label class="form-label">I'm signing up as...</label>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div class="role-card selected" onclick="selectRole(this,'parent')">
+          <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:.85rem;color:var(--text-primary);">Pet Parent</div>
+          <div style="font-size:.72rem;color:var(--text-muted);">I need pet care</div>
+        </div>
+        <div class="role-card" onclick="selectRole(this,'sitter')">
+          <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:.85rem;color:var(--text-primary);">Pet Sitter</div>
+          <div style="font-size:.72rem;color:var(--text-muted);">I want to care for pets</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Social Signup -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+      <button class="btn btn-outline" style="width:100%;gap:10px;justify-content:center;" onclick="showToast('Redirecting to Google...','success')">
+        <span style="font-size:1.1rem;font-weight:800;">G</span> Sign up with Google
+      </button>
+    </div>
+
+    <div class="divider-deco"><span>or create with email</span></div>
+
+    <!-- Signup Form -->
+    <form onsubmit="handleSignup(event)" style="margin-top:16px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div class="form-group"><label class="form-label">First Name *</label><input type="text" class="form-control" placeholder="Sarah" required></div>
+        <div class="form-group"><label class="form-label">Last Name *</label><input type="text" class="form-control" placeholder="Johnson" required></div>
+      </div>
+      <div class="form-group"><label class="form-label">Email Address *</label><input type="email" class="form-control" placeholder="you@example.com" required></div>
+      <div class="form-group"><label class="form-label">Phone Number *</label><input type="tel" class="form-control" placeholder="+1 (555) 000-0000" required></div>
+      <div class="form-group">
+        <label class="form-label">Password *</label>
+        <div style="position:relative;">
+          <input type="password" class="form-control" id="signupPass" placeholder="Min. 8 characters" required oninput="checkStrength(this.value)" style="padding-right:44px;">
+          <span class="input-eye" onclick="togglePass('signupPass',this)"></span>
+        </div>
+        <div class="strength-bar"><div class="strength-fill" id="strengthFill" style="width:0;background:var(--danger);"></div></div>
+        <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px;" id="strengthLabel">Password strength</div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Confirm Password *</label>
+        <div style="position:relative;">
+          <input type="password" class="form-control" id="confirmPass" placeholder="Repeat password" required style="padding-right:44px;">
+          <span class="input-eye" onclick="togglePass('confirmPass',this)"></span>
+        </div>
+      </div>
+      <div style="display:flex;align-items:flex-start;gap:8px;margin-bottom:20px;">
+        <input type="checkbox" id="agreeTerms" required style="margin-top:3px;accent-color:var(--primary);">
+        <label for="agreeTerms" style="font-size:.83rem;color:var(--text-secondary);cursor:pointer;">I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a></label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Create My Account </button>
+    </form>
+
+    <p style="text-align:center;margin-top:18px;font-size:.875rem;color:var(--text-secondary);">
+      Already have an account? <a href="login.html" style="color:var(--primary);font-weight:700;">Sign in →</a>
+    </p>
+
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--border);">
+      <button class="nav-icon-btn" id="themeToggle" title="Toggle theme"><span id="themeIcon"></span></button>
+      <button class="nav-icon-btn" id="rtlToggle" title="Toggle RTL"><span id="rtlIcon">⇄</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+function selectRole(el, role) {
+  document.querySelectorAll('.role-card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function handleSignup(e) {
+  e.preventDefault();
+  const p = document.getElementById('signupPass').value;
+  const c = document.getElementById('confirmPass').value;
+  if (p !== c) { showToast('Passwords do not match','error'); return; }
+  showToast('Account created! Welcome to PawCare Pro ','success');
+  setTimeout(() => { window.location.href = 'dashboard.html'; }, 1400);
+}
+function checkStrength(val) {
+  let score = 0;
+  if (val.length >= 8) score++;
+  if (/[A-Z]/.test(val)) score++;
+  if (/[0-9]/.test(val)) score++;
+  if (/[^A-Za-z0-9]/.test(val)) score++;
+  const fill = document.getElementById('strengthFill');
+  const label = document.getElementById('strengthLabel');
+  const colors = ['var(--danger)','var(--warning)','var(--info)','var(--success)'];
+  const labels = ['Weak','Fair','Good','Strong'];
+  fill.style.width = (score * 25) + '%';
+  fill.style.background = colors[score - 1] || 'var(--danger)';
+  label.textContent = score > 0 ? labels[score - 1] : 'Password strength';
+}
+function togglePass(id, icon) {
+  const input = document.getElementById(id);
+  if (input.type === 'password') { input.type = 'text'; icon.textContent = ''; }
+  else { input.type = 'password'; icon.textContent = ''; }
+}
+</script>
+</body>
+</html>

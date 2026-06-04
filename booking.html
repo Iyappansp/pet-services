@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Visit — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<section class="page-header">
+  <div class="container text-center">
+    <span class="section-label"> Book Now</span>
+    <h1 class="animate-fade-up">Book a Pet Care Visit</h1>
+    <p class="section-subtitle animate-fade-up delay-1">Fill in your details and we'll match you with the perfect sitter within 30 minutes.</p>
+  </div>
+</section>
+
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="row g-5 justify-content-center">
+      <!-- Form -->
+      <div class="col-lg-7">
+        <div class="booking-form-container" style="background:var(--light);border-radius:var(--radius-xl);padding:40px 32px;border:1px solid var(--border);box-shadow:var(--shadow-lg);">
+
+          <!-- Step 1: Service Selection -->
+          <div class="mb-4">
+            <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;">1</span> Choose a Service</h5>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;">
+              <div class="service-select-card" data-service="Dog Walking" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
+                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Dog Walking</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">From $18</div>
+              </div>
+              <div class="service-select-card" data-service="Pet Sitting" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
+                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Pet Sitting</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">From $25</div>
+              </div>
+              <div class="service-select-card" data-service="Overnight Care" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
+                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Overnight</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">From $75</div>
+              </div>
+              <div class="service-select-card" data-service="Puppy Visit" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
+                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Puppy Visit</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">From $20</div>
+              </div>
+              <div class="service-select-card" data-service="Cat Care" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
+                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Cat Care</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">From $22</div>
+              </div>
+              <div class="service-select-card" data-service="Senior Care" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
+                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Senior Care</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">From $28</div>
+              </div>
+            </div>
+            <input type="hidden" id="serviceType" value="">
+          </div>
+
+          <hr style="border-color:var(--border);margin:28px 0;">
+
+          <!-- Booking Form -->
+          <form id="bookingForm">
+            <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px;"><span style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;">2</span> Your Details</h5>
+
+            <div class="booking-form-grid" style="display:grid;gap:16px;">
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Your Name *</label>
+                <input type="text" class="form-control" placeholder="e.g. Sarah Johnson" required>
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-control" placeholder="you@example.com" required>
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" required>
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Pet Name *</label>
+                <input type="text" class="form-control" placeholder="e.g. Max, Luna" required>
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Pet Type *</label>
+                <select class="form-select" required>
+                  <option value="">Select pet type...</option>
+                  <option>Dog</option>
+                  <option>Cat</option>
+                  <option>Puppy (under 1yr)</option>
+                  <option>Senior Pet (7+ yrs)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Pet Breed</label>
+                <input type="text" class="form-control" placeholder="e.g. Golden Retriever">
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Preferred Date *</label>
+                <input type="date" class="form-control" required>
+              </div>
+              <div class="form-group" style="margin:0;">
+                <label class="form-label">Preferred Time *</label>
+                <select class="form-select" required>
+                  <option value="">Select time...</option>
+                  <option>7:00 AM</option>
+                  <option>8:00 AM</option>
+                  <option>9:00 AM</option>
+                  <option>10:00 AM</option>
+                  <option>11:00 AM</option>
+                  <option>12:00 PM</option>
+                  <option>1:00 PM</option>
+                  <option>2:00 PM</option>
+                  <option>3:00 PM</option>
+                  <option>4:00 PM</option>
+                  <option>5:00 PM</option>
+                  <option>6:00 PM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group mt-4">
+              <label class="form-label">Special Instructions</label>
+              <textarea class="form-control" rows="3" placeholder="Dietary needs, medications, behavioral notes, access instructions..."></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Emergency Contact Name *</label>
+              <input type="text" class="form-control" placeholder="Emergency contact name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Emergency Contact Phone *</label>
+              <input type="tel" class="form-control" placeholder="Emergency contact phone" required>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:24px;">
+              <input type="checkbox" id="agreeTerms" style="margin-top:3px;accent-color:var(--primary);" required>
+              <label for="agreeTerms" style="font-size:.85rem;color:var(--text-secondary);">I agree to the <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a>. I confirm the pet information is accurate.</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Confirm Booking </button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Sidebar Info -->
+      <div class="col-lg-4 d-none d-lg-block">
+        <div style="position:sticky;top:90px;display:flex;flex-direction:column;gap:20px;">
+          <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);padding:24px;">
+            <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:16px;"> Your Booking is Protected</h5>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Background-checked sitters</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Fully insured & bonded</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> GPS tracking every visit</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Photo & video updates</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> 24/7 emergency support</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Free cancellation 24hrs prior</div>
+            </div>
+          </div>
+          <div style="background:rgba(76,175,80,.08);border:1px solid rgba(76,175,80,.2);border-radius:var(--radius-xl);padding:24px;">
+            <div style="font-size:2rem;margin-bottom:8px;"></div>
+            <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:12px;">"Booking was so easy. Emma arrived exactly on time and Max absolutely loves her!"</p>
+            <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);">— Sarah J., Dog Mom</div>
+          </div>
+          <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);padding:24px;">
+            <h6 style="font-family:var(--font-heading);font-weight:700;margin-bottom:12px;"> Need Help Booking?</h6>
+            <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:12px;">Our team is available 7 days a week to assist you.</p>
+            <a href="contact.html" class="btn btn-outline btn-sm" style="width:100%;">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<button class="scroll-top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script src="assets/js/booking.js"></script>
+<script>
+function selectService(el) {
+  document.querySelectorAll('.service-select-card').forEach(c => {
+    c.style.borderColor = 'var(--border)';
+    c.style.background = 'transparent';
+  });
+  el.style.borderColor = 'var(--primary)';
+  el.style.background = 'rgba(76,175,80,.07)';
+  document.getElementById('serviceType').value = el.dataset.service;
+}
+</script>
+<style>
+.service-select-card:hover { border-color: var(--primary-light) !important; background: rgba(76,175,80,.04) !important; }
+</style>
+</body>
+</html>

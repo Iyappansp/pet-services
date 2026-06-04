@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<section class="page-header">
+  <div class="container text-center">
+    <span class="section-label"> Pricing</span>
+    <h1 class="animate-fade-up">Simple, Transparent Pricing</h1>
+    <p class="section-subtitle animate-fade-up delay-1">No hidden fees. No surprises. Just honest pricing for premium pet care.</p>
+    <!-- Toggle Monthly/One-time -->
+    <div style="display:inline-flex;align-items:center;gap:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-full);padding:6px;margin-top:20px;" class="animate-fade-up delay-2">
+      <button class="btn btn-primary btn-sm" id="oneTimeBtn" onclick="togglePricing('onetime')">Per Visit</button>
+      <button class="btn btn-ghost btn-sm" id="monthlyBtn" onclick="togglePricing('monthly')">Monthly Plan</button>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Cards -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="row g-4 justify-content-center" id="pricingCards">
+      <!-- Basic -->
+      <div class="col-md-4 animate-fade-up">
+        <div class="pricing-card">
+          <div style="font-size:2.5rem;margin-bottom:12px;"></div>
+          <h4 style="font-family:var(--font-heading);font-weight:700;">Basic</h4>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:0;">Perfect for occasional pet care</p>
+          <div class="pricing-price" id="basicPrice">$18<sub>/visit</sub></div>
+          <ul class="pricing-features">
+            <li><span class="check"></span> 30-min dog walk</li>
+            <li><span class="check"></span> GPS tracking</li>
+            <li><span class="check"></span> 2 photo updates</li>
+            <li><span class="check"></span> Post-visit report</li>
+            <li><span class="cross">-</span> Priority booking</li>
+            <li><span class="cross">-</span> Dedicated sitter</li>
+            <li><span class="cross">-</span> Emergency support</li>
+          </ul>
+          <a href="booking.html" class="btn btn-outline" style="width:100%;margin-top:auto;">Get Started</a>
+        </div>
+      </div>
+      <!-- Premium -->
+      <div class="col-md-4 animate-fade-up delay-1">
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div style="font-size:2.5rem;margin-bottom:12px;"></div>
+          <h4 style="font-family:var(--font-heading);font-weight:700;">Premium</h4>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:0;">Best for regular pet owners</p>
+          <div class="pricing-price" id="premiumPrice">$40<sub>/visit</sub></div>
+          <ul class="pricing-features">
+            <li><span class="check"></span> 60-min dog walk</li>
+            <li><span class="check"></span> Live GPS tracking</li>
+            <li><span class="check"></span> 5+ photo updates</li>
+            <li><span class="check"></span> Detailed report + video</li>
+            <li><span class="check"></span> Priority booking</li>
+            <li><span class="check"></span> Same dedicated sitter</li>
+            <li><span class="cross">-</span> Emergency support</li>
+          </ul>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;margin-top:auto;">Get Started</a>
+        </div>
+      </div>
+      <!-- VIP -->
+      <div class="col-md-4 animate-fade-up delay-2">
+        <div class="pricing-card">
+          <div style="font-size:2.5rem;margin-bottom:12px;"></div>
+          <h4 style="font-family:var(--font-heading);font-weight:700;">VIP</h4>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:0;">The ultimate pet care experience</p>
+          <div class="pricing-price" id="vipPrice">$75<sub>/visit</sub></div>
+          <ul class="pricing-features">
+            <li><span class="check"></span> Unlimited visit time</li>
+            <li><span class="check"></span> Live GPS + geo-fence</li>
+            <li><span class="check"></span> Photo, video & live stream</li>
+            <li><span class="check"></span> Full visit report</li>
+            <li><span class="check"></span> Priority instant booking</li>
+            <li><span class="check"></span> Dedicated VIP sitter</li>
+            <li><span class="check"></span> 24/7 emergency support</li>
+          </ul>
+          <a href="booking.html" class="btn btn-secondary" style="width:100%;margin-top:auto;">Get VIP Access</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compare Table -->
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Compare</span>
+      <h2 class="section-title">Feature Comparison</h2>
+    </div>
+    <div style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:separate;border-spacing:0;background:var(--light);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);">
+        <thead>
+          <tr style="background:var(--bg-2);">
+            <th style="padding:16px 20px;text-align:left;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--text-secondary);">Feature</th>
+            <th style="padding:16px 20px;text-align:center;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--text-secondary);">Basic</th>
+            <th style="padding:16px 20px;text-align:center;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--primary);background:rgba(76,175,80,.08);">Premium </th>
+            <th style="padding:16px 20px;text-align:center;font-family:var(--font-heading);font-size:.85rem;font-weight:700;color:var(--text-secondary);">VIP</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 20px;font-size:.875rem;color:var(--text-primary);">Walk Duration</td>
+            <td style="padding:14px 20px;text-align:center;font-size:.875rem;color:var(--text-secondary);">30 min</td>
+            <td style="padding:14px 20px;text-align:center;font-size:.875rem;color:var(--text-primary);background:rgba(76,175,80,.04);">60 min</td>
+            <td style="padding:14px 20px;text-align:center;font-size:.875rem;color:var(--text-secondary);">Unlimited</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 20px;font-size:.875rem;color:var(--text-primary);">GPS Tracking</td>
+            <td style="padding:14px 20px;text-align:center;"></td>
+            <td style="padding:14px 20px;text-align:center;background:rgba(76,175,80,.04);"> Live</td>
+            <td style="padding:14px 20px;text-align:center;"> + Geo-fence</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 20px;font-size:.875rem;color:var(--text-primary);">Photo Updates</td>
+            <td style="padding:14px 20px;text-align:center;font-size:.875rem;color:var(--text-secondary);">2 photos</td>
+            <td style="padding:14px 20px;text-align:center;font-size:.875rem;color:var(--text-primary);background:rgba(76,175,80,.04);">5+ photos</td>
+            <td style="padding:14px 20px;text-align:center;font-size:.875rem;color:var(--text-secondary);">Unlimited + video</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 20px;font-size:.875rem;color:var(--text-primary);">Dedicated Sitter</td>
+            <td style="padding:14px 20px;text-align:center;"></td>
+            <td style="padding:14px 20px;text-align:center;background:rgba(76,175,80,.04);"></td>
+            <td style="padding:14px 20px;text-align:center;"> VIP Sitter</td>
+          </tr>
+          <tr style="border-top:1px solid var(--border);">
+            <td style="padding:14px 20px;font-size:.875rem;color:var(--text-primary);">Emergency Support</td>
+            <td style="padding:14px 20px;text-align:center;"></td>
+            <td style="padding:14px 20px;text-align:center;background:rgba(76,175,80,.04);"></td>
+            <td style="padding:14px 20px;text-align:center;"> 24/7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- Add-ons -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Add-Ons</span>
+      <h2 class="section-title">Enhance Your Package</h2>
+    </div>
+    <div class="row g-3 justify-content-center">
+      <div class="col-sm-6 col-lg-3 animate-fade-up">
+        <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.5rem;"></span><div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">Bath & Brush</div><div style="font-size:.75rem;color:var(--text-muted);">After walk grooming</div></div></div>
+          <span style="font-family:var(--font-heading);font-weight:800;color:var(--primary);">+$15</span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-1">
+        <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.5rem;"></span><div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">Medication</div><div style="font-size:.75rem;color:var(--text-muted);">Per administration</div></div></div>
+          <span style="font-family:var(--font-heading);font-weight:800;color:var(--primary);">+$5</span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-2">
+        <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.5rem;color:var(--primary);display:inline-flex;align-items:center;margin-right:4px;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span><div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">Overnight Stay</div><div style="font-size:.75rem;color:var(--text-muted);">10pm–8am</div></div></div>
+          <span style="font-family:var(--font-heading);font-weight:800;color:var(--primary);">+$45</span>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-3">
+        <div style="background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;"><span style="font-size:1.5rem;"></span><div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">Pet Taxi</div><div style="font-size:.75rem;color:var(--text-muted);">Vet / groomer transport</div></div></div>
+          <span style="font-family:var(--font-heading);font-weight:800;color:var(--primary);">+$30</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<button class="scroll-top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+const prices = {
+  onetime: { basic: '$18<sub>/visit</sub>', premium: '$40<sub>/visit</sub>', vip: '$75<sub>/visit</sub>' },
+  monthly: { basic: '$65<sub>/mo</sub>', premium: '$149<sub>/mo</sub>', vip: '$275<sub>/mo</sub>' }
+};
+function togglePricing(type) {
+  document.getElementById('basicPrice').innerHTML = prices[type].basic;
+  document.getElementById('premiumPrice').innerHTML = prices[type].premium;
+  document.getElementById('vipPrice').innerHTML = prices[type].vip;
+  document.getElementById('oneTimeBtn').className = type === 'onetime' ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm';
+  document.getElementById('monthlyBtn').className = type === 'monthly' ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm';
+}
+</script>
+</body>
+</html>

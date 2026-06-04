@@ -1,0 +1,124 @@
+/* ============================================================
+   PawCare Pro - RTL Support Stylesheet
+   ============================================================ */
+
+[dir="rtl"] body { direction: rtl; text-align: right; }
+
+/* Navbar RTL */
+[dir="rtl"] .nav-container { flex-direction: row-reverse; }
+[dir="rtl"] .nav-links { flex-direction: row-reverse; }
+[dir="rtl"] .nav-actions { flex-direction: row-reverse; }
+[dir="rtl"] .nav-logo { flex-direction: row-reverse; }
+[dir="rtl"] .logo-text { text-align: right; }
+
+/* Dropdown RTL */
+[dir="rtl"] .dropdown-menu-custom { left: auto; right: 50%; transform: translateX(50%); }
+[dir="rtl"] .nav-dropdown:hover .dropdown-menu-custom { transform: translateX(50%) translateY(0); }
+[dir="rtl"] .dropdown-menu-custom a { flex-direction: row-reverse; }
+
+/* Mobile Menu RTL */
+[dir="rtl"] .mobile-menu { right: auto; left: -320px; }
+[dir="rtl"] .mobile-menu.open { left: 0; right: auto; }
+[dir="rtl"] .mobile-nav-link { flex-direction: row-reverse; }
+
+/* Footer RTL */
+[dir="rtl"] .footer-links a { flex-direction: row-reverse; }
+[dir="rtl"] .footer-links a:hover { padding-left: 0; padding-right: 4px; }
+[dir="rtl"] .social-links { flex-direction: row-reverse; }
+
+/* Cards RTL */
+[dir="rtl"] .card-icon { margin-right: 0; margin-left: 16px; }
+[dir="rtl"] .feature-card-accent { right: auto; left: 0; }
+[dir="rtl"] .trust-badge { flex-direction: row-reverse; }
+[dir="rtl"] .trust-badges { flex-direction: row-reverse; }
+
+/* Stats RTL */
+[dir="rtl"] .stat-item { text-align: center; }
+
+/* Dashboard RTL */
+[dir="rtl"] .dashboard-sidebar { border-right: none; border-left: 1px solid var(--border); }
+[dir="rtl"] .dash-nav-item { flex-direction: row-reverse; text-align: right; }
+[dir="rtl"] .dash-nav-item:hover, [dir="rtl"] .dash-nav-item.active {
+  border-right: none;
+  border-left: 3px solid var(--primary);
+}
+
+/* Visit Card RTL */
+[dir="rtl"] .visit-card { flex-direction: row-reverse; }
+[dir="rtl"] .visit-card:hover { transform: translateX(-4px); }
+
+/* Contact Info Card RTL */
+[dir="rtl"] .contact-info-card { flex-direction: row-reverse; text-align: right; }
+
+/* Sitter Card RTL */
+[dir="rtl"] .sitter-available-badge { right: auto; left: 12px; }
+
+/* Pricing List RTL */
+[dir="rtl"] .pricing-features li { flex-direction: row-reverse; }
+
+/* FAQ RTL */
+[dir="rtl"] .faq-question { flex-direction: row-reverse; }
+
+/* Form RTL */
+[dir="rtl"] .form-label { text-align: right; }
+[dir="rtl"] .form-control, [dir="rtl"] .form-select { text-align: right; }
+[dir="rtl"] .newsletter-input-group { flex-direction: row-reverse; }
+
+/* Button RTL */
+[dir="rtl"] .btn { flex-direction: row-reverse; }
+
+/* Section Labels RTL */
+[dir="rtl"] .section-label { flex-direction: row-reverse; }
+
+/* Alert RTL */
+[dir="rtl"] .alert { flex-direction: row-reverse; text-align: right; }
+
+/* Toast RTL */
+[dir="rtl"] .toast-container { right: auto; left: 20px; }
+[dir="rtl"] .toast-msg { flex-direction: row-reverse; border-left: none; border-right: 4px solid; }
+[dir="rtl"] .toast-msg.success { border-right-color: var(--success); }
+[dir="rtl"] .toast-msg.error { border-right-color: var(--danger); }
+
+/* Badge RTL */
+[dir="rtl"] .badge { flex-direction: row-reverse; }
+
+/* Rating RTL */
+[dir="rtl"] .rating { flex-direction: row-reverse; }
+
+/* Breadcrumb RTL */
+[dir="rtl"] .breadcrumb { flex-direction: row-reverse; }
+[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before { content: '‹'; }
+
+/* Process connector RTL */
+[dir="rtl"] .process-connector {
+  left: calc(50% + 40px);
+  right: calc(-50% + 40px);
+  transform: scaleX(-1);
+}
+
+/* Vacc Table RTL */
+[dir="rtl"] .vacc-table th, [dir="rtl"] .vacc-table td { text-align: right; }
+[dir="rtl"] .vacc-table td:first-child { border-radius: 0 var(--radius) var(--radius) 0; }
+[dir="rtl"] .vacc-table td:last-child { border-radius: var(--radius) 0 0 var(--radius); }
+
+/* Stat Card RTL */
+[dir="rtl"] .stat-card { flex-direction: row-reverse; }
+
+/* GPS Map RTL */
+[dir="rtl"] .map-route { transform: scaleX(-1); }
+
+/* Scroll Top RTL */
+[dir="rtl"] .scroll-top { right: auto; left: 24px; }
+
+/* Footer newsletter input group RTL */
+[dir="rtl"] .newsletter-input { text-align: right; }
+
+/* Footer bottom bar RTL */
+[dir="rtl"] .footer-bottom { flex-direction: row-reverse; }
+
+/* Blog card body RTL */
+[dir="rtl"] .blog-card-body { text-align: right; }
+
+/* Auth card RTL */
+[dir="rtl"] .auth-card { text-align: right; }
+[dir="rtl"] .divider-deco { flex-direction: row-reverse; }

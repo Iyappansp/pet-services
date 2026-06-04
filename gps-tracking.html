@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GPS Tracking — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<section class="page-header" style="padding-bottom:60px;">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="breadcrumb mb-3">
+          <span class="breadcrumb-item"><a href="index.html">Home</a></span>
+          <span class="breadcrumb-item active">GPS Tracking</span>
+        </div>
+        <span class="section-label"> Live GPS</span>
+        <h1 class="animate-fade-up">Real-Time GPS Walk Tracking</h1>
+        <p class="section-subtitle animate-fade-up delay-1" style="margin:0;">Follow every step of your pet's walk on a live interactive map. Peace of mind in your pocket.</p>
+      </div>
+      <div class="col-lg-6 animate-slide-right">
+        <div style="border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+          <img src="assets/images/hero-gps-tracking.png" alt="GPS tracking on a smartphone showing pet walking route" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live GPS Demo -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Map -->
+      <div class="col-lg-8 animate-slide-left">
+        <div style="background:var(--dark);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);">
+          <!-- Map Header -->
+          <div style="padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <div style="width:10px;height:10px;background:var(--success);border-radius:50%;animation:pulse-dot 1.5s infinite;"></div>
+              <span style="color:#fff;font-family:var(--font-heading);font-weight:700;font-size:.9rem;">LIVE · Max's Walk</span>
+            </div>
+            <span style="color:rgba(255,255,255,.5);font-size:.8rem;">Started 9:05 AM</span>
+          </div>
+          <!-- Map Area -->
+          <div style="height:400px;background:linear-gradient(135deg,#1a3a2e,#0d2818,#1a3a2e);position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(76,175,80,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(76,175,80,.07) 1px,transparent 1px);background-size:40px 40px;"></div>
+            <!-- Streets simulation -->
+            <svg viewBox="0 0 600 380" style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
+              <!-- Streets -->
+              <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(255,255,255,.06)" stroke-width="12"/>
+              <line x1="0" y1="250" x2="600" y2="250" stroke="rgba(255,255,255,.06)" stroke-width="12"/>
+              <line x1="150" y1="0" x2="150" y2="380" stroke="rgba(255,255,255,.06)" stroke-width="12"/>
+              <line x1="400" y1="0" x2="400" y2="380" stroke="rgba(255,255,255,.06)" stroke-width="12"/>
+              <!-- Parks -->
+              <rect x="160" y="110" width="230" height="130" rx="8" fill="rgba(76,175,80,.08)" stroke="rgba(76,175,80,.15)" stroke-width="1"/>
+              <text x="275" y="180" text-anchor="middle" fill="rgba(76,175,80,.4)" font-size="11" font-family="Inter"> Riverside Park</text>
+              <!-- Route -->
+              <path d="M 80 300 L 80 180 Q 80 100 150 100 L 280 100 Q 350 100 350 170 Q 350 250 400 250 L 480 250" stroke="#4CAF50" stroke-width="4" stroke-dasharray="10 5" fill="none" style="animation:dash-animate 3s linear infinite;"/>
+              <!-- Start pin -->
+              <circle cx="80" cy="300" r="8" fill="#FFC857" stroke="white" stroke-width="2.5"/>
+              <text x="90" y="295" fill="#FFC857" font-size="10" font-family="Inter,sans-serif" font-weight="600">START</text>
+              <!-- Waypoint -->
+              <circle cx="280" cy="100" r="6" fill="rgba(255,255,255,.5)" stroke="white" stroke-width="2"/>
+              <!-- Current position -->
+              <circle cx="480" cy="250" r="12" fill="#4CAF50" stroke="white" stroke-width="3"/>
+              <circle cx="480" cy="250" r="20" fill="rgba(76,175,80,.2)" style="animation:pulse-pin 2s infinite;"/>
+              <!-- Photo markers -->
+              <circle cx="150" cy="100" r="5" fill="#FFC857" stroke="white" stroke-width="1.5"/>
+              <text x="158" y="95" fill="#FFC857" font-size="9" font-family="Inter"></text>
+              <circle cx="350" cy="170" r="5" fill="#FFC857" stroke="white" stroke-width="1.5"/>
+              <text x="358" y="165" fill="#FFC857" font-size="9" font-family="Inter"></text>
+            </svg>
+            <!-- Live badge -->
+            <div style="position:absolute;top:16px;left:16px;background:rgba(34,197,94,.9);color:#fff;font-size:.75rem;font-weight:700;font-family:var(--font-heading);padding:6px 12px;border-radius:var(--radius-full);display:flex;align-items:center;gap:6px;">
+              <span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:pulse-dot 1s infinite;"></span> LIVE TRACKING
+            </div>
+            <!-- Photo preview -->
+            <div style="position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,.95);border-radius:var(--radius-lg);padding:10px 14px;display:flex;align-items:center;gap:10px;box-shadow:var(--shadow-lg);">
+              <div style="width:44px;height:44px;background:linear-gradient(135deg,#d4edda,#fef9e7);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;"></div>
+              <div>
+                <div style="font-family:var(--font-heading);font-weight:700;font-size:.8rem;color:var(--text-primary);">Max just sent a photo!</div>
+                <div style="font-size:.7rem;color:var(--text-muted);">2 min ago</div>
+              </div>
+            </div>
+          </div>
+          <!-- Stats Bar -->
+          <div style="padding:20px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;border-top:1px solid rgba(255,255,255,.08);">
+            <div style="text-align:center;"><div style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;color:#fff;">2.4</div><div style="font-size:.7rem;color:rgba(255,255,255,.4);">km</div></div>
+            <div style="text-align:center;border-left:1px solid rgba(255,255,255,.08);"><div style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;color:#fff;">35</div><div style="font-size:.7rem;color:rgba(255,255,255,.4);">min</div></div>
+            <div style="text-align:center;border-left:1px solid rgba(255,255,255,.08);"><div style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;color:#fff;">3.5</div><div style="font-size:.7rem;color:rgba(255,255,255,.4);">km/h</div></div>
+            <div style="text-align:center;border-left:1px solid rgba(255,255,255,.08);"><div style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;color:#fff;">2</div><div style="font-size:.7rem;color:rgba(255,255,255,.4);">photos</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4 animate-slide-right">
+        <!-- Timeline -->
+        <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);padding:24px;margin-bottom:16px;">
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:20px;"> Walk Timeline</h5>
+          <div style="position:relative;padding-left:24px;">
+            <div style="position:absolute;left:8px;top:0;bottom:0;width:2px;background:linear-gradient(var(--primary),var(--secondary));"></div>
+            <div style="position:relative;margin-bottom:20px;">
+              <div style="position:absolute;left:-20px;top:3px;width:12px;height:12px;background:var(--primary);border-radius:50%;border:2px solid var(--light);"></div>
+              <div style="font-family:var(--font-heading);font-weight:600;font-size:.85rem;color:var(--text-primary);">9:05 AM — Walk Started</div>
+              <div style="font-size:.78rem;color:var(--text-muted);">Picked up from 42 Oak Street</div>
+            </div>
+            <div style="position:relative;margin-bottom:20px;">
+              <div style="position:absolute;left:-20px;top:3px;width:12px;height:12px;background:var(--secondary);border-radius:50%;border:2px solid var(--light);"></div>
+              <div style="font-family:var(--font-heading);font-weight:600;font-size:.85rem;color:var(--text-primary);">9:18 AM —  Photo Update</div>
+              <div style="font-size:.78rem;color:var(--text-muted);">Max at Riverside Park entrance</div>
+            </div>
+            <div style="position:relative;margin-bottom:20px;">
+              <div style="position:absolute;left:-20px;top:3px;width:12px;height:12px;background:var(--secondary);border-radius:50%;border:2px solid var(--light);"></div>
+              <div style="font-family:var(--font-heading);font-weight:600;font-size:.85rem;color:var(--text-primary);">9:28 AM —  Photo Update</div>
+              <div style="font-size:.78rem;color:var(--text-muted);">Playing with another dog!</div>
+            </div>
+            <div style="position:relative;">
+              <div style="position:absolute;left:-20px;top:3px;width:12px;height:12px;background:var(--primary);border-radius:50%;border:2px solid var(--light);animation:pulse-dot 1.5s infinite;"></div>
+              <div style="font-family:var(--font-heading);font-weight:600;font-size:.85rem;color:var(--primary);">9:40 AM —  In Progress</div>
+              <div style="font-size:.78rem;color:var(--text-muted);">Heading back via Elm Street</div>
+            </div>
+          </div>
+        </div>
+        <!-- Sitter Info -->
+        <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);padding:24px;">
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:16px;"> Your Sitter</h5>
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div style="width:52px;height:52px;background:linear-gradient(135deg,#d4edda,#fef9e7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;">‍</div>
+            <div>
+              <div style="font-family:var(--font-heading);font-weight:700;">Emma Rodriguez</div>
+              <div style="font-size:.8rem;color:var(--text-muted);"> 5.0 · 142 reviews</div>
+            </div>
+          </div>
+          <button onclick="showToast('Calling Emma...','success')" class="btn btn-outline btn-sm" style="width:100%;margin-bottom:8px;"> Call Emma</button>
+          <button onclick="showToast('Message sent to Emma!','success')" class="btn btn-ghost btn-sm" style="width:100%;"> Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Walk History -->
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> History</span>
+      <h2 class="section-title">Past Walks</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;" class="animate-fade-up">
+        <div style="width:48px;height:48px;background:rgba(76,175,80,.1);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;"></div>
+        <div style="flex:1;min-width:160px;"><div style="font-family:var(--font-heading);font-weight:700;">Jun 10 · Max's Walk with Emma R.</div><div style="font-size:.8rem;color:var(--text-muted);">2.4 km · 35 min · 3 photos received</div></div>
+        <div style="display:flex;gap:8px;"><span class="badge badge-success">Completed</span><button class="btn btn-ghost btn-sm" onclick="showToast('Loading walk map...','success')">View Map</button></div>
+      </div>
+      <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;" class="animate-fade-up delay-1">
+        <div style="width:48px;height:48px;background:rgba(76,175,80,.1);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;"></div>
+        <div style="flex:1;min-width:160px;"><div style="font-family:var(--font-heading);font-weight:700;">Jun 8 · Max's Walk with Emma R.</div><div style="font-size:.8rem;color:var(--text-muted);">1.8 km · 28 min · 2 photos received</div></div>
+        <div style="display:flex;gap:8px;"><span class="badge badge-success">Completed</span><button class="btn btn-ghost btn-sm" onclick="showToast('Loading walk map...','success')">View Map</button></div>
+      </div>
+      <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;" class="animate-fade-up delay-2">
+        <div style="width:48px;height:48px;background:rgba(76,175,80,.1);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;"></div>
+        <div style="flex:1;min-width:160px;"><div style="font-family:var(--font-heading);font-weight:700;">Jun 6 · Max's Walk with Emma R.</div><div style="font-size:.8rem;color:var(--text-muted);">3.1 km · 42 min · 5 photos received</div></div>
+        <div style="display:flex;gap:8px;"><span class="badge badge-success">Completed</span><button class="btn btn-ghost btn-sm" onclick="showToast('Loading walk map...','success')">View Map</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<button class="scroll-top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+</body>
+</html>

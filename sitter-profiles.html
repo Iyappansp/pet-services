@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sitter Profiles — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+<header id="main-header"></header>
+
+<section class="page-header">
+  <div class="container">
+    <div class="breadcrumb mb-3">
+      <span class="breadcrumb-item"><a href="index.html">Home</a></span>
+      <span class="breadcrumb-item active">Sitter Profiles</span>
+    </div>
+    <span class="section-label"> Our Sitters</span>
+    <h1 class="animate-fade-up">Meet Our <span style="color:var(--primary);">Pet Care Experts</span></h1>
+    <p class="section-subtitle animate-fade-up delay-1">Every sitter is background-checked, insured, and genuinely passionate about animals.</p>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<section style="padding:24px 0;background:var(--light);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+      <span style="font-family:var(--font-heading);font-size:.85rem;font-weight:600;color:var(--text-secondary);">Filter by:</span>
+      <button class="btn btn-primary btn-sm" onclick="filterSitters(this,'all')">All Sitters</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterSitters(this,'dogs')"> Dogs</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterSitters(this,'cats')"> Cats</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterSitters(this,'overnight')"> Overnight</button>
+      <button class="btn btn-ghost btn-sm" onclick="filterSitters(this,'senior')"> Senior Pets</button>
+    </div>
+  </div>
+</section>
+
+<!-- Sitters Grid -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="sitter-grid" style="display:grid;" id="sittersGrid">
+
+      <!-- Sitter 1 -->
+      <div class="sitter-card animate-fade-up" data-tags="dogs cats overnight">
+        <div class="sitter-card-img"><img src="assets/images/sitter-emma.png" alt="Emma Rodriguez" class="avatar"><span class="sitter-available-badge">Available Today</span></div>
+        <div class="sitter-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <div><h5 style="font-family:var(--font-heading);font-weight:700;margin:0;">Emma Rodriguez</h5><p style="font-size:.8rem;color:var(--text-muted);margin:2px 0 0;">5 years · Downtown</p></div>
+            <span class="badge badge-success">Top Sitter</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2"><div class="stars"></div><span style="font-size:.8rem;color:var(--text-muted);">5.0 (142)</span></div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;">"I've been caring for dogs and cats since I was 12. Every pet deserves the same love I give my own two dogs."</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span class="badge badge-primary"> Dogs</span><span class="badge badge-primary"> Cats</span><span class="badge badge-secondary"> Overnight</span><span class="badge badge-info">First Aid</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">420+</div><div style="font-size:.7rem;color:var(--text-muted);">Walks</div></div>
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$18/hr</div><div style="font-size:.7rem;color:var(--text-muted);">Rate</div></div>
+          </div>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Emma</a>
+        </div>
+      </div>
+
+      <!-- Sitter 2 -->
+      <div class="sitter-card animate-fade-up delay-1" data-tags="dogs overnight senior">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#e3f2fd,#fce4ec);"><img src="assets/images/sitter-carlos.png" alt="Carlos Mendez" class="avatar"><span class="sitter-available-badge">Available Today</span></div>
+        <div class="sitter-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <div><h5 style="font-family:var(--font-heading);font-weight:700;margin:0;">Carlos Mendez</h5><p style="font-size:.8rem;color:var(--text-muted);margin:2px 0 0;">7 years · Midtown</p></div>
+            <span class="badge badge-accent">Verified Pro</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2"><div class="stars"></div><span style="font-size:.8rem;color:var(--text-muted);">4.9 (89)</span></div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;">"Certified dog trainer with 7 years of experience. I specialize in large breeds and senior dog care."</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span class="badge badge-primary"> Large Dogs</span><span class="badge badge-secondary">Trainer</span><span class="badge badge-info">Senior Care</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">280+</div><div style="font-size:.7rem;color:var(--text-muted);">Sessions</div></div>
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$22/hr</div><div style="font-size:.7rem;color:var(--text-muted);">Rate</div></div>
+          </div>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Carlos</a>
+        </div>
+      </div>
+
+      <!-- Sitter 3 -->
+      <div class="sitter-card animate-fade-up delay-2" data-tags="cats dogs">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#f3e5f5,#e8f5e9);"><img src="assets/images/sitter-sophie.png" alt="Sophie Chen" class="avatar"><span class="sitter-available-badge">Available Today</span></div>
+        <div class="sitter-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <div><h5 style="font-family:var(--font-heading);font-weight:700;margin:0;">Sophie Chen</h5><p style="font-size:.8rem;color:var(--text-muted);margin:2px 0 0;">4 years · Uptown</p></div>
+            <span class="badge badge-info">Rising Star</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2"><div class="stars"></div><span style="font-size:.8rem;color:var(--text-muted);">4.8 (56)</span></div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;">"Cat whisperer and small pet expert. I also care for rabbits, birds, and guinea pigs!"</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span class="badge badge-primary"> Cat Expert</span><span class="badge badge-primary"> Small Pets</span><span class="badge badge-secondary">Vet Tech</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">190+</div><div style="font-size:.7rem;color:var(--text-muted);">Visits</div></div>
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$20/hr</div><div style="font-size:.7rem;color:var(--text-muted);">Rate</div></div>
+          </div>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Sophie</a>
+        </div>
+      </div>
+
+      <!-- Sitter 4 -->
+      <div class="sitter-card animate-fade-up delay-3" data-tags="dogs cats overnight senior">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#fff8e1,#e8f5e9);"><img src="assets/images/sitter-james.png" alt="James Walker" class="avatar"><span class="sitter-available-badge">Available Today</span></div>
+        <div class="sitter-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <div><h5 style="font-family:var(--font-heading);font-weight:700;margin:0;">James Walker</h5><p style="font-size:.8rem;color:var(--text-muted);margin:2px 0 0;">9 years · Westside</p></div>
+            <span class="badge badge-success">Top Sitter</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2"><div class="stars"></div><span style="font-size:.8rem;color:var(--text-muted);">5.0 (204)</span></div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;">"Former veterinary assistant with 9 years of professional pet care. I treat every pet like family."</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span class="badge badge-primary"> All Breeds</span><span class="badge badge-secondary">Vet Assistant</span><span class="badge badge-info">First Aid</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">650+</div><div style="font-size:.7rem;color:var(--text-muted);">Bookings</div></div>
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$25/hr</div><div style="font-size:.7rem;color:var(--text-muted);">Rate</div></div>
+          </div>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book James</a>
+        </div>
+      </div>
+
+      <!-- Sitter 5 -->
+      <div class="sitter-card animate-fade-up delay-4" data-tags="dogs cats overnight">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#fce4ec,#e3f2fd);"><img src="assets/images/sitter-aisha.png" alt="Aisha Patel" class="avatar"><span class="sitter-available-badge">Available Today</span></div>
+        <div class="sitter-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <div><h5 style="font-family:var(--font-heading);font-weight:700;margin:0;">Aisha Patel</h5><p style="font-size:.8rem;color:var(--text-muted);margin:2px 0 0;">3 years · Eastside</p></div>
+            <span class="badge badge-secondary">New!</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2"><div class="stars"></div><span style="font-size:.8rem;color:var(--text-muted);">4.9 (34)</span></div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;">"Animal science graduate with a deep love for pets. I also offer basic grooming services."</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span class="badge badge-primary"> Dogs</span><span class="badge badge-primary"> Cats</span><span class="badge badge-secondary">Grooming</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">95+</div><div style="font-size:.7rem;color:var(--text-muted);">Sessions</div></div>
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$19/hr</div><div style="font-size:.7rem;color:var(--text-muted);">Rate</div></div>
+          </div>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Aisha</a>
+        </div>
+      </div>
+
+      <!-- Sitter 6 -->
+      <div class="sitter-card animate-fade-up delay-5" data-tags="dogs senior overnight">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#e8f5e9,#fff8e1);"><img src="assets/images/sitter-robert.png" alt="Robert Kim" class="avatar"><span class="sitter-available-badge">Available Today</span></div>
+        <div class="sitter-card-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;">
+            <div><h5 style="font-family:var(--font-heading);font-weight:700;margin:0;">Robert Kim</h5><p style="font-size:.8rem;color:var(--text-muted);margin:2px 0 0;">12 years · North End</p></div>
+            <span class="badge badge-success">Top Sitter</span>
+          </div>
+          <div class="d-flex align-items-center gap-2 mb-2"><div class="stars"></div><span style="font-size:.8rem;color:var(--text-muted);">5.0 (312)</span></div>
+          <p style="font-size:.82rem;color:var(--text-secondary);margin-bottom:12px;">"Retired vet with 12 years of pet care. My specialty is senior and special-needs animals."</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;">
+            <span class="badge badge-primary"> Senior Dogs</span><span class="badge badge-info">Vet Retired</span><span class="badge badge-secondary">Special Needs</span>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;">
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">900+</div><div style="font-size:.7rem;color:var(--text-muted);">Bookings</div></div>
+            <div style="background:var(--bg-2);border-radius:var(--radius);padding:10px;text-align:center;"><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$30/hr</div><div style="font-size:.7rem;color:var(--text-muted);">Rate</div></div>
+          </div>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Robert</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Become a Sitter CTA -->
+<section class="section-padding-sm" style="background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));">
+  <div class="container text-center animate-fade-up">
+    <h3 style="font-family:var(--font-heading);font-weight:800;color:var(--dark);margin-bottom:8px;">Love Animals? Join Our Team! </h3>
+    <p style="color:rgba(31,41,55,.7);margin-bottom:20px;">Become a PawCare Pro sitter and earn doing what you love.</p>
+    <a href="signup.html" class="btn btn-primary">Apply as a Sitter</a>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<button class="scroll-top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+function filterSitters(btn, tag) {
+  document.querySelectorAll('.sitter-grid .sitter-card').forEach(card => {
+    if (tag === 'all' || card.dataset.tags.includes(tag)) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+  document.querySelectorAll('[onclick*="filterSitters"]').forEach(b => b.className = 'btn btn-ghost btn-sm');
+  btn.className = 'btn btn-primary btn-sm';
+}
+</script>
+</body>
+</html>

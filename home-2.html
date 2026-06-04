@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PawCare Pro - Alternative Homepage. Professional pet sitting and dog walking with GPS tracking.">
+  <title>PawCare Pro — Home 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    /* ---- Home-2 Specific ---- */
+    .h2-hero {
+      min-height: 100vh;
+      padding-top: var(--nav-height);
+      background: linear-gradient(135deg, #0d2010 0%, #111827 50%, #1a1a06 100%);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .h2-hero-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--primary);
+      border-radius: 50%;
+      animation: float-particle 6s ease-in-out infinite;
+      opacity: 0.6;
+    }
+    @keyframes float-particle {
+      0%,100% { transform: translateY(0) translateX(0); opacity:.6; }
+      33%      { transform: translateY(-40px) translateX(20px); opacity:1; }
+      66%      { transform: translateY(-20px) translateX(-15px); opacity:.4; }
+    }
+    .floating-stat-card {
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius-lg);
+      padding: 14px 18px;
+      color: #fff;
+      position: absolute;
+      animation: float-bob 3s ease-in-out infinite alternate;
+    }
+    .benefit-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .benefit-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+    .benefit-card .bg-number {
+      position: absolute;
+      bottom: -10px; right: 10px;
+      font-size: 5rem;
+      font-family: var(--font-heading);
+      font-weight: 900;
+      color: rgba(76,175,80,.06);
+      line-height: 1;
+      user-select: none;
+    }
+    .story-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .story-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-xl); }
+    .timeline-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      position: relative;
+      padding-bottom: 32px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 22px; top: 48px;
+      width: 2px;
+      bottom: 0;
+      background: linear-gradient(var(--primary), var(--secondary));
+    }
+    .timeline-item:last-child::after { display: none; }
+    .timeline-num {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1rem;
+      flex-shrink: 0;
+      box-shadow: var(--shadow-primary);
+      position: relative; z-index: 1;
+    }
+    .area-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .area-card:hover {
+      border-color: var(--primary);
+      background: rgba(76,175,80,.05);
+      transform: translateX(4px);
+    }
+    [dir="rtl"] .area-card:hover { transform: translateX(-4px); }
+    .review-slide {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      position: relative;
+    }
+    .review-slide::before {
+      content: '"';
+      position: absolute; top: 16px; left: 20px;
+      font-size: 4rem;
+      font-family: Georgia, serif;
+      color: rgba(76,175,80,.12);
+      line-height: 1;
+    }
+    /* Marquee ticker */
+    .marquee-wrap { overflow: hidden; background: var(--primary); padding: 12px 0; }
+    .marquee-track {
+      display: flex; gap: 40px;
+      animation: marquee-scroll 18s linear infinite;
+      white-space: nowrap;
+    }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-item { display: flex; align-items: center; gap: 10px; color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: .875rem; }
+  </style>
+</head>
+<body>
+<header id="main-header"></header>
+
+<!-- ===================== HERO ===================== -->
+<section class="h2-hero">
+  <!-- Orbs -->
+  <div class="h2-hero-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(76,175,80,.25),transparent 70%);top:-150px;right:-100px;"></div>
+  <div class="h2-hero-orb" style="width:400px;height:400px;background:radial-gradient(circle,rgba(255,200,87,.15),transparent 70%);bottom:-80px;left:-60px;"></div>
+  <div class="h2-hero-orb" style="width:300px;height:300px;background:radial-gradient(circle,rgba(255,127,80,.1),transparent 70%);top:40%;left:35%;"></div>
+
+  <!-- Particles -->
+  <div class="particle" style="top:15%;left:10%;animation-delay:0s;"></div>
+  <div class="particle" style="top:60%;left:20%;animation-delay:1s;background:var(--secondary);"></div>
+  <div class="particle" style="top:30%;left:80%;animation-delay:2s;"></div>
+  <div class="particle" style="top:75%;left:70%;animation-delay:.5s;background:var(--accent);"></div>
+  <div class="particle" style="top:50%;left:50%;animation-delay:1.5s;"></div>
+  <div class="particle" style="top:20%;left:60%;animation-delay:3s;background:var(--secondary);"></div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row align-items-center g-5">
+
+      <!-- Left: Text -->
+      <div class="col-lg-6">
+        <div class="animate-fade-up" style="display:inline-flex;align-items:center;gap:8px;background:rgba(76,175,80,.15);border:1px solid rgba(76,175,80,.3);padding:7px 16px;border-radius:var(--radius-full);margin-bottom:24px;">
+          <span style="width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse-dot 1.5s infinite;"></span>
+          <span style="font-family:var(--font-heading);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.05em;text-transform:uppercase;">Now Available in 12 Cities</span>
+        </div>
+
+        <h1 class="animate-fade-up delay-1" style="font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:20px;line-height:1.1;">
+          Your Pet's Happiness
+          <span style="display:block;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Is Our Full-Time Job.</span>
+        </h1>
+
+        <p class="animate-fade-up delay-2" style="color:rgba(255,255,255,.65);font-size:1.05rem;max-width:480px;margin-bottom:32px;line-height:1.8;">
+          GPS-tracked walks, photo updates, certified sitters, and a dashboard that puts you in control — all in one beautifully simple platform.
+        </p>
+
+        <div class="d-flex gap-3 flex-wrap animate-fade-up delay-3" style="margin-bottom:40px;">
+          <a href="booking.html" class="btn btn-primary btn-xl"> Book a Visit</a>
+          <a href="about.html" class="btn btn-outline-white btn-xl">Our Story →</a>
+        </div>
+
+        <!-- Mini stats -->
+        <div class="d-flex gap-4 flex-wrap animate-fade-up delay-4">
+          <div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:#fff;" data-count="2400" data-suffix="+">2400+</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Pet Families</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:#fff;" data-count="150" data-suffix="+">150+</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Vetted Sitters</div>
+          </div>
+          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:#fff;" data-count="98" data-suffix="%">98%</div>
+            <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Satisfaction</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Mockup -->
+      <div class="col-lg-6 d-none d-lg-block animate-slide-right delay-2">
+        <div style="position:relative;max-width:440px;margin:0 auto;">
+
+          <!-- Main phone mockup card -->
+          <div style="background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:24px;box-shadow:0 32px 80px rgba(0,0,0,.4);">
+            <!-- GPS Map -->
+            <div style="background:linear-gradient(135deg,#0d2010,#1a3a1e);border-radius:16px;height:200px;position:relative;overflow:hidden;margin-bottom:18px;">
+              <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(76,175,80,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(76,175,80,.08) 1px,transparent 1px);background-size:32px 32px;"></div>
+              <svg viewBox="0 0 400 180" style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
+                <path d="M 60 150 Q 140 80 200 95 Q 270 115 340 45" stroke="#4CAF50" stroke-width="3" stroke-dasharray="8 4" fill="none" style="animation:dash-animate 3s linear infinite;"/>
+                <circle cx="60" cy="150" r="7" fill="#FFC857" stroke="white" stroke-width="2"/>
+                <circle cx="200" cy="95" r="5" fill="rgba(255,255,255,.6)" stroke="white" stroke-width="1.5"/>
+                <circle cx="340" cy="45" r="10" fill="#4CAF50" stroke="white" stroke-width="2.5"/>
+                <circle cx="340" cy="45" r="18" fill="rgba(76,175,80,.2)" style="animation:pulse-pin 2s infinite;"/>
+              </svg>
+              <div style="position:absolute;top:12px;left:12px;background:rgba(34,197,94,.9);color:#fff;font-size:.72rem;font-weight:700;font-family:var(--font-heading);padding:5px 10px;border-radius:20px;display:flex;align-items:center;gap:5px;">
+                <span style="width:6px;height:6px;background:#fff;border-radius:50%;animation:pulse-dot 1s infinite;"></span> LIVE
+              </div>
+            </div>
+
+            <!-- Walk info row -->
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+              <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;"></div>
+              <div style="flex:1;">
+                <div style="font-family:var(--font-heading);font-weight:700;color:rgba(255,255,255,.9);font-size:.88rem;">Max's Evening Walk</div>
+                <div style="font-size:.72rem;color:rgba(255,255,255,.45);">Emma R. · Riverside Park</div>
+              </div>
+              <span style="background:rgba(34,197,94,.2);color:#4ade80;font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:10px;"> Live</span>
+            </div>
+
+            <!-- Stats row -->
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+              <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:10px;text-align:center;">
+                <div style="font-family:var(--font-heading);font-weight:800;color:#fff;font-size:1rem;">2.4km</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Distance</div>
+              </div>
+              <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:10px;text-align:center;">
+                <div style="font-family:var(--font-heading);font-weight:800;color:#fff;font-size:1rem;">35min</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Duration</div>
+              </div>
+              <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:10px;text-align:center;">
+                <div style="font-family:var(--font-heading);font-weight:800;color:#fff;font-size:1rem;"> 3</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Photos</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating cards -->
+          <div class="floating-stat-card" style="top:-24px;right:-24px;animation-delay:.4s;">
+            <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:2px;">Rating</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.1rem;color:#FFC857;"> 4.9</div>
+          </div>
+
+          <div class="floating-stat-card" style="bottom:60px;left:-30px;animation-delay:.8s;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="width:32px;height:32px;background:rgba(76,175,80,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;"></div>
+              <div>
+                <div style="font-family:var(--font-heading);font-weight:700;font-size:.78rem;color:rgba(255,255,255,.9);">New Photo!</div>
+                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Just now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MARQUEE TICKER ===================== -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <div class="marquee-item"> Dog Walking</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Pet Sitting</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> GPS Tracking</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Photo Updates</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Overnight Care</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Health Records</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Fully Insured</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> 4.9 Rating</div>
+    <div class="marquee-item">•</div>
+    <!-- Duplicate for seamless loop -->
+    <div class="marquee-item"> Dog Walking</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Pet Sitting</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> GPS Tracking</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Photo Updates</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Overnight Care</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Health Records</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> Fully Insured</div>
+    <div class="marquee-item">•</div>
+    <div class="marquee-item"> 4.9 Rating</div>
+    <div class="marquee-item">•</div>
+  </div>
+</div>
+
+<!-- ===================== 4 BENEFITS ===================== -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Why PawCare Pro</span>
+      <h2 class="section-title">Everything Your Pet Deserves</h2>
+      <p class="section-subtitle">Four pillars that make PawCare Pro the most trusted pet care platform.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-sm-6 col-lg-3 animate-fade-up">
+        <div class="benefit-card">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;box-shadow:var(--shadow-primary);"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">GPS Every Walk</h5>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin:0;line-height:1.7;">Watch every step live on the map. Full route history saved to your dashboard forever.</p>
+          <div class="bg-number">01</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-1">
+        <div class="benefit-card">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--secondary),var(--secondary-dark));border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;box-shadow:var(--shadow-secondary);"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">Daily Photo Updates</h5>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin:0;line-height:1.7;">Adorable photos & videos delivered during every single visit. Never miss a moment.</p>
+          <div class="bg-number">02</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-2">
+        <div class="benefit-card">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,#7C3AED,#5B21B6);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;box-shadow:0 8px 24px rgba(124,58,237,.3);"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">Trusted Sitters</h5>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin:0;line-height:1.7;">Background checked, first-aid certified, and personally interviewed. Only 1 in 10 makes it.</p>
+          <div class="bg-number">03</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-3">
+        <div class="benefit-card">
+          <div style="width:56px;height:56px;background:linear-gradient(135deg,var(--accent),var(--accent-dark));border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:18px;box-shadow:0 8px 24px rgba(255,127,80,.3);"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">Flexible Scheduling</h5>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin:0;line-height:1.7;">One-off bookings, recurring schedules, or on-demand. Your pet care, your calendar.</p>
+          <div class="bg-number">04</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BEFORE & AFTER STORIES ===================== -->
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Pet Stories</span>
+      <h2 class="section-title">Before & After PawCare Pro</h2>
+      <p class="section-subtitle">Real stories from real pet parents who found peace of mind.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 animate-fade-up">
+        <div class="story-card">
+          <div style="background:linear-gradient(135deg,#fce4ec,#f3e5f5);height:160px;display:flex;align-items:center;justify-content:center;font-size:5rem;"></div>
+          <div style="padding:24px;">
+            <span class="badge badge-danger" style="margin-bottom:12px;">Before</span>
+            <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">"I Was a Nervous Wreck"</h5>
+            <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:16px;">Sarah used to spend her entire workday checking her phone, hoping her dog walker was reliable. No GPS, no photos — just anxiety.</p>
+            <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:10px;">
+              <div style="width:36px;height:36px;background:rgba(239,68,68,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;"></div>
+              <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);">Sarah J. — Dog Mom</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 animate-fade-up delay-1">
+        <div class="story-card" style="border-color:var(--primary);">
+          <div style="background:linear-gradient(135deg,#e8f5e9,#f1f8e9);height:160px;display:flex;align-items:center;justify-content:center;font-size:5rem;"></div>
+          <div style="padding:24px;">
+            <span class="badge badge-success" style="margin-bottom:12px;">After PawCare Pro</span>
+            <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">"Now I Actually Relax"</h5>
+            <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:16px;">Now she watches Max's GPS route live, gets adorable photos mid-walk, and gets a full report when he's home. Total peace of mind.</p>
+            <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:10px;">
+              <div style="width:36px;height:36px;background:rgba(76,175,80,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;"></div>
+              <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);">Sarah J. — 8 months with PawCare Pro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 animate-fade-up delay-2">
+        <div class="story-card">
+          <div style="background:linear-gradient(135deg,#e3f2fd,#e8eaf6);height:160px;display:flex;align-items:center;justify-content:center;font-size:5rem;"></div>
+          <div style="padding:24px;">
+            <span class="badge badge-success" style="margin-bottom:12px;">After PawCare Pro</span>
+            <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:8px;">"Luna Actually Looks Happy"</h5>
+            <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:16px;">Michael's cat Luna used to hide when he returned. Sophie's in-home visits kept her routine and the photos proved she was thriving.</p>
+            <div style="border-top:1px solid var(--border);padding-top:16px;display:flex;align-items:center;gap:10px;">
+              <div style="width:36px;height:36px;background:rgba(59,130,246,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;"></div>
+              <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);">Michael T. — Cat Dad</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== HOW IT WORKS TIMELINE ===================== -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5 animate-slide-left">
+        <span class="section-label"> Simple Process</span>
+        <h2 class="section-title">Up & Running in Minutes</h2>
+        <p style="color:var(--text-secondary);margin-bottom:28px;">From signing up to your first GPS-tracked walk — the whole process takes less than 10 minutes.</p>
+        <a href="booking.html" class="btn btn-primary btn-lg">Start Now — It's Free</a>
+      </div>
+      <div class="col-lg-7 animate-slide-right">
+        <div style="padding:8px 0;">
+          <div class="timeline-item">
+            <div class="timeline-num">1</div>
+            <div style="padding-top:8px;">
+              <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:6px;">Create Your Account</h5>
+              <p style="font-size:.875rem;color:var(--text-secondary);margin:0;">Sign up in 60 seconds. Add your pet's profile with their photo, breed, age and any special needs.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-num">2</div>
+            <div style="padding-top:8px;">
+              <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:6px;">Choose a Service & Sitter</h5>
+              <p style="font-size:.875rem;color:var(--text-secondary);margin:0;">Browse verified sitters near you, read reviews, and either let us match you automatically or pick your favourite.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-num">3</div>
+            <div style="padding-top:8px;">
+              <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:6px;">Meet & Greet (Free)</h5>
+              <p style="font-size:.875rem;color:var(--text-secondary);margin:0;">Schedule a free 20-minute introduction so your pet and sitter can bond before the first booking.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-num">4</div>
+            <div style="padding-top:8px;">
+              <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:6px;">Sit Back & Track</h5>
+              <p style="font-size:.875rem;color:var(--text-secondary);margin:0;">Watch the walk live on GPS, receive photo updates, and get a full report when the visit ends.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FEATURED SITTERS ===================== -->
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Top Rated</span>
+      <h2 class="section-title">Featured Sitters This Week</h2>
+    </div>
+    <div class="sitter-grid" style="display:grid;">
+      <div class="sitter-card animate-fade-up">
+        <div class="sitter-card-img"><img src="assets/images/sitter-emma.png" alt="Emma Rodriguez" class="avatar"><span class="sitter-available-badge">Available</span></div>
+        <div class="sitter-card-body">
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:4px;">Emma Rodriguez</h5>
+          <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:8px;">5 yrs exp · Downtown</div>
+          <div class="stars mb-2"></div>
+          <div style="font-size:.8rem;color:var(--text-secondary);margin-bottom:12px;">142 reviews · $18/hr</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;"><span class="badge badge-primary"> Dogs</span><span class="badge badge-primary"> Cats</span></div>
+          <a href="booking.html" class="btn btn-primary btn-sm" style="width:100%;">Book Emma</a>
+        </div>
+      </div>
+      <div class="sitter-card animate-fade-up delay-1">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#e3f2fd,#fce4ec);"><img src="assets/images/sitter-carlos.png" alt="Carlos Mendez" class="avatar"><span class="sitter-available-badge">Available</span></div>
+        <div class="sitter-card-body">
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:4px;">Carlos Mendez</h5>
+          <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:8px;">7 yrs exp · Midtown</div>
+          <div class="stars mb-2"></div>
+          <div style="font-size:.8rem;color:var(--text-secondary);margin-bottom:12px;">89 reviews · $22/hr</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;"><span class="badge badge-primary"> Large Dogs</span><span class="badge badge-secondary">Trainer</span></div>
+          <a href="booking.html" class="btn btn-primary btn-sm" style="width:100%;">Book Carlos</a>
+        </div>
+      </div>
+      <div class="sitter-card animate-fade-up delay-2">
+        <div class="sitter-card-img" style="background:linear-gradient(135deg,#f3e5f5,#e8f5e9);"><img src="assets/images/sitter-sophie.png" alt="Sophie Chen" class="avatar"><span class="sitter-available-badge">Available</span></div>
+        <div class="sitter-card-body">
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:4px;">Sophie Chen</h5>
+          <div style="font-size:.78rem;color:var(--text-muted);margin-bottom:8px;">4 yrs exp · Uptown</div>
+          <div class="stars mb-2"></div>
+          <div style="font-size:.8rem;color:var(--text-secondary);margin-bottom:12px;">56 reviews · $20/hr</div>
+          <div style="display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;"><span class="badge badge-primary"> Cats</span><span class="badge badge-secondary">Vet Tech</span></div>
+          <a href="booking.html" class="btn btn-primary btn-sm" style="width:100%;">Book Sophie</a>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4 animate-fade-up">
+      <a href="sitter-profiles.html" class="btn btn-outline btn-lg">See All 150+ Sitters →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSURANCE & SAFETY ===================== -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Trust & Safety</span>
+      <h2 class="section-title">Your Pet is in Safe Hands</h2>
+    </div>
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6 animate-slide-left">
+        <div class="row g-3">
+          <div class="col-6">
+            <div style="background:var(--bg-2);border-radius:var(--radius-xl);padding:24px;text-align:center;border:1px solid var(--border);">
+              <div style="font-size:2.5rem;margin-bottom:8px;"></div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">Background Checked</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:rgba(76,175,80,.07);border-radius:var(--radius-xl);padding:24px;text-align:center;border:1px solid rgba(76,175,80,.2);">
+              <div style="font-size:2.5rem;margin-bottom:8px;"></div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">$1M Insured</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:rgba(255,200,87,.08);border-radius:var(--radius-xl);padding:24px;text-align:center;border:1px solid rgba(255,200,87,.25);">
+              <div style="font-size:2.5rem;margin-bottom:8px;"></div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">Pet First Aid</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background:rgba(59,130,246,.07);border-radius:var(--radius-xl);padding:24px;text-align:center;border:1px solid rgba(59,130,246,.2);">
+              <div style="font-size:2.5rem;margin-bottom:8px;"></div>
+              <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">24/7 Emergency</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 animate-slide-right">
+        <span class="section-label"> Our Standards</span>
+        <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:16px;">The Most Rigorous Vetting in the Industry</h3>
+        <p style="color:var(--text-secondary);margin-bottom:20px;">We reject 90% of sitter applicants. The 10% who make it through are genuinely exceptional, passionate animal lovers who meet our gold standard.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+          <div style="display:flex;gap:12px;align-items:center;font-size:.9rem;color:var(--text-secondary);">
+            <span style="width:24px;height:24px;background:rgba(76,175,80,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;"></span>
+            Criminal background check via trusted third-party provider
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;font-size:.9rem;color:var(--text-secondary);">
+            <span style="width:24px;height:24px;background:rgba(76,175,80,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;"></span>
+            In-person interview with our team of pet care experts
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;font-size:.9rem;color:var(--text-secondary);">
+            <span style="width:24px;height:24px;background:rgba(76,175,80,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;"></span>
+            3 verifiable references from previous pet care experience
+          </div>
+          <div style="display:flex;gap:12px;align-items:center;font-size:.9rem;color:var(--text-secondary);">
+            <span style="width:24px;height:24px;background:rgba(76,175,80,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;"></span>
+            Certified Pet First Aid & CPR course completion
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-primary">Learn About Our Safety Standards</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICE AREAS ===================== -->
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Coverage</span>
+      <h2 class="section-title">Service Areas</h2>
+      <p class="section-subtitle">Currently serving 12 major cities and expanding. Enter your zip code to check availability.</p>
+    </div>
+    <div class="row g-3 mb-4">
+      <div class="col-sm-6 col-lg-3 animate-fade-up">
+        <div class="area-card">
+          <div style="width:40px;height:40px;background:rgba(76,175,80,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;"></div>
+          <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">New York, NY</div><div style="font-size:.75rem;color:var(--text-muted);">48 sitters available</div></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-1">
+        <div class="area-card">
+          <div style="width:40px;height:40px;background:rgba(255,200,87,.12);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;"></div>
+          <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">San Francisco, CA</div><div style="font-size:.75rem;color:var(--text-muted);">32 sitters available</div></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-2">
+        <div class="area-card">
+          <div style="width:40px;height:40px;background:rgba(59,130,246,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#3b82f6;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">Chicago, IL</div><div style="font-size:.75rem;color:var(--text-muted);">27 sitters available</div></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-3 animate-fade-up delay-3">
+        <div class="area-card">
+          <div style="width:40px;height:40px;background:rgba(255,127,80,.1);border-radius:10px;display:flex;align-items:center;justify-content:center;color:var(--accent);flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+          <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;">Los Angeles, CA</div><div style="font-size:.75rem;color:var(--text-muted);">41 sitters available</div></div>
+        </div>
+      </div>
+    </div>
+    <!-- Zip Check -->
+    <div style="max-width:440px;margin:0 auto;display:flex;gap:8px;" class="animate-fade-up">
+      <input type="text" class="form-control" id="zipInput" placeholder="Enter your zip code..." style="border-radius:var(--radius-full);">
+      <button class="btn btn-primary" style="white-space:nowrap;" onclick="checkZip()">Check →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== REVIEWS CAROUSEL ===================== -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Reviews</span>
+      <h2 class="section-title">What Pet Parents Are Saying</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 animate-fade-up">
+        <div class="review-slide">
+          <div class="stars mb-3"></div>
+          <p style="font-size:.9rem;color:var(--text-secondary);margin-bottom:20px;padding-top:8px;line-height:1.7;">"The GPS tracking is a complete game-changer. I watch Max's walk every single morning from my office desk. It's honestly better than a nanny cam."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#d4edda,#fef9e7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;"></div>
+            <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.875rem;">Sarah Johnson</div><div style="font-size:.75rem;color:var(--text-muted);">Dog mom · 8 months</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 animate-fade-up delay-1">
+        <div class="review-slide" style="border-color:var(--primary);">
+          <div class="stars mb-3"></div>
+          <p style="font-size:.9rem;color:var(--text-secondary);margin-bottom:20px;padding-top:8px;line-height:1.7;">"Carlos is absolutely incredible. He sends the most detailed walk reports — distance, photos, mood updates. My dog adores him more than he adores me!"</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#e3f2fd,#f3e5f5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;"></div>
+            <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.875rem;">Michael Torres</div><div style="font-size:.75rem;color:var(--text-muted);">Dog dad · 1 year</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 animate-fade-up delay-2">
+        <div class="review-slide">
+          <div class="stars mb-3"></div>
+          <p style="font-size:.9rem;color:var(--text-secondary);margin-bottom:20px;padding-top:8px;line-height:1.7;">"I travel internationally for work. PawCare Pro means Luna is never stressed, always fed on time, and I get proof-of-life photos from halfway across the world."</p>
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:44px;height:44px;background:linear-gradient(135deg,#fce4ec,#e8f5e9);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;"></div>
+            <div><div style="font-family:var(--font-heading);font-weight:700;font-size:.875rem;">Jennifer Park</div><div style="font-size:.75rem;color:var(--text-muted);">Cat mom · 6 months</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRICING PREVIEW ===================== -->
+<section class="section-padding bg-gradient-light">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> Pricing</span>
+      <h2 class="section-title">Simple, Honest Pricing</h2>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4 animate-fade-up">
+        <div class="pricing-card text-center">
+          <div style="font-size:2.5rem;margin-bottom:10px;"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;">Basic</h5>
+          <div class="pricing-price">$18<sub>/visit</sub></div>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:16px;">30-min walk, GPS, 2 photos</p>
+          <a href="pricing.html" class="btn btn-outline" style="width:100%;">View Details</a>
+        </div>
+      </div>
+      <div class="col-md-4 animate-fade-up delay-1">
+        <div class="pricing-card featured text-center">
+          <div class="pricing-badge">Most Popular</div>
+          <div style="font-size:2.5rem;margin-bottom:10px;"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;">Premium</h5>
+          <div class="pricing-price">$40<sub>/visit</sub></div>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:16px;">60-min walk, live GPS, 5+ photos + video</p>
+          <a href="booking.html" class="btn btn-primary" style="width:100%;">Book Now</a>
+        </div>
+      </div>
+      <div class="col-md-4 animate-fade-up delay-2">
+        <div class="pricing-card text-center">
+          <div style="font-size:2.5rem;margin-bottom:10px;"></div>
+          <h5 style="font-family:var(--font-heading);font-weight:700;">VIP</h5>
+          <div class="pricing-price">$75<sub>/visit</sub></div>
+          <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:16px;">Unlimited time, VIP sitter, 24/7 support</p>
+          <a href="pricing.html" class="btn btn-outline" style="width:100%;">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="section-padding bg-white-section">
+  <div class="container">
+    <div class="text-center mb-5 animate-fade-up">
+      <span class="section-label"> FAQ</span>
+      <h2 class="section-title">Quick Answers</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="faq-item animate-fade-up"><div class="faq-question">How quickly can I get a sitter?<div class="faq-toggle">+</div></div><div class="faq-answer">Most bookings are confirmed within 30 minutes. For same-day bookings, we do our best to match you within 2 hours depending on availability in your area.</div></div>
+        <div class="faq-item animate-fade-up delay-1"><div class="faq-question">Is my payment secure?<div class="faq-toggle">+</div></div><div class="faq-answer">Yes. All payments are processed securely via Stripe with 256-bit encryption. We never store your card details. You only pay after the service is completed.</div></div>
+        <div class="faq-item animate-fade-up delay-2"><div class="faq-question">What if my pet has a medical condition?<div class="faq-toggle">+</div></div><div class="faq-answer">Add all medical notes, medications, and vet contacts to your pet's profile. We match you with sitters who have experience with your pet's specific needs and can administer medications safely.</div></div>
+        <div class="text-center mt-4"><a href="faq.html" class="btn btn-outline">View All FAQs</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FINAL CTA ===================== -->
+<section style="background:linear-gradient(135deg,#0d2010 0%,#111827 50%,#1a1a06 100%);padding:80px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(76,175,80,.06) 1px,transparent 1px);background-size:32px 32px;"></div>
+  <div class="container text-center" style="position:relative;z-index:1;">
+    <div class="animate-scale-in">
+      <div style="font-size:3.5rem;margin-bottom:16px;"></div>
+      <h2 style="font-family:var(--font-heading);font-weight:900;color:#fff;margin-bottom:14px;font-size:clamp(1.8rem,4vw,2.8rem);">Ready to Give Your Pet the Best?</h2>
+      <p style="color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 32px;font-size:1rem;">Book your first visit today. Fully insured, GPS-tracked, and backed by a 100% satisfaction guarantee.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="booking.html" class="btn btn-primary btn-xl"> Book Your First Visit</a>
+        <a href="signup.html" class="btn btn-outline-white btn-xl">Create Free Account</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="main-footer"></footer>
+<button class="scroll-top">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+function checkZip() {
+  const z = document.getElementById('zipInput').value.trim();
+  if (!z) { showToast('Please enter a zip code','error'); return; }
+  showToast(' Great news! PawCare Pro is available in your area!','success');
+}
+</script>
+</body>
+</html>

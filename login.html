@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    body { overflow: hidden; }
+    @media (max-width: 767px) { body { overflow: auto; } }
+    .input-eye { position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1rem;color:var(--text-muted); }
+  </style>
+</head>
+<body>
+<div class="auth-page">
+  <!-- BG Shapes -->
+  <div class="hero-bg-shape hero-shape-1" style="opacity:.3;"></div>
+  <div class="hero-bg-shape hero-shape-2" style="opacity:.25;"></div>
+
+  <div class="auth-card animate-scale-in">
+    <!-- Logo -->
+    <div style="text-align:center;margin-bottom:32px;">
+      <a href="index.html" class="nav-logo" style="display:inline-flex;justify-content:center;margin-bottom:16px;">
+        <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color:#fff;"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m0-12a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3M5 16a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m14 0a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg></div>
+        <div class="logo-text">
+          <span class="logo-name">Paw<span>Care</span> Pro</span>
+          <span class="logo-tagline">Trusted Pet Services</span>
+        </div>
+      </a>
+      <h3 style="font-family:var(--font-heading);font-weight:800;margin-bottom:4px;">Welcome Back! </h3>
+      <p style="font-size:.875rem;color:var(--text-secondary);">Sign in to access your pet dashboard</p>
+    </div>
+
+    <!-- Social Login -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+      <button class="btn btn-outline" style="width:100%;gap:10px;justify-content:center;" onclick="showToast('Redirecting to Google...','success')">
+        <span style="font-size:1.1rem;">G</span> Continue with Google
+      </button>
+      <button class="btn btn-ghost" style="width:100%;gap:10px;justify-content:center;" onclick="showToast('Redirecting to Facebook...','success')">
+        <span style="font-size:1.1rem;">f</span> Continue with Facebook
+      </button>
+    </div>
+
+    <div class="divider-deco"><span>or sign in with email</span></div>
+
+    <!-- Login Form -->
+    <form onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label class="form-label">Email Address</label>
+        <input type="email" class="form-control" placeholder="you@example.com" value="sarah@example.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label" style="display:flex;justify-content:space-between;align-items:center;">
+          Password
+          <a href="forgot-password.html" style="font-size:.78rem;color:var(--primary);font-weight:600;">Forgot password?</a>
+        </label>
+        <div style="position:relative;">
+          <input type="password" class="form-control" id="loginPass" placeholder="••••••••" value="password123" style="padding-right:44px;">
+          <span class="input-eye" onclick="togglePass('loginPass',this)"></span>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;">
+        <input type="checkbox" id="rememberMe" checked style="accent-color:var(--primary);">
+        <label for="rememberMe" style="font-size:.85rem;color:var(--text-secondary);cursor:pointer;">Keep me signed in</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Sign In to Dashboard </button>
+    </form>
+
+    <p style="text-align:center;margin-top:20px;font-size:.875rem;color:var(--text-secondary);">
+      New to PawCare Pro? <a href="signup.html" style="color:var(--primary);font-weight:700;">Create account →</a>
+    </p>
+
+    <!-- Theme Toggle on auth pages -->
+    <div style="display:flex;justify-content:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+      <button class="nav-icon-btn" id="themeToggle" title="Toggle theme"><span id="themeIcon"></span></button>
+      <button class="nav-icon-btn" id="rtlToggle" title="Toggle RTL"><span id="rtlIcon">⇄</span></button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+function handleLogin(e) {
+  e.preventDefault();
+  showToast('Signing you in...','success');
+  setTimeout(() => { window.location.href = 'dashboard.html'; }, 1200);
+}
+function togglePass(id, icon) {
+  const input = document.getElementById(id);
+  if (input.type === 'password') { input.type = 'text'; icon.textContent = ''; }
+  else { input.type = 'password'; icon.textContent = ''; }
+}
+</script>
+</body>
+</html>

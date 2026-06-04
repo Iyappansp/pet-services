@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .page-404 {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #F0FDF4 0%, #F8FAFC 50%, #FFFBEB 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 40px 20px;
+    }
+    [data-theme="dark"] .page-404 {
+      background: linear-gradient(135deg, #0d1f0e 0%, #111827 50%, #1a1506 100%);
+    }
+    .paw-float {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.08;
+      animation: paw-drift 8s ease-in-out infinite;
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes paw-drift {
+      0%   { transform: translateY(0) rotate(0deg); opacity: .08; }
+      50%  { transform: translateY(-30px) rotate(15deg); opacity: .15; }
+      100% { transform: translateY(0) rotate(0deg); opacity: .08; }
+    }
+    .dog-bounce {
+      animation: dog-jump 1.2s cubic-bezier(0.34,1.56,0.64,1) infinite alternate;
+      display: inline-block;
+    }
+    @keyframes dog-jump {
+      from { transform: translateY(0) rotate(-5deg); }
+      to   { transform: translateY(-18px) rotate(5deg); }
+    }
+    .num-404 {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(5rem, 18vw, 10rem);
+      line-height: 1;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.04em;
+      margin-bottom: 0;
+    }
+    .search-404 {
+      display: flex;
+      gap: 8px;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+    .suggestions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .suggestion-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .suggestion-pill:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: rgba(76,175,80,.06);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+  </style>
+</head>
+<body>
+<header id="main-header"></header>
+
+<div class="page-404">
+  <!-- Floating paws background -->
+  <div class="paw-float" style="top:8%;left:5%;animation-delay:0s;"></div>
+  <div class="paw-float" style="top:20%;right:8%;animation-delay:1s;font-size:1.5rem;"></div>
+  <div class="paw-float" style="bottom:15%;left:12%;animation-delay:2s;"></div>
+  <div class="paw-float" style="bottom:25%;right:5%;animation-delay:.5s;font-size:2.5rem;"></div>
+  <div class="paw-float" style="top:50%;left:2%;animation-delay:1.5s;font-size:1.2rem;"></div>
+  <div class="paw-float" style="top:70%;right:15%;animation-delay:3s;font-size:1rem;"></div>
+
+  <div style="text-align:center;position:relative;z-index:1;max-width:600px;width:100%;">
+
+    <!-- Dog illustration -->
+    <div style="margin-bottom:24px;">
+      <span class="dog-bounce" style="font-size:clamp(4rem,12vw,7rem);"></span>
+    </div>
+
+    <!-- 404 number -->
+    <div class="num-404">404</div>
+
+    <!-- Message -->
+    <h2 style="font-family:var(--font-heading);font-weight:800;margin-top:8px;margin-bottom:12px;font-size:clamp(1.4rem,3vw,2rem);">
+      Uh oh! This page ran away.
+    </h2>
+    <p style="color:var(--text-secondary);max-width:380px;margin:0 auto 32px;font-size:.95rem;line-height:1.7;">
+      Looks like this page went on a walk and didn't come back. Let's get you somewhere helpful!
+    </p>
+
+    <!-- Search bar -->
+    <div class="search-404 mb-4">
+      <input type="text" class="form-control" id="search404" placeholder="Search for something..." style="border-radius:var(--radius-full);" onkeydown="if(event.key==='Enter')search404Page()">
+      <button class="btn btn-primary" style="white-space:nowrap;" onclick="search404Page()">Search</button>
+    </div>
+
+    <!-- Quick links -->
+    <p style="font-size:.8rem;color:var(--text-muted);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em;font-weight:600;">Quick Links</p>
+    <div class="suggestions-grid">
+      <a href="index.html" class="suggestion-pill"> Home</a>
+      <a href="services.html" class="suggestion-pill"> Services</a>
+      <a href="booking.html" class="suggestion-pill"> Book a Visit</a>
+      <a href="sitter-profiles.html" class="suggestion-pill"> Sitters</a>
+      <a href="gps-tracking.html" class="suggestion-pill"> GPS Tracking</a>
+      <a href="pricing.html" class="suggestion-pill"> Pricing</a>
+      <a href="dashboard.html" class="suggestion-pill"> Dashboard</a>
+      <a href="contact.html" class="suggestion-pill"> Contact</a>
+    </div>
+
+    <!-- Back button -->
+    <div style="margin-top:36px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <button onclick="history.back()" class="btn btn-outline">← Go Back</button>
+      <a href="index.html" class="btn btn-primary">Go to Homepage </a>
+    </div>
+
+    <!-- Fun fact -->
+    <div style="margin-top:36px;background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);padding:18px 24px;display:inline-flex;align-items:center;gap:12px;box-shadow:var(--shadow);">
+      <span style="font-size:1.4rem;"></span>
+      <p style="font-size:.82rem;color:var(--text-secondary);margin:0;text-align:left;" id="funFact">A dog's nose print is as unique as a human fingerprint!</p>
+    </div>
+
+  </div>
+</div>
+
+<footer id="main-footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+  const facts = [
+    "A dog's nose print is as unique as a human fingerprint!",
+    "Cats spend 70% of their lives sleeping. Living the dream!",
+    "Dogs can smell about 100,000 times better than humans.",
+    "A cat's purr vibrates at a frequency that can heal bones.",
+    "Dogs can understand up to 250 words and gestures.",
+    "The average dog is as intelligent as a 2-year-old child.",
+    "Cats have 32 muscles in each ear for precise hearing.",
+    "Dalmatians are born completely white — spots appear later!"
+  ];
+  document.getElementById('funFact').textContent = facts[Math.floor(Math.random() * facts.length)];
+
+  function search404Page() {
+    const q = document.getElementById('search404').value.trim();
+    if (!q) return;
+    // Map keywords to pages
+    const map = {
+      'walk':'dog-walking.html','dog':'dog-walking.html','cat':'services.html',
+      'gps':'gps-tracking.html','track':'gps-tracking.html','price':'pricing.html',
+      'cost':'pricing.html','book':'booking.html','sitter':'sitter-profiles.html',
+      'about':'about.html','contact':'contact.html','faq':'faq.html',
+      'dashboard':'dashboard.html','login':'login.html','sign':'signup.html',
+      'vaccination':'vaccination-records.html','pet':'pet-profiles.html',
+      'blog':'blog.html','sitting':'pet-sitting.html'
+    };
+    const lower = q.toLowerCase();
+    for (const [key, page] of Object.entries(map)) {
+      if (lower.includes(key)) { window.location.href = page; return; }
+    }
+    window.location.href = 'index.html';
+  }
+</script>
+</body>
+</html>

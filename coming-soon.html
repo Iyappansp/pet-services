@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { overflow-x: hidden; }
+
+    .coming-soon-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a1f0d 0%, #0d1117 40%, #1a1206 100%);
+      padding: 40px 20px;
+    }
+
+    /* Animated grid background */
+    .cs-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(76,175,80,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(76,175,80,.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: grid-drift 20s linear infinite;
+    }
+    @keyframes grid-drift {
+      from { transform: translateY(0); }
+      to   { transform: translateY(60px); }
+    }
+
+    /* Orbs */
+    .cs-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    /* Floating paws */
+    .cs-paw {
+      position: absolute;
+      color: rgba(76,175,80,.12);
+      font-size: 1.8rem;
+      animation: cs-paw-float 10s ease-in-out infinite;
+      pointer-events: none;
+      user-select: none;
+    }
+    @keyframes cs-paw-float {
+      0%, 100% { transform: translateY(0) rotate(0deg); opacity:.12; }
+      50%       { transform: translateY(-25px) rotate(20deg); opacity:.25; }
+    }
+
+    /* Logo pulse */
+    .cs-logo-icon {
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 0 0 rgba(76,175,80,.4);
+      animation: logo-pulse 2.5s ease-out infinite;
+    }
+    @keyframes logo-pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(76,175,80,.4); }
+      70%  { box-shadow: 0 0 0 20px rgba(76,175,80,.0); }
+      100% { box-shadow: 0 0 0 0 rgba(76,175,80,.0); }
+    }
+
+    /* Countdown */
+    .countdown-wrap {
+      display: flex;
+      gap: clamp(12px, 3vw, 24px);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .countdown-block {
+      background: rgba(255,255,255,.06);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-xl);
+      padding: clamp(14px, 3vw, 24px) clamp(16px, 3vw, 28px);
+      text-align: center;
+      min-width: clamp(70px, 18vw, 100px);
+      position: relative;
+      overflow: hidden;
+    }
+    .countdown-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(76,175,80,.08), transparent);
+    }
+    .countdown-num {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      color: #fff;
+      line-height: 1;
+      display: block;
+      position: relative;
+    }
+    .countdown-label {
+      font-size: clamp(.6rem, 2vw, .75rem);
+      color: rgba(255,255,255,.4);
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-top: 6px;
+      display: block;
+    }
+    .countdown-sep {
+      font-family: var(--font-heading);
+      font-weight: 900;
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      color: rgba(76,175,80,.5);
+      align-self: center;
+      padding-bottom: 20px;
+    }
+
+    /* Progress bar */
+    .cs-progress-wrap { max-width: 400px; margin: 0 auto; }
+    .cs-progress-bar {
+      height: 6px;
+      background: rgba(255,255,255,.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .cs-progress-fill {
+      height: 100%;
+      border-radius: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      animation: progress-grow 2s ease-out forwards;
+    }
+    @keyframes progress-grow {
+      from { width: 0; }
+      to   { width: 72%; }
+    }
+
+    /* Feature pills */
+    .feature-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-full);
+      padding: 8px 16px;
+      color: rgba(255,255,255,.75);
+      font-size: .82rem;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      transition: var(--transition);
+    }
+    .feature-pill:hover {
+      background: rgba(76,175,80,.15);
+      border-color: rgba(76,175,80,.4);
+      color: #fff;
+    }
+
+    /* Social buttons */
+    .cs-social {
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+    .cs-social:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    /* Notify form */
+    .cs-form {
+      display: flex;
+      gap: 8px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+    .cs-input {
+      flex: 1;
+      padding: 13px 20px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      color: #fff;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      outline: none;
+      transition: var(--transition);
+      min-width: 0;
+    }
+    .cs-input::placeholder { color: rgba(255,255,255,.4); }
+    .cs-input:focus {
+      border-color: var(--primary);
+      background: rgba(255,255,255,.12);
+    }
+
+    /* Theme toggle standalone */
+    .cs-toggles {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 8px;
+      z-index: 100;
+    }
+    [dir="rtl"] .cs-toggles { right: auto; left: 20px; }
+  </style>
+</head>
+<body>
+
+<!-- Theme/RTL toggles (no header on this page) -->
+<div class="cs-toggles">
+  <button class="nav-icon-btn" id="themeToggle" title="Toggle theme"><span id="themeIcon"></span></button>
+  <button class="nav-icon-btn" id="rtlToggle" title="Toggle RTL"><span id="rtlIcon">⇄</span></button>
+</div>
+
+<div class="coming-soon-page">
+
+  <!-- Background effects -->
+  <div class="cs-grid"></div>
+  <div class="cs-orb" style="width:600px;height:600px;background:radial-gradient(circle,rgba(76,175,80,.2),transparent 70%);top:-200px;right:-100px;"></div>
+  <div class="cs-orb" style="width:400px;height:400px;background:radial-gradient(circle,rgba(255,200,87,.12),transparent 70%);bottom:-100px;left:-80px;"></div>
+  <div class="cs-orb" style="width:300px;height:300px;background:radial-gradient(circle,rgba(255,127,80,.1),transparent 70%);top:40%;left:10%;"></div>
+
+  <!-- Paw prints -->
+  <div class="cs-paw" style="top:10%;left:8%;animation-delay:0s;"></div>
+  <div class="cs-paw" style="top:70%;left:4%;animation-delay:1.5s;font-size:1.2rem;"></div>
+  <div class="cs-paw" style="top:15%;right:6%;animation-delay:2s;font-size:1.4rem;"></div>
+  <div class="cs-paw" style="bottom:20%;right:8%;animation-delay:.8s;"></div>
+  <div class="cs-paw" style="top:45%;right:3%;animation-delay:3s;font-size:1rem;"></div>
+  <div class="cs-paw" style="bottom:35%;left:15%;animation-delay:4s;font-size:2rem;"></div>
+
+  <!-- Content -->
+  <div style="position:relative;z-index:2;text-align:center;max-width:680px;width:100%;">
+
+    <!-- Logo -->
+    <div class="cs-logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color:#fff;display:inline-block;vertical-align:middle;"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m0-12a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3M5 16a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m14 0a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg></div>
+    <div style="margin-bottom:32px;">
+      <div style="font-family:var(--font-heading);font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:4px;">PawCare <span style="color:var(--primary);">Pro</span></div>
+      <div style="font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;">Trusted Pet Services</div>
+    </div>
+
+    <!-- Badge -->
+    <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(76,175,80,.15);border:1px solid rgba(76,175,80,.3);padding:7px 18px;border-radius:var(--radius-full);margin-bottom:28px;">
+      <span style="width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse-dot 1.5s infinite;"></span>
+      <span style="font-family:var(--font-heading);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.06em;text-transform:uppercase;">Something Amazing is Coming</span>
+    </div>
+
+    <!-- Headline -->
+    <h1 style="font-family:var(--font-heading);font-weight:900;color:#fff;font-size:clamp(2rem,6vw,3.8rem);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px;">
+      We're Getting Ready<br>
+      <span style="background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">For Your Pets. </span>
+    </h1>
+    <p style="color:rgba(255,255,255,.55);font-size:clamp(.9rem,2vw,1.05rem);max-width:520px;margin:0 auto 40px;line-height:1.8;">
+      Our new PawCare Pro mobile app is launching soon with even smarter GPS tracking, AI-powered sitter matching, and live video visits. Be the first to know.
+    </p>
+
+    <!-- Countdown -->
+    <div class="countdown-wrap mb-5" id="countdown">
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-mins">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-block">
+        <span class="countdown-num" id="cd-secs">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="cs-progress-wrap mb-5">
+      <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
+        <span style="font-size:.75rem;color:rgba(255,255,255,.4);font-family:var(--font-heading);font-weight:600;">Launch Progress</span>
+        <span style="font-size:.75rem;color:var(--primary);font-family:var(--font-heading);font-weight:700;">72%</span>
+      </div>
+      <div class="cs-progress-bar">
+        <div class="cs-progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Notify Form -->
+    <div class="cs-form mb-5" id="notifyForm">
+      <input type="email" class="cs-input" id="notifyEmail" placeholder="Enter your email for early access...">
+      <button class="btn btn-primary" onclick="subscribeNotify()">Notify Me</button>
+    </div>
+
+    <!-- Upcoming features -->
+    <p style="font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px;">What's Coming</p>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px;">
+      <div class="feature-pill"> Mobile App</div>
+      <div class="feature-pill"> AI Sitter Match</div>
+      <div class="feature-pill"> Live Video Visits</div>
+      <div class="feature-pill"> Health Dashboard</div>
+      <div class="feature-pill"> 10+ New Cities</div>
+      <div class="feature-pill"> In-App Chat</div>
+    </div>
+
+    <!-- Divider -->
+    <div style="width:60px;height:1px;background:rgba(255,255,255,.1);margin:0 auto 28px;"></div>
+
+    <!-- Social links -->
+    <p style="font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:14px;">Follow Our Journey</p>
+    <div style="display:flex;gap:10px;justify-content:center;margin-bottom:32px;">
+      <a href="#" class="cs-social" onclick="showToast('Following on Facebook!','success');return false;">f</a>
+      <a href="#" class="cs-social" onclick="showToast('Following on Instagram!','success');return false;"></a>
+      <a href="#" class="cs-social" onclick="showToast('Following on X!','success');return false;"></a>
+      <a href="#" class="cs-social" onclick="showToast('Following on TikTok!','success');return false;"></a>
+      <a href="#" class="cs-social" onclick="showToast('Following on YouTube!','success');return false;">▶</a>
+    </div>
+
+    <!-- Back to site -->
+    <a href="index.html" style="color:rgba(255,255,255,.35);font-size:.82rem;text-decoration:none;font-family:var(--font-heading);font-weight:500;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.7)'" onmouseout="this.style.color='rgba(255,255,255,.35)'">
+      ← Back to Main Site
+    </a>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script>
+  // --- Countdown Timer ---
+  const launchDate = new Date();
+  launchDate.setDate(launchDate.getDate() + 45); // 45 days from now
+
+  function updateCountdown() {
+    const now  = new Date();
+    const diff = launchDate - now;
+    if (diff <= 0) {
+      document.getElementById('countdown').innerHTML = '<div style="font-family:var(--font-heading);font-size:1.5rem;font-weight:800;color:var(--primary);"> We\'ve Launched!</div>';
+      return;
+    }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    const pad = n => String(n).padStart(2, '0');
+    document.getElementById('cd-days').textContent  = pad(d);
+    document.getElementById('cd-hours').textContent = pad(h);
+    document.getElementById('cd-mins').textContent  = pad(m);
+    document.getElementById('cd-secs').textContent  = pad(s);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // --- Notify subscribe ---
+  function subscribeNotify() {
+    const email = document.getElementById('notifyEmail').value.trim();
+    if (!email || !email.includes('@')) {
+      showToast('Please enter a valid email address', 'error');
+      return;
+    }
+    document.getElementById('notifyForm').innerHTML = `
+      <div style="background:rgba(76,175,80,.15);border:1px solid rgba(76,175,80,.3);border-radius:var(--radius-xl);padding:18px 28px;display:inline-flex;align-items:center;gap:14px;width:100%;">
+        <span style="font-size:1.8rem;"></span>
+        <div style="text-align:left;">
+          <div style="font-family:var(--font-heading);font-weight:700;color:#fff;margin-bottom:2px;">You're on the list!</div>
+          <div style="font-size:.8rem;color:rgba(255,255,255,.55);">We'll notify <strong style="color:rgba(255,255,255,.8);">${email}</strong> when we launch.</div>
+        </div>
+      </div>`;
+  }
+
+  // --- Theme / RTL init on page without header ---
+  document.addEventListener('DOMContentLoaded', () => {
+    // Theme
+    const theme = localStorage.getItem('pawcare-theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+    const tIcon = document.getElementById('themeIcon');
+    const SUN_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+    const MOON_SVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+    if (tIcon) tIcon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
+
+    // RTL
+    const dir = localStorage.getItem('pawcare-dir') || 'ltr';
+    document.documentElement.setAttribute('dir', dir);
+
+    // Button events
+    document.getElementById('themeToggle')?.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = cur === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('pawcare-theme', next);
+      document.getElementById('themeIcon').innerHTML = next === 'dark' ? SUN_SVG : MOON_SVG;
+    });
+    document.getElementById('rtlToggle')?.addEventListener('click', () => {
+      const cur = document.documentElement.getAttribute('dir') || 'ltr';
+      const next = cur === 'rtl' ? 'ltr' : 'rtl';
+      document.documentElement.setAttribute('dir', next);
+      localStorage.setItem('pawcare-dir', next);
+    });
+  });
+</script>
+</body>
+</html>
