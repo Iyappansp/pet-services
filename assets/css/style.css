@@ -792,7 +792,7 @@ p { color: var(--text-secondary); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 15%;
 }
 
 .sitter-available-badge {
@@ -1846,3 +1846,109 @@ p { color: var(--text-secondary); }
 .delay-4 { transition-delay: 0.4s !important; }
 .delay-5 { transition-delay: 0.5s !important; }
 .delay-6 { transition-delay: 0.6s !important; }
+
+/* ---- Hero Background Images & Fitting ---- */
+.hero-bg-image {
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  position: relative;
+}
+
+/* Dark readable overlays for text readability */
+.hero-bg-overlay-dark {
+  position: relative;
+}
+.hero-bg-overlay-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(17, 24, 39, 0.85) 45%, rgba(17, 24, 39, 0.4) 100%) !important;
+  z-index: 0;
+  pointer-events: none;
+}
+/* For centered headers */
+.hero-bg-overlay-dark-center {
+  position: relative;
+}
+.hero-bg-overlay-dark-center::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.75) !important;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-bg-image .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Individual page backgrounds */
+.hero-bg-home {
+  background-image: url('../images/hero-home.png') !important;
+}
+.hero-bg-services {
+  background-image: url('../images/hero-services.png') !important;
+}
+.hero-bg-about {
+  background-image: url('../images/hero-about.png') !important;
+}
+.hero-bg-contact {
+  background-image: url('../images/hero-contact.png') !important;
+}
+.hero-bg-gps-tracking {
+  background-image: url('../images/hero-gps-tracking.png') !important;
+}
+.hero-bg-sitters {
+  background-image: url('../images/hero-sitters.png') !important;
+}
+.hero-bg-pricing {
+  background-image: url('../images/hero-pricing.png') !important;
+}
+.hero-bg-booking {
+  background-image: url('../images/hero-booking.png') !important;
+}
+.hero-bg-faq {
+  background-image: url('../images/hero-faq.png') !important;
+}
+.hero-bg-blog {
+  background-image: url('../images/hero-blog.png') !important;
+}
+.hero-bg-dashboard {
+  background-image: url('../images/hero-booking.png') !important;
+}
+
+/* Pricing card images */
+.pricing-card-img-wrap {
+  width: 100%;
+  height: 140px;
+  overflow: hidden;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+}
+.pricing-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Before and After story card images */
+.story-card-img-wrap {
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+}
+.story-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.story-avatar-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+

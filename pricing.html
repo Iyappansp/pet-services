@@ -14,15 +14,15 @@
 <body>
 <header id="main-header"></header>
 
-<section class="page-header">
+<section class="page-header hero-bg-image hero-bg-pricing hero-bg-overlay-dark-center" style="color:#fff;">
   <div class="container text-center">
-    <span class="section-label"> Pricing</span>
-    <h1 class="animate-fade-up">Simple, Transparent Pricing</h1>
-    <p class="section-subtitle animate-fade-up delay-1">No hidden fees. No surprises. Just honest pricing for premium pet care.</p>
+    <span class="section-label" style="background:rgba(255,255,255,0.15);color:#fff;"> Pricing</span>
+    <h1 class="animate-fade-up" style="color:#fff;">Simple, Transparent Pricing</h1>
+    <p class="section-subtitle animate-fade-up delay-1" style="color:rgba(255,255,255,0.85);">No hidden fees. No surprises. Just honest pricing for premium pet care.</p>
     <!-- Toggle Monthly/One-time -->
-    <div style="display:inline-flex;align-items:center;gap:12px;background:var(--bg-2);border:1px solid var(--border);border-radius:var(--radius-full);padding:6px;margin-top:20px;" class="animate-fade-up delay-2">
+    <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-full);padding:6px;margin-top:20px;" class="animate-fade-up delay-2">
       <button class="btn btn-primary btn-sm" id="oneTimeBtn" onclick="togglePricing('onetime')">Per Visit</button>
-      <button class="btn btn-ghost btn-sm" id="monthlyBtn" onclick="togglePricing('monthly')">Monthly Plan</button>
+      <button class="btn btn-ghost btn-sm" id="monthlyBtn" onclick="togglePricing('monthly')" style="color:#fff;">Monthly Plan</button>
     </div>
   </div>
 </section>
@@ -34,7 +34,7 @@
       <!-- Basic -->
       <div class="col-md-4 animate-fade-up">
         <div class="pricing-card">
-          <div style="font-size:2.5rem;margin-bottom:12px;"></div>
+          <div class="pricing-card-img-wrap"><img src="assets/images/pricing-basic.png" alt="Basic pet care package"></div>
           <h4 style="font-family:var(--font-heading);font-weight:700;">Basic</h4>
           <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:0;">Perfect for occasional pet care</p>
           <div class="pricing-price" id="basicPrice">$18<sub>/visit</sub></div>
@@ -54,7 +54,7 @@
       <div class="col-md-4 animate-fade-up delay-1">
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
-          <div style="font-size:2.5rem;margin-bottom:12px;"></div>
+          <div class="pricing-card-img-wrap"><img src="assets/images/pricing-premium.png" alt="Premium pet care package"></div>
           <h4 style="font-family:var(--font-heading);font-weight:700;">Premium</h4>
           <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:0;">Best for regular pet owners</p>
           <div class="pricing-price" id="premiumPrice">$40<sub>/visit</sub></div>
@@ -73,7 +73,7 @@
       <!-- VIP -->
       <div class="col-md-4 animate-fade-up delay-2">
         <div class="pricing-card">
-          <div style="font-size:2.5rem;margin-bottom:12px;"></div>
+          <div class="pricing-card-img-wrap"><img src="assets/images/pricing-vip.png" alt="VIP pet care package"></div>
           <h4 style="font-family:var(--font-heading);font-weight:700;">VIP</h4>
           <p style="font-size:.85rem;color:var(--text-secondary);margin-bottom:0;">The ultimate pet care experience</p>
           <div class="pricing-price" id="vipPrice">$75<sub>/visit</sub></div>

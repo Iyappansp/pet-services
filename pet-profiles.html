@@ -14,17 +14,17 @@
 <body>
 <header id="main-header"></header>
 
-<section class="page-header">
-  <div class="container">
+<section class="page-header hero-bg-image hero-bg-dashboard hero-bg-overlay-dark-center" style="color:#fff;">
+  <div class="container" style="position: relative; z-index: 1;">
     <div class="breadcrumb mb-3">
-      <span class="breadcrumb-item"><a href="index.html">Home</a></span>
-      <span class="breadcrumb-item"><a href="dashboard.html">Dashboard</a></span>
-      <span class="breadcrumb-item active">My Pets</span>
+      <span class="breadcrumb-item"><a href="index.html" style="color:rgba(255,255,255,0.7);">Home</a></span>
+      <span class="breadcrumb-item"><a href="dashboard.html" style="color:rgba(255,255,255,0.7);">Dashboard</a></span>
+      <span class="breadcrumb-item active" style="color:#fff;">My Pets</span>
     </div>
     <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
       <div>
-        <span class="section-label"> My Pets</span>
-        <h1 class="animate-fade-up" style="margin-bottom:0;">Pet Profiles</h1>
+        <span class="section-label" style="background:rgba(255,255,255,0.15);color:#fff;"> My Pets</span>
+        <h1 class="animate-fade-up" style="margin-bottom:0;color:#fff;">Pet Profiles</h1>
       </div>
       <button class="btn btn-primary animate-fade-up delay-2" onclick="showAddPetModal()">+ Add a Pet</button>
     </div>
@@ -37,7 +37,7 @@
     <div class="pet-grid" style="display:grid;">
       <!-- Pet 1 - Max -->
       <div class="pet-card animate-fade-up">
-        <div class="pet-card-img"><span style="font-size:5rem;"></span>
+        <div class="pet-card-img"><img src="assets/images/pricing-basic.png" alt="Max" style="width:100%;height:100%;object-fit:cover;">
           <div style="position:absolute;top:12px;right:12px;"><span class="badge badge-success">Active</span></div>
         </div>
         <div class="pet-card-body">
@@ -63,7 +63,7 @@
 
       <!-- Pet 2 - Luna -->
       <div class="pet-card animate-fade-up delay-1">
-        <div class="pet-card-img" style="background:linear-gradient(135deg,#e3f2fd,#fce4ec);"><span style="font-size:5rem;"></span>
+        <div class="pet-card-img" style="background:linear-gradient(135deg,#e3f2fd,#fce4ec);"><img src="assets/images/story-after-happy-cat.png" alt="Luna" style="width:100%;height:100%;object-fit:cover;">
           <div style="position:absolute;top:12px;right:12px;"><span class="badge badge-success">Active</span></div>
         </div>
         <div class="pet-card-body">

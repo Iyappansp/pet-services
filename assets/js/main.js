@@ -24,16 +24,8 @@
       <!-- Desktop Nav Links -->
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" data-page="index">Home</a></li>
-        <li><a href="home-2.html" data-page="home-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:3px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>Home 2</a></li>
-        <li class="nav-dropdown">
-          <a href="services.html" data-page="services">Services</a>
-          <div class="dropdown-menu-custom">
-            <a href="dog-walking.html" data-page="dog-walking"> Dog Walking</a>
-            <a href="pet-sitting.html" data-page="pet-sitting"> Pet Sitting</a>
-            <a href="services.html" data-page="services"> Cat Care</a>
-            <a href="services.html" data-page="services"> Overnight Care</a>
-          </div>
-        </li>
+        <li><a href="home-2.html" data-page="home-2">Home 2</a></li>
+        <li><a href="services.html" data-page="services">Services</a></li>
         <li><a href="sitter-profiles.html" data-page="sitter-profiles">Sitters</a></li>
         <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
         <li><a href="gps-tracking.html" data-page="gps-tracking">GPS Tracking</a></li>
