@@ -192,9 +192,25 @@
   .sitter-grid { grid-template-columns: repeat(2, 1fr); }
 
   /* Dashboard */
-  .dashboard-sidebar { display: flex; flex-direction: column; }
+  .dashboard-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100vh;
+  }
+  .dashboard-sidebar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    z-index: 100;
+    overflow-y: auto;
+    height: 100vh;
+  }
   .dash-mobile-nav { display: none; }
-  .dashboard-main { padding: 28px 24px; padding-bottom: 28px; }
+  .dash-mobile-header { display: none !important; }
+  .dashboard-main { grid-column: 2; padding: 28px 24px; padding-bottom: 28px; }
 
   /* Blog */
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
@@ -276,11 +292,6 @@
   .gps-map-area { height: 280px; }
 
   /* Dashboard */
-  .dashboard-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    min-height: 100vh;
-  }
   .dashboard-main { padding: 32px; }
 }
 

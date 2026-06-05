@@ -1285,12 +1285,16 @@ p { color: var(--text-secondary); }
 .dashboard-sidebar {
   background: var(--light);
   border-right: 1px solid var(--border);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  width: 260px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 24px 0 0 0;
+  z-index: 100;
+  overflow-y: auto;
 }
 
 .sidebar-logo {
@@ -1303,7 +1307,7 @@ p { color: var(--text-secondary); }
 }
 
 .sidebar-logo .logo-img {
-  height: 32px;
+  height: 42px;
   width: auto;
 }
 
@@ -1341,6 +1345,10 @@ p { color: var(--text-secondary); }
 }
 
 .dash-nav-item .icon { font-size: 1.1rem; min-width: 24px; }
+
+.gps-map-container {
+  background: var(--dark);
+}
 
 .stat-card {
   background: var(--light);
@@ -1637,6 +1645,13 @@ p { color: var(--text-secondary); }
   justify-content: center;
   font-size: 5rem;
   position: relative;
+}
+
+.pet-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .pet-card-body { padding: 20px; }

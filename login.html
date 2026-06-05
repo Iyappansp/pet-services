@@ -33,18 +33,6 @@
       <p style="font-size:.875rem;color:var(--text-secondary);">Sign in to access your pet dashboard</p>
     </div>
 
-    <!-- Social Login -->
-    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
-      <button class="btn btn-outline" style="width:100%;gap:10px;justify-content:center;" onclick="showToast('Redirecting to Google...','success')">
-        <span style="font-size:1.1rem;">G</span> Continue with Google
-      </button>
-      <button class="btn btn-ghost" style="width:100%;gap:10px;justify-content:center;" onclick="showToast('Redirecting to Facebook...','success')">
-        <span style="font-size:1.1rem;">f</span> Continue with Facebook
-      </button>
-    </div>
-
-    <div class="divider-deco"><span>or sign in with email</span></div>
-
     <!-- Login Form -->
     <form onsubmit="handleLogin(event)">
       <div class="form-group">
@@ -69,6 +57,21 @@
 
       <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Sign In to Dashboard </button>
     </form>
+
+    <div class="divider-deco" style="margin-top: 24px;"><span>or continue with</span></div>
+
+    <!-- Social Login -->
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+      <button class="btn btn-outline" style="width:100%;gap:10px;justify-content:center;display:flex;align-items:center;" onclick="showToast('Redirecting to Google...','success')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;"><path d="M12.24 10.285V13.4h6.887C18.2 15.614 15.645 18 12.24 18c-3.86 0-7-3.14-7-7s3.14-7 7-7c1.86 0 3.55.73 4.8 1.92l2.36-2.36C17.44 1.76 14.97 1 12.24 1 6.59 1 2 5.59 2 11.24s4.59 10.24 10.24 10.24c5.9 0 9.8-4.15 9.8-9.98 0-.67-.06-1.3-.18-1.89H12.24z"/></svg> Continue with Google
+      </button>
+      <button class="btn btn-outline" style="width:100%;gap:10px;justify-content:center;display:flex;align-items:center;" onclick="showToast('Redirecting to Facebook...','success')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg> Continue with Facebook
+      </button>
+      <button class="btn btn-outline" style="width:100%;gap:10px;justify-content:center;display:flex;align-items:center;" onclick="showToast('Redirecting to Apple...','success')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="margin-right:8px;"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.1 22C7.79 22.05 6.8 20.68 5.96 19.47C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.1 16.67C20.08 16.74 19.67 18.11 18.71 19.5M15.97 4.17C16.63 3.37 17.07 2.28 16.95 1C15.99 1.04 14.8 1.6 14.13 2.38C13.57 3.04 13.07 4.14 13.2 5.4C14.28 5.48 15.39 4.87 15.97 4.17Z"/></svg> Continue with Apple
+      </button>
+    </div>
 
     <p style="text-align:center;margin-top:20px;font-size:.875rem;color:var(--text-secondary);">
       New to PawCare Pro? <a href="signup.html" style="color:var(--primary);font-weight:700;">Create account →</a>

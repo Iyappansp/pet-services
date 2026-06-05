@@ -141,6 +141,10 @@
   background: var(--light);
   border-right-color: var(--border);
 }
+[data-theme="dark"] .gps-map-container {
+  background: var(--light);
+  border: 1px solid var(--border);
+}
 
 /* FAQ */
 [data-theme="dark"] .faq-question { color: var(--text-primary); }

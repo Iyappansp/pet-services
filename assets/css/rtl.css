@@ -36,7 +36,7 @@
 [dir="rtl"] .stat-item { text-align: center; }
 
 /* Dashboard RTL */
-[dir="rtl"] .dashboard-sidebar { border-right: none; border-left: 1px solid var(--border); }
+[dir="rtl"] .dashboard-sidebar { border-right: none; border-left: 1px solid var(--border); left: auto; right: 0; }
 [dir="rtl"] .dash-nav-item { flex-direction: row-reverse; text-align: right; }
 [dir="rtl"] .dash-nav-item:hover, [dir="rtl"] .dash-nav-item.active {
   border-right: none;

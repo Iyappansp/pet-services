@@ -61,14 +61,11 @@
     <a href="index.html" class="mobile-nav-link" data-page="index">
       <span></span> Home
     </a>
+    <a href="home-2.html" class="mobile-nav-link" data-page="home-2">
+      <span></span> Home 2
+    </a>
     <a href="services.html" class="mobile-nav-link" data-page="services">
       <span></span> Services
-    </a>
-    <a href="dog-walking.html" class="mobile-nav-link" data-page="dog-walking">
-      <span></span> Dog Walking
-    </a>
-    <a href="pet-sitting.html" class="mobile-nav-link" data-page="pet-sitting">
-      <span></span> Pet Sitting
     </a>
     <a href="sitter-profiles.html" class="mobile-nav-link" data-page="sitter-profiles">
       <span></span> Sitters
@@ -79,14 +76,8 @@
     <a href="gps-tracking.html" class="mobile-nav-link" data-page="gps-tracking">
       <span></span> GPS Tracking
     </a>
-    <a href="dashboard.html" class="mobile-nav-link" data-page="dashboard">
-      <span></span> Dashboard
-    </a>
     <a href="about.html" class="mobile-nav-link" data-page="about">
       <span></span> About
-    </a>
-    <a href="blog.html" class="mobile-nav-link" data-page="blog">
-      <span></span> Blog
     </a>
     <a href="contact.html" class="mobile-nav-link" data-page="contact">
       <span></span> Contact
@@ -189,6 +180,155 @@
     </div>
   </div>
   `;
+
+  /* ============================================================
+     DASHBOARD TEMPLATES (SIDEBAR, MOBILE HEADER, MOBILE NAV)
+     ============================================================ */
+  const DASHBOARD_SIDEBAR_HTML = `
+    <!-- Sidebar Logo -->
+    <div class="sidebar-logo">
+      <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+        <img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img">
+      </a>
+    </div>
+    <!-- User Info -->
+    <div style="padding:20px;border-bottom:1px solid var(--border);margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">Sarah Johnson</div>
+          <div style="font-size:.75rem;color:var(--text-muted);">Pet Parent</div>
+        </div>
+      </div>
+    </div>
+    <!-- Nav -->
+    <a href="dashboard.html" class="dash-nav-item" data-dash-page="dashboard">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+      </span> Overview
+    </a>
+    <a href="booking.html" class="dash-nav-item" data-dash-page="booking">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      </span> Book a Visit
+    </a>
+    <a href="pet-profiles.html" class="dash-nav-item" data-dash-page="pet-profiles">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 13.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5-3c-.83 0-1.5.67-1.5 1.5S7.17 13.5 8 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 0c-.83 0-1.5.67-1.5 1.5S15.17 13.5 16 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5 3c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 11c-2.21 0-4 1.79-4 4 0 2.5 2.5 4.5 4 5.5 1.5-1 4-3 4-5.5 0-2.21-1.79-4-4-4z"/></svg>
+      </span> My Pets
+    </a>
+    <a href="gps-tracking.html" class="dash-nav-item" data-dash-page="gps-tracking">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      </span> GPS Tracking
+    </a>
+    <a href="vaccination-records.html" class="dash-nav-item" data-dash-page="vaccination-records">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg>
+      </span> Vaccinations
+    </a>
+    <a href="messages.html" class="dash-nav-item" data-dash-page="messages">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </span> Messages <span style="background:var(--primary);color:#fff;border-radius:10px;padding:1px 7px;font-size:.65rem;margin-left:auto;" id="sidebarMessagesBadge">3</span>
+    </a>
+  
+    <div class="sidebar-footer">
+      <a href="login.html" class="btn btn-outline btn-sm" style="width:100%;">Sign Out</a>
+    </div>
+  `;
+
+  const DASHBOARD_MOBILE_HEADER_HTML = `
+    <a href="index.html"><img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img"></a>
+    <div style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;color:var(--text-primary);">Dashboard</div>
+    <div style="width:32px;height:32px;border-radius:50%;overflow:hidden;"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width:100%;height:100%;object-fit:cover;"></div>
+  `;
+
+  const DASHBOARD_MOBILE_NAV_HTML = `
+    <a href="dashboard.html" class="dash-mobile-nav-item" data-dash-page="dashboard">
+      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg></span>
+      Overview
+    </a>
+    <a href="booking.html" class="dash-mobile-nav-item" data-dash-page="booking">
+      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+      Book
+    </a>
+    <a href="pet-profiles.html" class="dash-mobile-nav-item" data-dash-page="pet-profiles">
+      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 13.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5-3c-.83 0-1.5.67-1.5 1.5S7.17 13.5 8 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 0c-.83 0-1.5.67-1.5 1.5S15.17 13.5 16 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5 3c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 11c-2.21 0-4 1.79-4 4 0 2.5 2.5 4.5 4 5.5 1.5-1 4-3 4-5.5 0-2.21-1.79-4-4-4z"/></svg></span>
+      Pets
+    </a>
+    <a href="gps-tracking.html" class="dash-mobile-nav-item" data-dash-page="gps-tracking">
+      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+      GPS
+    </a>
+    <a href="vaccination-records.html" class="dash-mobile-nav-item" data-dash-page="vaccination-records">
+      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg></span>
+      Records
+    </a>
+    <a href="messages.html" class="dash-mobile-nav-item" data-dash-page="messages">
+      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></span>
+      Messages
+    </a>
+  `;
+
+  function injectDashboardComponents() {
+    const layout = document.querySelector('.dashboard-layout');
+    if (!layout) return;
+
+    // 1. Sidebar Injection
+    let sidebar = document.querySelector('.dashboard-sidebar');
+    if (!sidebar) {
+      sidebar = document.createElement('aside');
+      sidebar.className = 'dashboard-sidebar';
+      layout.insertBefore(sidebar, layout.firstChild);
+    }
+    sidebar.innerHTML = DASHBOARD_SIDEBAR_HTML;
+
+    // 2. Mobile Header Injection
+    let mobileHeader = document.querySelector('.dash-mobile-header');
+    if (!mobileHeader) {
+      mobileHeader = document.createElement('div');
+      mobileHeader.className = 'dash-mobile-header';
+      layout.parentNode.insertBefore(mobileHeader, layout);
+    }
+    mobileHeader.innerHTML = DASHBOARD_MOBILE_HEADER_HTML;
+
+    // 3. Mobile Nav Injection
+    let mobileNav = document.querySelector('.dash-mobile-nav');
+    if (!mobileNav) {
+      mobileNav = document.createElement('nav');
+      mobileNav.className = 'dash-mobile-nav';
+      layout.parentNode.insertBefore(mobileNav, layout.nextSibling);
+    }
+    mobileNav.innerHTML = DASHBOARD_MOBILE_NAV_HTML;
+
+    // Set Active Dashboard Links
+    const path = window.location.pathname.split('/').pop().replace('.html', '') || 'dashboard';
+
+    // In sidebar
+    sidebar.querySelectorAll('[data-dash-page]').forEach(link => {
+      if (link.getAttribute('data-dash-page') === path) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // In mobile nav
+    mobileNav.querySelectorAll('[data-dash-page]').forEach(link => {
+      if (link.getAttribute('data-dash-page') === path) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+
+    // Special behavior for messages badge on messages.html page
+    if (path === 'messages') {
+      const sidebarBadge = document.getElementById('sidebarMessagesBadge');
+      if (sidebarBadge) sidebarBadge.style.display = 'none';
+    }
+  }
 
   /* ============================================================
      INJECT HEADER & FOOTER
@@ -361,11 +501,128 @@
   };
 
   /* ============================================================
+     SIGNOUT CONFIRMATION POPUP
+     ============================================================ */
+  function initSignOutConfirm() {
+    document.addEventListener('click', function (e) {
+      const link = e.target.closest('a');
+      if (link) {
+        const text = link.textContent.trim().toLowerCase();
+        if (text === 'sign out' || text === 'logout' || (link.getAttribute('href') === 'login.html' && link.closest('.sidebar-footer'))) {
+          e.preventDefault();
+          const targetUrl = link.getAttribute('href') || 'login.html';
+          showLogoutModal(targetUrl);
+        }
+      }
+    });
+  }
+
+  function showLogoutModal(redirectUrl) {
+    if (document.getElementById('logoutConfirmModal')) return;
+
+    const modalHtml = `
+      <div id="logoutConfirmModal" style="
+        position: fixed;
+        inset: 0;
+        background: rgba(17, 24, 39, 0.75);
+        backdrop-filter: blur(8px);
+        z-index: 99999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 20px;
+      ">
+        <div style="
+          background: var(--light, #1E2530);
+          border: 1px solid var(--border, #2A3441);
+          border-radius: var(--radius-xl, 16px);
+          padding: 32px;
+          width: 100%;
+          max-width: 400px;
+          box-shadow: var(--shadow-xl);
+          text-align: center;
+          transform: scale(0.9);
+          transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        " id="logoutConfirmContent">
+          <div style="
+            width: 60px;
+            height: 60px;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #EF4444;
+          ">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+              <polyline points="16 17 21 12 16 7"></polyline>
+              <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+          </div>
+          <h4 style="
+            font-family: var(--font-heading, 'Poppins', sans-serif);
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-primary, #F1F5F9);
+          ">Sign Out</h4>
+          <p style="
+            color: var(--text-secondary, #94A3B8);
+            font-size: 0.95rem;
+            margin-bottom: 28px;
+            line-height: 1.5;
+          ">Are you sure you want to log out of your PawCare Pro session?</p>
+          <div style="display: flex; gap: 12px;">
+            <button id="logoutCancelBtn" class="btn btn-outline" style="flex: 1; justify-content: center; padding: 10px 0;">Cancel</button>
+            <button id="logoutConfirmBtn" class="btn btn-primary" style="flex: 1; justify-content: center; background: #EF4444; border-color: #EF4444; color: #fff; padding: 10px 0;">Sign Out</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+    const modal = document.getElementById('logoutConfirmModal');
+    const content = document.getElementById('logoutConfirmContent');
+
+    // Trigger animation
+    setTimeout(() => {
+      modal.style.opacity = '1';
+      content.style.transform = 'scale(1)';
+    }, 10);
+
+    function closeModal() {
+      modal.style.opacity = '0';
+      content.style.transform = 'scale(0.9)';
+      setTimeout(() => {
+        modal.remove();
+      }, 300);
+    }
+
+    document.getElementById('logoutCancelBtn').addEventListener('click', closeModal);
+    document.getElementById('logoutConfirmBtn').addEventListener('click', () => {
+      closeModal();
+      window.location.href = redirectUrl;
+    });
+
+    // Close on click outside content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+  }
+
+  /* ============================================================
      INIT
      ============================================================ */
   document.addEventListener('DOMContentLoaded', function () {
     injectHeader();
     injectFooter();
+    injectDashboardComponents();
 
     // Init after injection
     initTheme();
@@ -375,6 +632,7 @@
     initStickyNav();
     initButtons();
     initScrollTop();
+    initSignOutConfirm();
   });
 
 })();
