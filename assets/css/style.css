@@ -1819,6 +1819,13 @@ p { color: var(--text-secondary); }
   justify-content: center;
   margin-bottom: 8px;
   color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-close:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: rotate(90deg);
 }
 
 .mobile-nav-link {

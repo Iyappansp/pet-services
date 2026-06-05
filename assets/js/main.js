@@ -56,7 +56,9 @@
 
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu" role="navigation" aria-label="Mobile navigation">
-    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu"></button>
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
 
     <a href="index.html" class="mobile-nav-link" data-page="index">
       <span></span> Home
@@ -83,9 +85,24 @@
       <span></span> Contact
     </a>
 
-    <div style="margin-top: auto; padding-top: 20px; display: flex; flex-direction: column; gap: 10px;">
+    <div style="margin-top: auto; padding-top: 20px; display: flex; flex-direction: column; gap: 12px; border-top: 1px solid var(--border);">
+      <!-- Preferences / Toggles inside menu -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; padding: 0 4px;">
+        <span style="font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Preferences</span>
+        <div style="display: flex; gap: 8px;">
+          <!-- Theme Toggle inside menu -->
+          <button class="nav-icon-btn" id="menuThemeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-primary); transition: var(--transition);">
+            <span id="menuThemeIcon"></span>
+          </button>
+          <!-- RTL Toggle inside menu -->
+          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="height: 40px; padding: 0 16px; border-radius: var(--radius-full); background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
+            <span id="menuRtlIcon">RTL</span>
+          </button>
+        </div>
+      </div>
       <a href="login.html" class="btn btn-outline" style="width:100%; justify-content:center;">Login</a>
-      <a href="booking.html" class="btn btn-primary" style="width:100%; justify-content:center;">Book a Visit</a>
+      <a href="dashboard.html" class="btn btn-primary" style="width:100%; justify-content:center;">Dashboard</a>
+      <a href="booking.html" class="btn btn-outline" style="width:100%; justify-content:center; border-color: var(--primary); color: var(--primary);">Book a Visit</a>
     </div>
   </div>
   `;
@@ -372,6 +389,9 @@
 
     const icon = document.getElementById('themeIcon');
     if (icon) icon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
+
+    const menuIcon = document.getElementById('menuThemeIcon');
+    if (menuIcon) menuIcon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
   }
 
   function toggleTheme() {
@@ -392,6 +412,9 @@
     localStorage.setItem('pawcare-dir', dir);
     const icon = document.getElementById('rtlIcon');
     if (icon) icon.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+
+    const menuIcon = document.getElementById('menuRtlIcon');
+    if (menuIcon) menuIcon.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
   }
 
   function toggleRTL() {
@@ -454,8 +477,8 @@
      ============================================================ */
   function initButtons() {
     document.addEventListener('click', function (e) {
-      if (e.target.closest('#themeToggle')) toggleTheme();
-      if (e.target.closest('#rtlToggle')) toggleRTL();
+      if (e.target.closest('#themeToggle') || e.target.closest('#menuThemeToggle')) toggleTheme();
+      if (e.target.closest('#rtlToggle') || e.target.closest('#menuRtlToggle')) toggleRTL();
     });
   }
 
