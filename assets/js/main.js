@@ -96,7 +96,7 @@
             <span id="menuThemeIcon"></span>
           </button>
           <!-- RTL Toggle inside menu -->
-          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="height: 40px; padding: 0 16px; border-radius: 0px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
+          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="width: 40px; height: 40px; border-radius: 0px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
             <span id="menuRtlIcon">RTL</span>
           </button>
         </div>

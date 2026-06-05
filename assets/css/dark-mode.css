@@ -239,6 +239,15 @@
   background: rgba(30, 37, 48, 0.95);
   border: 1px solid var(--border);
 }
+/* Green Section & H2 Hero Background overrides in Dark Mode */
+[data-theme="dark"] .bg-green-section {
+  background: linear-gradient(135deg, #0d2010 0%, #122815 100%) !important;
+}
+
+[data-theme="dark"] .h2-hero::before {
+  opacity: 0.25 !important;
+  display: block !important;
+}
 
 /* Transition for theme change */
 body, .card, .service-card, .feature-card, .navbar,
