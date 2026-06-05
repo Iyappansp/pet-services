@@ -1922,11 +1922,17 @@ p { color: var(--text-secondary); }
 
 /* Pricing card images */
 .pricing-card-img-wrap {
-  width: 100%;
-  height: 140px;
+  width: calc(100% + 56px);
+  margin-left: -28px;
+  margin-right: -28px;
+  margin-top: -36px;
+  height: 160px;
   overflow: hidden;
-  border-radius: var(--radius);
-  margin-bottom: 16px;
+  border-top-left-radius: calc(var(--radius-xl) - 2px);
+  border-top-right-radius: calc(var(--radius-xl) - 2px);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-bottom: 24px;
 }
 .pricing-card-img-wrap img {
   width: 100%;
