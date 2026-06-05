@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" dir="ltr">
+<head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Messages — PawCare Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    /* Messaging UI Specific Layout Styles */
+    .chat-card-container {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      height: 600px;
+    }
+
+    @media (max-width: 991px) {
+      .chat-card-container {
+        grid-template-columns: 1fr;
+      }
+      .chat-sidebar-section {
+        display: block;
+      }
+      .chat-area-section {
+        display: none;
+      }
+      .chat-area-section.active {
+        display: flex !important;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: var(--light);
+      }
+    }
+
+    /* Chat Sidebar styling */
+    .chat-sidebar-section {
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      background: var(--light);
+    }
+
+    .chat-search-wrap {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .chat-list-scroll {
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .chat-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s ease;
+      position: relative;
+    }
+
+    .chat-item:hover {
+      background: rgba(76, 175, 80, 0.04);
+    }
+
+    .chat-item.active {
+      background: rgba(76, 175, 80, 0.08);
+      border-left: 4px solid var(--primary);
+    }
+
+    .chat-avatar-wrap {
+      position: relative;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .chat-avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .status-dot {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid var(--light);
+    }
+
+    .status-dot.online { background-color: var(--success); }
+    .status-dot.offline { background-color: var(--text-muted); }
+    .status-dot.away { background-color: var(--warning); }
+
+    .chat-item-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .chat-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .chat-item-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+    }
+
+    .chat-item-time {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .chat-item-preview {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .unread-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      border-radius: 10px;
+      padding: 1px 6px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* Chat Area styling */
+    .chat-area-section {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-2);
+    }
+
+    .chat-header-bar {
+      padding: 16px 20px;
+      background: var(--light);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-thread-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .message-bubble {
+      max-width: 70%;
+      padding: 12px 16px;
+      border-radius: var(--radius-lg);
+      font-size: 0.875rem;
+      line-height: 1.5;
+      position: relative;
+      animation: message-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes message-in {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-bubble.incoming {
+      background: var(--light);
+      color: var(--text-primary);
+      align-self: flex-start;
+      border-top-left-radius: 2px;
+      border: 1px solid var(--border);
+    }
+
+    .message-bubble.outgoing {
+      background: var(--primary);
+      color: #fff;
+      align-self: flex-end;
+      border-top-right-radius: 2px;
+    }
+
+    .message-time {
+      font-size: 0.7rem;
+      margin-top: 4px;
+      text-align: right;
+      display: block;
+      opacity: 0.7;
+    }
+
+    .message-bubble.incoming .message-time {
+      color: var(--text-muted);
+    }
+
+    .chat-input-bar {
+      padding: 16px 20px;
+      background: var(--light);
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .chat-input-field {
+      flex: 1;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      border-radius: var(--radius-full);
+      padding: 12px 20px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .chat-input-field:focus {
+      border-color: var(--primary);
+    }
+
+    .chat-mobile-back {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--text-primary);
+      margin-right: 8px;
+    }
+
+    @media (max-width: 991px) {
+      .chat-mobile-back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<!-- Mobile Top Header -->
+<div class="dash-mobile-header"></div>
+
+<div class="dashboard-layout">
+  <!-- Sidebar -->
+  <aside class="dashboard-sidebar"></aside>
+
+  <!-- Main Content -->
+  <main class="dashboard-main" style="padding-bottom:24px; display:flex; flex-direction:column;">
+    <div style="margin-bottom:24px;">
+      <h2 style="font-family:var(--font-heading);font-weight:800;margin:0;">Messages</h2>
+      <p style="color:var(--text-muted);font-size:.9rem;margin-top:4px;">Chat with your pet care sitters and walkers.</p>
+    </div>
+
+    <!-- Chat Card Panel -->
+    <div class="chat-card-container">
+      
+      <!-- Left message sidebar -->
+      <section class="chat-sidebar-section">
+        <!-- Search -->
+        <div class="chat-search-wrap">
+          <input type="text" class="form-control" placeholder="Search conversations..." id="chatSearch" onkeyup="filterChats()">
+        </div>
+        
+        <!-- Conversation List -->
+        <div class="chat-list-scroll" id="chatsListContainer">
+          <!-- Emma Rodriguez -->
+          <div class="chat-item active" onclick="switchActiveChat(this, 'emma')" data-name="Emma Rodriguez">
+            <div class="chat-avatar-wrap">
+              <img src="assets/images/sitter-emma.png" alt="Emma Rodriguez">
+              <span class="status-dot online"></span>
+            </div>
+            <div class="chat-item-body">
+              <div class="chat-item-header">
+                <span class="chat-item-name">Emma Rodriguez</span>
+                <span class="chat-item-time" id="emmaTime">9:45 AM</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                <span class="chat-item-preview" id="emmaPreview">Just dropped Max off! Let me know if you...</span>
+                <span class="unread-badge" id="emmaBadge">2</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carlos Mendoza -->
+          <div class="chat-item" onclick="switchActiveChat(this, 'carlos')" data-name="Carlos Mendoza">
+            <div class="chat-avatar-wrap">
+              <img src="assets/images/sitter-carlos.png" alt="Carlos Mendoza">
+              <span class="status-dot offline"></span>
+            </div>
+            <div class="chat-item-body">
+              <div class="chat-item-header">
+                <span class="chat-item-name">Carlos Mendoza</span>
+                <span class="chat-item-time">Yesterday</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                <span class="chat-item-preview">I will be there at 2:00 PM tomorrow...</span>
+                <span class="unread-badge" style="display:none;" id="carlosBadge">0</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sophie Dubois -->
+          <div class="chat-item" onclick="switchActiveChat(this, 'sophie')" data-name="Sophie Dubois">
+            <div class="chat-avatar-wrap">
+              <img src="assets/images/sitter-sophie.png" alt="Sophie Dubois">
+              <span class="status-dot away"></span>
+            </div>
+            <div class="chat-item-body">
+              <div class="chat-item-header">
+                <span class="chat-item-name">Sophie Dubois</span>
+                <span class="chat-item-time">Jun 3</span>
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+                <span class="chat-item-preview">Could you tell me where the leash is...</span>
+                <span class="unread-badge" style="display:none;" id="sophieBadge">0</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right active chat window -->
+      <section class="chat-area-section" id="chatAreaContainer">
+        <!-- Header -->
+        <div class="chat-header-bar">
+          <div class="chat-header-info">
+            <button class="chat-mobile-back" onclick="closeChatMobile()" title="Back to chats">←</button>
+            <div class="chat-avatar-wrap" style="width:40px; height:40px;">
+              <img src="assets/images/sitter-emma.png" alt="Emma Rodriguez" id="activeChatAvatar">
+              <span class="status-dot online" id="activeChatStatus"></span>
+            </div>
+            <div>
+              <h6 style="font-family:var(--font-heading); font-weight:700; margin:0;" id="activeChatName">Emma Rodriguez</h6>
+              <span style="font-size:0.75rem; color:var(--text-muted);" id="activeChatRole">Dog Walker · Online</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button onclick="showToast('Calling sitter...','success')" class="btn btn-outline btn-sm d-none d-sm-inline-flex">Call</button>
+            <a href="gps-tracking.html" class="btn btn-primary btn-sm d-inline-flex align-items-center">Track Sitter</a>
+          </div>
+        </div>
+
+        <!-- Scrollable messages container -->
+        <div class="chat-thread-container" id="chatThread">
+          <!-- Injected dynamically -->
+        </div>
+
+        <!-- Chat input bar -->
+        <div class="chat-input-bar">
+          <button class="btn btn-ghost btn-sm" style="padding: 8px 12px; font-size:1.1rem;" onclick="showToast('Attachment feature coming soon!','info')" title="Send Photo">📷</button>
+          <input type="text" class="chat-input-field" placeholder="Type a message..." id="messageInput" onkeydown="handleInputKey(event)">
+          <button class="btn btn-primary btn-sm" style="padding: 10px 18px; border-radius: 20px;" onclick="sendMessage()" id="sendButton">Send</button>
+        </div>
+
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<!-- Mobile Bottom Nav -->
+<nav class="dash-mobile-nav"></nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/animations.js"></script>
+<script>
+  // MOCK CHAT DATA FOR INTERACTIVE CHAT ENGINE
+  const CHAT_DATA = {
+    emma: {
+      name: "Emma Rodriguez",
+      role: "Dog Walker · Online",
+      status: "online",
+      avatar: "assets/images/sitter-emma.png",
+      messages: [
+        { sender: "sitter", text: "Hi Sarah! I've just picked up Max for his walk. 🦮", time: "9:06 AM" },
+        { sender: "sitter", text: "He's full of energy today! We're heading towards Riverside Park.", time: "9:08 AM" },
+        { sender: "sitter", text: "Here is a quick photo of Max playing!", time: "9:18 AM", image: "assets/images/pricing-basic.png" },
+        { sender: "user", text: "Oh he looks so happy! Thank you Emma! ❤️", time: "9:20 AM" },
+        { sender: "sitter", text: "We're heading back now. Should be there in 15 minutes.", time: "9:40 AM" },
+        { sender: "sitter", text: "Just dropped Max off! Let me know if you need anything else.", time: "9:45 AM" }
+      ],
+      autoReplies: [
+        "Sure, Max was really happy today! I'll make sure to double check the locks next time too.",
+        "You're very welcome! I'll see Max again tomorrow morning at 9:00 AM.",
+        "Max says thank you for the treats! 🐾 Let me know if you want another photo update."
+      ]
+    },
+    carlos: {
+      name: "Carlos Mendoza",
+      role: "Pet Sitter · Offline",
+      status: "offline",
+      avatar: "assets/images/sitter-carlos.png",
+      messages: [
+        { sender: "sitter", text: "Hi Sarah, just wanted to check if there are any specific feeding instructions for Luna tomorrow?", time: "Yesterday, 4:10 PM" },
+        { sender: "user", text: "Hi Carlos, just the regular Fancy Feast can in the morning. Thank you!", time: "Yesterday, 4:25 PM" },
+        { sender: "sitter", text: "Got it! I will be there at 2:00 PM tomorrow to feed Luna.", time: "Yesterday, 4:30 PM" }
+      ],
+      autoReplies: [
+        "Sounds good! I'll feed Luna and play with her favorite feather toy.",
+        "Perfect, I'll send you a picture of Luna once I arrive.",
+        "No problem! Let me know if anything else comes up."
+      ]
+    },
+    sophie: {
+      name: "Sophie Dubois",
+      role: "Overnight Care · Away",
+      status: "away",
+      avatar: "assets/images/sitter-sophie.png",
+      messages: [
+        { sender: "sitter", text: "Hi Sarah, I'm setting up for the overnight care this weekend.", time: "Jun 3, 2:15 PM" },
+        { sender: "sitter", text: "Could you tell me where the leash is kept?", time: "Jun 3, 2:18 PM" }
+      ],
+      autoReplies: [
+        "Thank you! Found it. I'll make sure to get Max settled in.",
+        "Understood, I'll keep an eye out for his toys. Talk soon!",
+        "Perfect, I've got everything I need now."
+      ]
+    }
+  };
+
+  let activeChatId = 'emma';
+  let replyIndex = { emma: 0, carlos: 0, sophie: 0 };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    renderChatThread();
+    
+    // Clear Emma badge after 2 seconds or on click
+    setTimeout(() => {
+      clearBadge('emma');
+    }, 1500);
+  });
+
+  function renderChatThread() {
+    const thread = document.getElementById('chatThread');
+    const data = CHAT_DATA[activeChatId];
+    if (!thread) return;
+
+    thread.innerHTML = data.messages.map(m => {
+      let content = m.text;
+      if (m.image) {
+        content = `<div style="max-width:200px; margin-bottom:8px; border-radius:8px; overflow:hidden;"><img src="${m.image}" style="width:100%; object-fit:cover; display:block;"></div>` + m.text;
+      }
+      return `
+        <div class="message-bubble ${m.sender === 'user' ? 'outgoing' : 'incoming'}">
+          ${content}
+          <span class="message-time">${m.time}</span>
+        </div>
+      `;
+    }).join('');
+
+    // Scroll to bottom
+    setTimeout(() => {
+      thread.scrollTop = thread.scrollHeight;
+    }, 50);
+  }
+
+  function switchActiveChat(el, chatId) {
+    activeChatId = chatId;
+    
+    // UI state
+    document.querySelectorAll('.chat-item').forEach(item => item.classList.remove('active'));
+    el.classList.add('active');
+
+    // Header info
+    const data = CHAT_DATA[chatId];
+    document.getElementById('activeChatName').textContent = data.name;
+    document.getElementById('activeChatRole').textContent = data.role;
+    document.getElementById('activeChatAvatar').src = data.avatar;
+    
+    const statusDot = document.getElementById('activeChatStatus');
+    statusDot.className = 'status-dot ' + data.status;
+
+    // Responsive toggle
+    if (window.innerWidth <= 991) {
+      document.getElementById('chatAreaContainer').classList.add('active');
+    }
+
+    renderChatThread();
+    clearBadge(chatId);
+  }
+
+  function clearBadge(chatId) {
+    const badge = document.getElementById(chatId + 'Badge');
+    if (badge) {
+      badge.style.display = 'none';
+    }
+  }
+
+  function filterChats() {
+    const query = document.getElementById('chatSearch').value.toLowerCase();
+    document.querySelectorAll('.chat-item').forEach(item => {
+      const name = item.dataset.name.toLowerCase();
+      if (name.includes(query)) {
+        item.style.setProperty('display', 'flex', 'important');
+      } else {
+        item.style.setProperty('display', 'none', 'important');
+      }
+    });
+  }
+
+  function closeChatMobile() {
+    document.getElementById('chatAreaContainer').classList.remove('active');
+  }
+
+  function handleInputKey(e) {
+    if (e.key === 'Enter') {
+      sendMessage();
+    }
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('messageInput');
+    const text = input.value.trim();
+    if (!text) return;
+
+    // Get current time
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    // Append message to mock database
+    CHAT_DATA[activeChatId].messages.push({
+      sender: 'user',
+      text: text,
+      time: time
+    });
+
+    // Update list preview
+    const previewEl = document.getElementById(activeChatId + 'Preview');
+    if (previewEl) previewEl.textContent = text;
+    
+    const timeEl = document.getElementById(activeChatId + 'Time');
+    if (timeEl) timeEl.textContent = time;
+
+    // Render & clear input
+    renderChatThread();
+    input.value = '';
+
+    // Mock sitter response after delay
+    const chatSitter = activeChatId;
+    setTimeout(() => {
+      triggerSitterResponse(chatSitter);
+    }, 1500);
+  }
+
+  function triggerSitterResponse(chatId) {
+    const data = CHAT_DATA[chatId];
+    const replies = data.autoReplies;
+    const idx = replyIndex[chatId];
+    const replyText = replies[idx % replies.length];
+    
+    // Increment reply index
+    replyIndex[chatId]++;
+
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    data.messages.push({
+      sender: 'sitter',
+      text: replyText,
+      time: time
+    });
+
+    // Update preview list
+    const previewEl = document.getElementById(chatId + 'Preview');
+    if (previewEl) previewEl.textContent = replyText;
+    
+    const timeEl = document.getElementById(chatId + 'Time');
+    if (timeEl) timeEl.textContent = time;
+
+    if (chatId === activeChatId) {
+      renderChatThread();
+    } else {
+      // Show unread badge if not active chat
+      const badge = document.getElementById(chatId + 'Badge');
+      if (badge) {
+        let count = parseInt(badge.textContent) || 0;
+        count++;
+        badge.textContent = count;
+        badge.style.display = 'inline-block';
+      }
+    }
+    
+    showToast(`New message from ${data.name}!`, 'success');
+  }
+</script>
+
+</body>
+</html>
