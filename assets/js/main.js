@@ -92,11 +92,11 @@
         <span style="font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Preferences</span>
         <div style="display: flex; gap: 8px;">
           <!-- Theme Toggle inside menu -->
-          <button class="nav-icon-btn" id="menuThemeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="width: 40px; height: 40px; border-radius: 50%; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-primary); transition: var(--transition);">
+          <button class="nav-icon-btn" id="menuThemeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="width: 40px; height: 40px; border-radius: 0px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-primary); transition: var(--transition);">
             <span id="menuThemeIcon"></span>
           </button>
           <!-- RTL Toggle inside menu -->
-          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="height: 40px; padding: 0 16px; border-radius: var(--radius-full); background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
+          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="height: 40px; padding: 0 16px; border-radius: 0px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
             <span id="menuRtlIcon">RTL</span>
           </button>
         </div>
@@ -247,6 +247,16 @@
     </a>
   
     <div class="sidebar-footer">
+      <div style="display:flex; gap:10px; margin-bottom:12px; justify-content:center; align-items:center; width:100%;">
+        <!-- Theme Toggle -->
+        <button class="nav-icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="margin: 0;">
+          <span id="themeIcon"></span>
+        </button>
+        <!-- RTL Toggle -->
+        <button class="nav-icon-btn rtl-text-btn" id="rtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="margin: 0;">
+          <span id="rtlIcon">RTL</span>
+        </button>
+      </div>
       <a href="login.html" class="btn btn-outline btn-sm" style="width:100%;">Sign Out</a>
     </div>
   `;
@@ -379,11 +389,13 @@
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('pawcare-theme', theme);
 
-    const icon = document.getElementById('themeIcon');
-    if (icon) icon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
+    document.querySelectorAll('#themeIcon').forEach(icon => {
+      icon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
+    });
 
-    const menuIcon = document.getElementById('menuThemeIcon');
-    if (menuIcon) menuIcon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
+    document.querySelectorAll('#menuThemeIcon').forEach(menuIcon => {
+      menuIcon.innerHTML = theme === 'dark' ? SUN_SVG : MOON_SVG;
+    });
   }
 
   function toggleTheme() {
@@ -402,11 +414,14 @@
   function applyDir(dir) {
     document.documentElement.setAttribute('dir', dir);
     localStorage.setItem('pawcare-dir', dir);
-    const icon = document.getElementById('rtlIcon');
-    if (icon) icon.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+    
+    document.querySelectorAll('#rtlIcon').forEach(icon => {
+      icon.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+    });
 
-    const menuIcon = document.getElementById('menuRtlIcon');
-    if (menuIcon) menuIcon.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+    document.querySelectorAll('#menuRtlIcon').forEach(menuIcon => {
+      menuIcon.textContent = dir === 'rtl' ? 'LTR' : 'RTL';
+    });
   }
 
   function toggleRTL() {

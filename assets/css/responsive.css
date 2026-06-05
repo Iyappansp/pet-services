@@ -179,7 +179,7 @@
   .hero-main { min-height: 85vh; padding-top: var(--nav-height); }
   .hero-main .container { padding-top: 60px; padding-bottom: 40px; }
   .hero-content { text-align: left; }
-  .hero-image-wrap { display: flex; align-items: center; justify-content: center; }
+  .hero-image-wrap { display: none; }
   .trust-badges { justify-content: flex-start; }
   .hero-btns { justify-content: flex-start; }
 
