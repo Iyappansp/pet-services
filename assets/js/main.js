@@ -441,12 +441,20 @@
       menu.classList.add('open');
       overlay.classList.add('show');
       document.body.style.overflow = 'hidden';
+      const scrollTopBtn = document.querySelector('.scroll-top');
+      if (scrollTopBtn) {
+        scrollTopBtn.style.display = 'none';
+      }
     }
 
     function closeMenu() {
       menu.classList.remove('open');
       overlay.classList.remove('show');
       document.body.style.overflow = '';
+      const scrollTopBtn = document.querySelector('.scroll-top');
+      if (scrollTopBtn) {
+        scrollTopBtn.style.display = '';
+      }
     }
 
     if (toggle) toggle.addEventListener('click', openMenu);

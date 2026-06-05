@@ -1985,7 +1985,7 @@ p { color: var(--text-secondary); }
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,.5);
-  z-index: 998;
+  z-index: 1010;
   opacity: 0;
   visibility: hidden;
   transition: var(--transition);
@@ -2001,7 +2001,7 @@ p { color: var(--text-secondary); }
   width: 300px;
   height: 100vh;
   background: var(--light);
-  z-index: 999;
+  z-index: 1011;
   padding: 24px 20px;
   overflow-y: auto;
   transition: var(--transition-slow);

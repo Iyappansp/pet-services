@@ -29,7 +29,7 @@
 .stat-number { font-size: 1.8rem; }
 
 /* Service cards */
-.service-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+.service-grid { grid-template-columns: 1fr; gap: 16px; }
 
 /* GPS mockup */
 .gps-map-area { height: 200px; }
