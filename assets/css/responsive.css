@@ -167,7 +167,7 @@
    TABLETS (768px+)
    ============================================================ */
 @media (min-width: 768px) {
-  :root { --nav-height: 80px; }
+  :root { --nav-height: 92px; }
   .container { padding: 0 24px; }
 
   .section-padding { padding: 72px 0; }
@@ -177,6 +177,7 @@
 
   /* Hero */
   .hero-main { min-height: 85vh; padding-top: var(--nav-height); }
+  .hero-main .container { padding-top: 60px; padding-bottom: 40px; }
   .hero-content { text-align: left; }
   .hero-image-wrap { display: flex; align-items: center; justify-content: center; }
   .trust-badges { justify-content: flex-start; }
@@ -383,7 +384,7 @@ p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
     font-size: 0.8rem;
   }
   .nav-actions {
-    gap: 4px;
+    gap: 10px;
   }
   .nav-actions .btn {
     padding: 8px 14px;

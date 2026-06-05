@@ -234,11 +234,6 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 13.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5-3c-.83 0-1.5.67-1.5 1.5S7.17 13.5 8 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 0c-.83 0-1.5.67-1.5 1.5S15.17 13.5 16 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5 3c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 11c-2.21 0-4 1.79-4 4 0 2.5 2.5 4.5 4 5.5 1.5-1 4-3 4-5.5 0-2.21-1.79-4-4-4z"/></svg>
       </span> My Pets
     </a>
-    <a href="gps-tracking.html" class="dash-nav-item" data-dash-page="gps-tracking">
-      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-      </span> GPS Tracking
-    </a>
     <a href="vaccination-records.html" class="dash-nav-item" data-dash-page="vaccination-records">
       <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg>
@@ -273,10 +268,6 @@
     <a href="pet-profiles.html" class="dash-mobile-nav-item" data-dash-page="pet-profiles">
       <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 13.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5-3c-.83 0-1.5.67-1.5 1.5S7.17 13.5 8 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 0c-.83 0-1.5.67-1.5 1.5S15.17 13.5 16 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5 3c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 11c-2.21 0-4 1.79-4 4 0 2.5 2.5 4.5 4 5.5 1.5-1 4-3 4-5.5 0-2.21-1.79-4-4-4z"/></svg></span>
       Pets
-    </a>
-    <a href="gps-tracking.html" class="dash-mobile-nav-item" data-dash-page="gps-tracking">
-      <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-      GPS
     </a>
     <a href="vaccination-records.html" class="dash-mobile-nav-item" data-dash-page="vaccination-records">
       <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg></span>
