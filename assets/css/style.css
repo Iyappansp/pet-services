@@ -1266,7 +1266,7 @@ p { color: var(--text-secondary); }
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  opacity: 0.12 !important; /* Slightly increased opacity for better light mode watermark visibility */
+  opacity: 0.18 !important; /* Increased opacity for better light mode watermark visibility */
   z-index: 0;
   pointer-events: none;
   display: block !important;
@@ -1300,6 +1300,19 @@ p { color: var(--text-secondary); }
 /* Disable dark overlays in light mode */
 .hero-main::after, .page-header::after {
   display: none !important;
+}
+
+/* Light mode overrides for outline white buttons in hero sections */
+.hero-main .btn-outline-white,
+.page-header .btn-outline-white {
+  color: var(--primary) !important;
+  border-color: var(--primary) !important;
+}
+.hero-main .btn-outline-white:hover,
+.page-header .btn-outline-white:hover {
+  background: var(--primary) !important;
+  color: #fff !important;
+  border-color: var(--primary) !important;
 }
 
 /* Force Left Alignment for all Subtitles correctly */
@@ -2208,7 +2221,7 @@ p { color: var(--text-secondary); }
   margin-left: -24px;
   margin-right: -24px;
   margin-top: -30px;
-  height: 160px;
+  height: 240px; /* Default height for stacked mobile/tablet view */
   overflow: hidden;
   border-top-left-radius: calc(var(--radius-xl) - 2px);
   border-top-right-radius: calc(var(--radius-xl) - 2px);
@@ -2226,7 +2239,7 @@ p { color: var(--text-secondary); }
 /* Before and After story card images */
 .story-card-img-wrap {
   width: 100%;
-  height: 160px;
+  height: 240px; /* Default height for stacked mobile/tablet view */
   overflow: hidden;
 }
 .story-card-img-wrap img {
@@ -2244,5 +2257,15 @@ p { color: var(--text-secondary); }
 /* Reduced bottom padding for pricing sections */
 .pricing-section {
   padding-bottom: 40px !important;
+}
+
+/* Responsive card image overrides for desktop viewports */
+@media (min-width: 992px) {
+  .pricing-card-img-wrap {
+    height: 160px;
+  }
+  .story-card-img-wrap {
+    height: 160px;
+  }
 }
 

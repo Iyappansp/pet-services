@@ -103,7 +103,6 @@
       </div>
       <a href="login.html" class="btn btn-outline" style="width:100%; justify-content:center;">Login</a>
       <a href="dashboard.html" class="btn btn-primary" style="width:100%; justify-content:center;">Dashboard</a>
-      <a href="booking.html" class="btn btn-outline" style="width:100%; justify-content:center; border-color: var(--primary); color: var(--primary);">Book a Visit</a>
     </div>
   </div>
   `;

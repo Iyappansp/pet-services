@@ -248,6 +248,18 @@
   opacity: 0.25 !important;
   display: block !important;
 }
+/* Keep outline white buttons white in dark mode */
+[data-theme="dark"] .hero-main .btn-outline-white,
+[data-theme="dark"] .page-header .btn-outline-white {
+  color: #fff !important;
+  border-color: rgba(255,255,255,.6) !important;
+}
+[data-theme="dark"] .hero-main .btn-outline-white:hover,
+[data-theme="dark"] .page-header .btn-outline-white:hover {
+  background: #fff !important;
+  color: var(--dark) !important;
+  border-color: #fff !important;
+}
 
 /* Transition for theme change */
 body, .card, .service-card, .feature-card, .navbar,
