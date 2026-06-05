@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
 <head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — PawCare Pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -151,7 +152,7 @@ function submitContact(e) {
   e.preventDefault();
   document.getElementById('contactForm').innerHTML = `
     <div style="text-align:center;padding:40px 20px;">
-      <div style="font-size:3.5rem;margin-bottom:16px;"></div>
+      <div style="font-size:3.5rem;margin-bottom:16px;animation: scale-in 0.5s ease;">✉️</div>
       <h4 style="font-family:var(--font-heading);font-weight:800;color:var(--primary);margin-bottom:10px;">Message Sent!</h4>
       <p style="color:var(--text-secondary);">Thank you! We'll get back to you within 2 business hours.</p>
     </div>`;

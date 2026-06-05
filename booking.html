@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
 <head>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book a Visit — PawCare Pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,54 +13,114 @@
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-<header id="main-header"></header>
+<!-- Mobile Top Header -->
+<div class="dash-mobile-header">
+  <img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img">
+  <div style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;color:var(--text-primary);">Dashboard</div>
+  <div style="width:32px;height:32px;border-radius:50%;overflow:hidden;"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width:100%;height:100%;object-fit:cover;"></div>
+</div>
 
-<section class="page-header hero-bg-image hero-bg-booking hero-bg-overlay-dark-center" style="color:#fff;">
-  <div class="container text-center">
-    <span class="section-label" style="background:rgba(255,255,255,0.15);color:#fff;"> Book Now</span>
-    <h1 class="animate-fade-up" style="color:#fff;">Book a Pet Care Visit</h1>
-    <p class="section-subtitle animate-fade-up delay-1" style="color:rgba(255,255,255,0.85);">Fill in your details and we'll match you with the perfect sitter within 30 minutes.</p>
-  </div>
-</section>
+<div class="dashboard-layout">
+  <!-- Sidebar -->
+  <aside class="dashboard-sidebar">
+    <!-- Sidebar Logo -->
+    <div class="sidebar-logo">
+      <img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img">
+    </div>
+    <!-- User Info -->
+    <div style="padding:20px;border-bottom:1px solid var(--border);margin-bottom:8px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div>
+          <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">Sarah Johnson</div>
+          <div style="font-size:.75rem;color:var(--text-muted);">Pet Parent</div>
+        </div>
+      </div>
+    </div>
+    <!-- Nav -->
+    <a href="dashboard.html" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+      </span> Overview
+    </a>
+    <a href="booking.html" class="dash-nav-item active">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      </span> Book a Visit
+    </a>
+    <a href="pet-profiles.html" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m0-12a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3M5 16a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m14 0a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg>
+      </span> My Pets
+    </a>
+    <a href="gps-tracking.html" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+      </span> GPS Tracking
+    </a>
+    <a href="vaccination-records.html" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg>
+      </span> Vaccinations
+    </a>
+    <a href="#" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </span> Messages <span style="background:var(--primary);color:#fff;border-radius:10px;padding:1px 7px;font-size:.65rem;margin-left:auto;">3</span>
+    </a>
+    <a href="#" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+      </span> Photo Gallery
+    </a>
+    <a href="#" class="dash-nav-item">
+      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></span> Settings
+    </a>
+    <div class="sidebar-footer">
+      <a href="login.html" class="btn btn-outline btn-sm" style="width:100%;">Sign Out</a>
+    </div>
+  </aside>
 
-<section class="section-padding bg-gradient-light">
-  <div class="container">
-    <div class="row g-5 justify-content-center">
+  <!-- Main Content -->
+  <main class="dashboard-main" style="padding-bottom:80px;">
+    <div class="row g-4 justify-content-center">
       <!-- Form -->
-      <div class="col-lg-7">
-        <div class="booking-form-container" style="background:var(--light);border-radius:var(--radius-xl);padding:40px 32px;border:1px solid var(--border);box-shadow:var(--shadow-lg);">
+      <div class="col-xl-8 col-lg-7">
+        <div class="booking-form-container" style="background:var(--light);border-radius:var(--radius-xl);padding:32px 28px;border:1px solid var(--border);box-shadow:var(--shadow-md);">
+          <h2 style="font-family:var(--font-heading);font-weight:800;margin-bottom:6px;">Book a Pet Care Visit</h2>
+          <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:28px;">Fill in your details and we'll match you with the perfect sitter within 30 minutes.</p>
 
           <!-- Step 1: Service Selection -->
           <div class="mb-4">
             <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;"><span style="width:28px;height:28px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;">1</span> Choose a Service</h5>
             <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;">
               <div class="service-select-card" data-service="Dog Walking" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
-                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-size:1.8rem;margin-bottom:6px;">🦮</div>
                 <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Dog Walking</div>
                 <div style="font-size:.7rem;color:var(--text-muted);">From $18</div>
               </div>
               <div class="service-select-card" data-service="Pet Sitting" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
-                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-size:1.8rem;margin-bottom:6px;">🐈</div>
                 <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Pet Sitting</div>
                 <div style="font-size:.7rem;color:var(--text-muted);">From $25</div>
               </div>
               <div class="service-select-card" data-service="Overnight Care" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
-                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-size:1.8rem;margin-bottom:6px;">🏡</div>
                 <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Overnight</div>
                 <div style="font-size:.7rem;color:var(--text-muted);">From $75</div>
               </div>
               <div class="service-select-card" data-service="Puppy Visit" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
-                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-size:1.8rem;margin-bottom:6px;">🐕‍🦺</div>
                 <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Puppy Visit</div>
                 <div style="font-size:.7rem;color:var(--text-muted);">From $20</div>
               </div>
               <div class="service-select-card" data-service="Cat Care" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
-                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-size:1.8rem;margin-bottom:6px;">🐱</div>
                 <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Cat Care</div>
                 <div style="font-size:.7rem;color:var(--text-muted);">From $22</div>
               </div>
               <div class="service-select-card" data-service="Senior Care" style="border:2px solid var(--border);border-radius:var(--radius-lg);padding:14px;text-align:center;cursor:pointer;transition:all .2s ease;" onclick="selectService(this)">
-                <div style="font-size:1.8rem;margin-bottom:6px;"></div>
+                <div style="font-size:1.8rem;margin-bottom:6px;">👴</div>
                 <div style="font-family:var(--font-heading);font-weight:600;font-size:.8rem;color:var(--text-primary);">Senior Care</div>
                 <div style="font-size:.7rem;color:var(--text-muted);">From $28</div>
               </div>
@@ -154,21 +215,20 @@
       </div>
 
       <!-- Sidebar Info -->
-      <div class="col-lg-4 d-none d-lg-block">
-        <div style="position:sticky;top:90px;display:flex;flex-direction:column;gap:20px;">
+      <div class="col-xl-4 col-lg-5">
+        <div style="position:sticky;top:20px;display:flex;flex-direction:column;gap:20px;">
           <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);padding:24px;">
             <h5 style="font-family:var(--font-heading);font-weight:700;margin-bottom:16px;"> Your Booking is Protected</h5>
             <div style="display:flex;flex-direction:column;gap:10px;">
-              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Background-checked sitters</div>
-              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Fully insured & bonded</div>
-              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> GPS tracking every visit</div>
-              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Photo & video updates</div>
-              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> 24/7 emergency support</div>
-              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);"> Free cancellation 24hrs prior</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);">✓ Background-checked sitters</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);">✓ Fully insured & bonded</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);">✓ GPS tracking every visit</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);">✓ Photo & video updates</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);">✓ 24/7 emergency support</div>
+              <div style="display:flex;gap:10px;align-items:center;font-size:.85rem;color:var(--text-secondary);">✓ Free cancellation 24hrs prior</div>
             </div>
           </div>
           <div style="background:rgba(76,175,80,.08);border:1px solid rgba(76,175,80,.2);border-radius:var(--radius-xl);padding:24px;">
-            <div style="font-size:2rem;margin-bottom:8px;"></div>
             <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:12px;">"Booking was so easy. Emma arrived exactly on time and Max absolutely loves her!"</p>
             <div style="font-size:.8rem;font-weight:600;color:var(--text-primary);">— Sarah J., Dog Mom</div>
           </div>
@@ -180,11 +240,33 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </main>
+</div>
 
-<footer id="main-footer"></footer>
-<button class="scroll-top">↑</button>
+<!-- Mobile Bottom Nav -->
+<nav class="dash-mobile-nav">
+  <a href="dashboard.html" class="dash-mobile-nav-item">
+    <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg></span>
+    Overview
+  </a>
+  <a href="booking.html" class="dash-mobile-nav-item active">
+    <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+    Book
+  </a>
+  <a href="pet-profiles.html" class="dash-mobile-nav-item">
+    <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m0-12a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3M5 16a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m14 0a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg></span>
+    Pets
+  </a>
+  <a href="gps-tracking.html" class="dash-mobile-nav-item">
+    <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
+    GPS
+  </a>
+  <a href="vaccination-records.html" class="dash-mobile-nav-item">
+    <span class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg></span>
+    Records
+  </a>
+</nav>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/animations.js"></script>

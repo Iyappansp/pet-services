@@ -206,6 +206,19 @@
 /* Insurance Badge */
 [data-theme="dark"] .insurance-badge { background: var(--light); border-color: var(--border); }
 
+/* Toast Notification Dark Mode Override */
+[data-theme="dark"] .toast-msg {
+  background: #1E2530;
+  color: #F1F5F9;
+  border: 1px solid var(--border);
+}
+
+/* Map Photo Preview Dark Mode Override */
+[data-theme="dark"] .map-photo-preview {
+  background: rgba(30, 37, 48, 0.95);
+  border: 1px solid var(--border);
+}
+
 /* Transition for theme change */
 body, .card, .service-card, .feature-card, .navbar,
 .mobile-menu, .footer, .form-control, .form-select,

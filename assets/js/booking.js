@@ -92,17 +92,17 @@
 
       container.innerHTML = `
         <div style="text-align: center; padding: 60px 40px;">
-          <div style="font-size: 4rem; margin-bottom: 20px; animation: bounce-in 0.5s ease;"></div>
+          <div style="font-size: 4rem; margin-bottom: 20px; animation: bounce-in 0.5s ease;">✅</div>
           <h3 style="font-family: var(--font-heading); font-weight: 800; color: var(--primary); margin-bottom: 12px;">Booking Confirmed!</h3>
           <p style="color: var(--text-secondary); max-width: 360px; margin: 0 auto 28px;">
             Your pet care request has been submitted. We'll match you with the perfect sitter and confirm within 30 minutes.
           </p>
-          <div style="background: rgba(76,175,80,.08); border: 1px solid rgba(76,175,80,.2); border-radius: 12px; padding: 20px; max-width: 320px; margin: 0 auto 28px; text-align: left;">
+          <div style="background: rgba(76,175,80,.08); border: 1px solid rgba(76,175,80,.2); border-radius: 12px; padding: 20px; max-width: 320px; margin: 0 auto 28px; text-align: center;">
             <p style="font-size:.85rem; color:var(--text-secondary); margin:0;">
                Confirmation email sent<br>
                SMS notification enabled<br>
                Sitter match in progress...
-            </p>
+             </p>
           </div>
           <a href="dashboard.html" class="btn btn-primary">Go to Dashboard</a>
         </div>

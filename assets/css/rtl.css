@@ -74,7 +74,7 @@
 [dir="rtl"] .alert { flex-direction: row-reverse; text-align: right; }
 
 /* Toast RTL */
-[dir="rtl"] .toast-container { right: auto; left: 20px; }
+[dir="rtl"] .toast-container { right: auto; left: 50%; }
 [dir="rtl"] .toast-msg { flex-direction: row-reverse; border-left: none; border-right: 4px solid; }
 [dir="rtl"] .toast-msg.success { border-right-color: var(--success); }
 [dir="rtl"] .toast-msg.error { border-right-color: var(--danger); }
