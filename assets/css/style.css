@@ -1265,7 +1265,7 @@ p { color: var(--text-secondary); }
   background-size: cover !important;
   background-position: center center !important;
   background-repeat: no-repeat !important;
-  opacity: 0.12 !important; /* Low opacity in light mode for subtle look */
+  opacity: 0.06 !important; /* Low opacity in light mode for subtle look */
   z-index: 0;
   pointer-events: none;
   display: block !important;
@@ -1282,6 +1282,15 @@ p { color: var(--text-secondary); }
   margin-left: 0 !important;
   margin-right: auto !important;
   text-align: left !important;
+}
+
+/* Centered Layout Support for Home 1 */
+.hero-centered .section-subtitle,
+.hero-centered p.animate-fade-up,
+.hero-centered p {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
 }
 
 /* Targeted Hero Text Color overrides for Light Mode */
@@ -2116,7 +2125,7 @@ p { color: var(--text-secondary); }
 
 .hero-bg-image .container {
   position: relative;
-  z-index: 2;
+  z-index: 2 !important;
 }
 
 /* Individual page backgrounds */

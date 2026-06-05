@@ -53,6 +53,12 @@
 [data-theme="dark"] .hero-main::after, [data-theme="dark"] .page-header::after {
   display: block !important;
 }
+[data-theme="dark"] .hero-bg-overlay-dark::after {
+  background: linear-gradient(to right, rgba(17, 24, 39, 0.45) 0%, rgba(17, 24, 39, 0.1) 100%) !important;
+}
+[data-theme="dark"] .hero-bg-overlay-dark-center::after {
+  background: rgba(17, 24, 39, 0.45) !important;
+}
 [data-theme="dark"] .hero-shape-1 {
   background: radial-gradient(circle, rgba(76,175,80,.2), transparent 70%);
 }
