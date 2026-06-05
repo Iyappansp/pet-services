@@ -21,11 +21,12 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html" data-page="index">Home</a></li>
         <li><a href="home-2.html" data-page="home-2">Home 2</a></li>
+                <li><a href="about.html" data-page="about">About</a></li>
+
         <li><a href="services.html" data-page="services">Services</a></li>
         <li><a href="sitter-profiles.html" data-page="sitter-profiles">Sitters</a></li>
         <li><a href="pricing.html" data-page="pricing">Pricing</a></li>
         <li><a href="gps-tracking.html" data-page="gps-tracking">GPS Tracking</a></li>
-        <li><a href="about.html" data-page="about">About</a></li>
         <li><a href="contact.html" data-page="contact">Contact</a></li>
       </ul>
 
