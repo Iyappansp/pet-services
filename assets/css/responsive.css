@@ -370,3 +370,70 @@ p, h1, h2, h3, h4, h5, h6, span, a, li, td, th {
   max-width: 100%;
   word-break: keep-all;
 }
+
+/* ============================================================
+   1024px - 1199px COMPACT NAVIGATION SCREEN RESPONSIVE
+   ============================================================ */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .nav-links {
+    gap: 2px;
+  }
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+  .nav-actions {
+    gap: 4px;
+  }
+  .nav-actions .btn {
+    padding: 8px 14px;
+    font-size: 0.8rem;
+  }
+  .nav-icon-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+  .nav-icon-btn.rtl-text-btn {
+    height: 34px;
+    padding: 0 10px;
+    font-size: 0.68rem;
+  }
+  .logo-img {
+    height: 40px;
+  }
+}
+
+/* ============================================================
+   GRID CENTERING FOR ODD ITEM COUNTS (TABLET RESPONSIVE)
+   ============================================================ */
+@media (min-width: 576px) and (max-width: 1023px) {
+  .sitter-grid > *:last-child:nth-child(odd),
+  .blog-grid > *:last-child:nth-child(odd) {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    width: 100%;
+    max-width: calc(50% - 12px);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+  .pet-grid > *:last-child:nth-child(odd),
+  .service-grid > *:last-child:nth-child(odd) {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    width: 100%;
+    max-width: calc(50% - 10px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .pet-grid > *:last-child:nth-child(3n+1),
+  .service-grid > *:last-child:nth-child(3n+1) {
+    grid-column: 1 / span 3;
+    justify-self: center;
+    width: 100%;
+    max-width: calc(33.333% - 16px);
+  }
+}
+

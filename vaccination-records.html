@@ -1,198 +1,273 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light" dir="ltr">
+
 <head>
   <link rel="icon" type="image/png" href="assets/favicon.png">
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vaccination Records — PawCare Pro</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
+
 <body>
-<!-- Mobile Top Header -->
-<div class="dash-mobile-header"></div>
-<div class="dashboard-layout">
-  <!-- Sidebar -->
-  <aside class="dashboard-sidebar"></aside>
+  <!-- Mobile Top Header -->
+  <div class="dash-mobile-header"></div>
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="dashboard-sidebar"></aside>
 
-  <!-- Main Content -->
-  <main class="dashboard-main" style="padding-bottom:80px;">
-    <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
-      <div>
-        <h2 style="font-family:var(--font-heading);font-weight:800;margin:0;">Vaccination Records</h2>
-        <p style="color:var(--text-muted);font-size:.9rem;margin-top:4px;">Track, manage and share your pet's vaccination history in one place.</p>
-      </div>
-      <button class="btn btn-primary" onclick="showAddModal()">+ Add Record</button>
-    </div>
-
-    <!-- Pet Selector -->
-    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;" class="animate-fade-up">
-      <button class="btn btn-primary btn-sm" onclick="selectPet(this,'max')"> Max</button>
-      <button class="btn btn-ghost btn-sm" onclick="selectPet(this,'luna')"> Luna</button>
-    </div>
-
-    <!-- Status Cards -->
-    <div class="row g-3 mb-4">
-      <div class="col-6 col-md-3 animate-fade-up">
-        <div style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:6px;color:var(--success);display:flex;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg></div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--success);">4</div>
-          <div style="font-size:.78rem;color:var(--text-muted);">Up to Date</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 animate-fade-up delay-1">
-        <div style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:6px;color:var(--primary);display:flex;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg></div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--warning);">1</div>
-          <div style="font-size:.78rem;color:var(--text-muted);">Due Soon</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 animate-fade-up delay-2">
-        <div style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:6px;color:var(--danger);display:flex;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--danger);">0</div>
-          <div style="font-size:.78rem;color:var(--text-muted);">Overdue</div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3 animate-fade-up delay-3">
-        <div style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
-          <div style="font-size:1.8rem;margin-bottom:6px;color:var(--info);display:flex;justify-content:center;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></div>
-          <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--info);">Sep 15</div>
-          <div style="font-size:.78rem;color:var(--text-muted);">Next Due</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Table -->
-    <div style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow);" class="animate-fade-up">
-      <div style="padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
-        <h5 style="font-family:var(--font-heading);font-weight:700;margin:0;"> Max's Vaccination History</h5>
-        <button onclick="showToast('Downloading PDF...','success')" class="btn btn-outline btn-sm">⬇ Export PDF</button>
-      </div>
-      <div class="vacc-responsive-wrap">
-        <table class="vacc-table" style="margin:12px 0;">
-          <thead>
-            <tr>
-              <th>Vaccine</th>
-              <th>Date Given</th>
-              <th>Expiration</th>
-              <th>Vet / Clinic</th>
-              <th>Status</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Rabies</strong><br><span style="font-size:.75rem;color:var(--text-muted);">3-year vaccine</span></td>
-              <td>Jan 15, 2024</td>
-              <td>Jan 15, 2027</td>
-              <td>Dr. Smith — City Vet</td>
-              <td><span class="badge badge-success"> Current</span></td>
-              <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;" onclick="showToast('Record viewed','success')">View</button></td>
-            </tr>
-            <tr>
-              <td><strong>DHPP</strong><br><span style="font-size:.75rem;color:var(--text-muted);">Distemper combo</span></td>
-              <td>Mar 10, 2024</td>
-              <td>Mar 10, 2025</td>
-              <td>Dr. Smith — City Vet</td>
-              <td><span class="badge badge-success"> Current</span></td>
-              <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;" onclick="showToast('Record viewed','success')">View</button></td>
-            </tr>
-            <tr>
-              <td><strong>Bordetella</strong><br><span style="font-size:.75rem;color:var(--text-muted);">Kennel cough</span></td>
-              <td>Mar 10, 2024</td>
-              <td>Sep 15, 2025</td>
-              <td>Dr. Smith — City Vet</td>
-              <td><span class="badge badge-secondary"> Due Soon</span></td>
-              <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;" onclick="showToast('Record viewed','success')">View</button></td>
-            </tr>
-            <tr>
-              <td><strong>Leptospirosis</strong><br><span style="font-size:.75rem;color:var(--text-muted);">Annual</span></td>
-              <td>Apr 20, 2024</td>
-              <td>Apr 20, 2025</td>
-              <td>City Vet Clinic</td>
-              <td><span class="badge badge-success"> Current</span></td>
-              <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;" onclick="showToast('Record viewed','success')">View</button></td>
-            </tr>
-            <tr>
-              <td><strong>Canine Influenza</strong><br><span style="font-size:.75rem;color:var(--text-muted);">Annual</span></td>
-              <td>Jun 5, 2024</td>
-              <td>Jun 5, 2025</td>
-              <td>PetHealth Clinic</td>
-              <td><span class="badge badge-success"> Current</span></td>
-              <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;" onclick="showToast('Record viewed','success')">View</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Reminder Setting -->
-    <div style="margin-top:24px;background:rgba(76,175,80,.07);border:1px solid rgba(76,175,80,.2);border-radius:var(--radius-xl);padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;" class="animate-fade-up">
-      <div style="display:flex;align-items:center;gap:14px;">
-        <div style="font-size:2rem;color:var(--primary);display:flex;align-items:center;justify-content:center;"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>
+    <!-- Main Content -->
+    <main class="dashboard-main" style="padding-bottom:80px;">
+      <div
+        style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:28px;">
         <div>
-          <div style="font-family:var(--font-heading);font-weight:700;color:var(--text-primary);">Vaccination Reminders</div>
-          <div style="font-size:.85rem;color:var(--text-secondary);">We'll send you an email & SMS 30 days before any vaccination expires.</div>
+          <h2 style="font-family:var(--font-heading);font-weight:800;margin:0;">Vaccination Records</h2>
+          <p style="color:var(--text-muted);font-size:.9rem;margin-top:4px;">Track, manage and share your pet's
+            vaccination history in one place.</p>
+        </div>
+        <button class="btn btn-primary" onclick="showAddModal()">+ Add Record</button>
+      </div>
+
+      <!-- Pet Selector -->
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px;" class="animate-fade-up">
+        <button class="btn btn-primary btn-sm" onclick="selectPet(this,'max')"> Max</button>
+        <button class="btn btn-ghost btn-sm" onclick="selectPet(this,'luna')"> Luna</button>
+      </div>
+
+      <!-- Status Cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3 animate-fade-up">
+          <div
+            style="background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
+            <div style="font-size:1.8rem;margin-bottom:6px;color:var(--success);display:flex;justify-content:center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <polyline points="9 11 11 13 15 9"></polyline>
+              </svg></div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--success);">4</div>
+            <div style="font-size:.78rem;color:var(--text-muted);">Up to Date</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 animate-fade-up delay-1">
+          <div
+            style="background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
+            <div style="font-size:1.8rem;margin-bottom:6px;color:var(--primary);display:flex;justify-content:center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg></div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--warning);">1</div>
+            <div style="font-size:.78rem;color:var(--text-muted);">Due Soon</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 animate-fade-up delay-2">
+          <div
+            style="background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
+            <div style="font-size:1.8rem;margin-bottom:6px;color:var(--danger);display:flex;justify-content:center;">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z">
+                </path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg></div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--danger);">0</div>
+            <div style="font-size:.78rem;color:var(--text-muted);">Overdue</div>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 animate-fade-up delay-3">
+          <div
+            style="background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.2);border-radius:var(--radius-lg);padding:18px;text-align:center;">
+            <div style="font-size:1.8rem;margin-bottom:6px;color:var(--info);display:flex;justify-content:center;"><svg
+                width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg></div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.4rem;color:var(--info);">Sep 15
+            </div>
+            <div style="font-size:.78rem;color:var(--text-muted);">Next Due</div>
+          </div>
         </div>
       </div>
-      <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
-        <div style="position:relative;width:48px;height:26px;">
-          <input type="checkbox" id="reminderToggle" checked style="opacity:0;position:absolute;inset:0;z-index:1;cursor:pointer;" onchange="toggleReminder(this)">
-          <div id="toggleTrack" style="background:var(--primary);border-radius:13px;width:100%;height:100%;transition:background .2s;"></div>
-          <div id="toggleThumb" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s;transform:translateX(22px);"></div>
+
+      <!-- Table -->
+      <div
+        style="background:var(--light);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow);"
+        class="animate-fade-up">
+        <div
+          style="padding:20px 24px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+          <h5 style="font-family:var(--font-heading);font-weight:700;margin:0;"> Max's Vaccination History</h5>
+          <button onclick="showToast('Downloading PDF...','success')" class="btn btn-outline btn-sm">⬇ Export
+            PDF</button>
         </div>
-        <span style="font-size:.85rem;font-weight:600;color:var(--text-primary);">Enabled</span>
-      </label>
-    </div>
-  </main>
-</div>
+        <div class="vacc-responsive-wrap">
+          <table class="vacc-table" style="margin:12px 0;">
+            <thead>
+              <tr>
+                <th>Vaccine</th>
+                <th>Date Given</th>
+                <th>Expiration</th>
+                <th>Vet / Clinic</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Rabies</strong><br><span style="font-size:.75rem;color:var(--text-muted);">3-year
+                    vaccine</span></td>
+                <td>Jan 15, 2024</td>
+                <td>Jan 15, 2027</td>
+                <td>Dr. Smith — City Vet</td>
+                <td><span class="badge badge-success"> Current</span></td>
+                <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;"
+                    onclick="showToast('Record viewed','success')">View</button></td>
+              </tr>
+              <tr>
+                <td><strong>DHPP</strong><br><span style="font-size:.75rem;color:var(--text-muted);">Distemper
+                    combo</span></td>
+                <td>Mar 10, 2024</td>
+                <td>Mar 10, 2026</td>
+                <td>Dr. Smith — City Vet</td>
+                <td><span class="badge badge-success"> Current</span></td>
+                <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;"
+                    onclick="showToast('Record viewed','success')">View</button></td>
+              </tr>
+              <tr>
+                <td><strong>Bordetella</strong><br><span style="font-size:.75rem;color:var(--text-muted);">Kennel
+                    cough</span></td>
+                <td>Mar 10, 2024</td>
+                <td>Sep 15, 2026</td>
+                <td>Dr. Smith — City Vet</td>
+                <td><span class="badge badge-secondary"> Due Soon</span></td>
+                <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;"
+                    onclick="showToast('Record viewed','success')">View</button></td>
+              </tr>
+              <tr>
+                <td><strong>Leptospirosis</strong><br><span
+                    style="font-size:.75rem;color:var(--text-muted);">Annual</span></td>
+                <td>Apr 20, 2024</td>
+                <td>Apr 20, 2026</td>
+                <td>City Vet Clinic</td>
+                <td><span class="badge badge-success"> Current</span></td>
+                <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;"
+                    onclick="showToast('Record viewed','success')">View</button></td>
+              </tr>
+              <tr>
+                <td><strong>Canine Influenza</strong><br><span
+                    style="font-size:.75rem;color:var(--text-muted);">Annual</span></td>
+                <td>Jun 5, 2024</td>
+                <td>Jun 5, 2026</td>
+                <td>PetHealth Clinic</td>
+                <td><span class="badge badge-success"> Current</span></td>
+                <td><button class="btn btn-ghost btn-sm" style="padding:4px 10px;font-size:.75rem;"
+                    onclick="showToast('Record viewed','success')">View</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-<!-- Mobile Bottom Nav -->
-<nav class="dash-mobile-nav"></nav>
+      <!-- Reminder Setting -->
+      <div
+        style="margin-top:24px;background:rgba(76,175,80,.07);border:1px solid rgba(76,175,80,.2);border-radius:var(--radius-xl);padding:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;"
+        class="animate-fade-up">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div style="font-size:2rem;color:var(--primary);display:flex;align-items:center;justify-content:center;"><svg
+              width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg></div>
+          <div>
+            <div style="font-family:var(--font-heading);font-weight:700;color:var(--text-primary);">Vaccination
+              Reminders</div>
+            <div style="font-size:.85rem;color:var(--text-secondary);">We'll send you an email & SMS 30 days before any
+              vaccination expires.</div>
+          </div>
+        </div>
+        <label style="display:flex;align-items:center;gap:8px;cursor:pointer;">
+          <div style="position:relative;width:48px;height:26px;">
+            <input type="checkbox" id="reminderToggle" checked
+              style="opacity:0;position:absolute;inset:0;z-index:1;cursor:pointer;" onchange="toggleReminder(this)">
+            <div id="toggleTrack"
+              style="background:var(--primary);border-radius:13px;width:100%;height:100%;transition:background .2s;">
+            </div>
+            <div id="toggleThumb"
+              style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:#fff;border-radius:50%;transition:transform .2s;transform:translateX(22px);">
+            </div>
+          </div>
+          <span style="font-size:.85rem;font-weight:600;color:var(--text-primary);">Enabled</span>
+        </label>
+      </div>
+    </main>
+  </div>
 
-<!-- Add Record Modal -->
-<div id="addVaccModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:20px;">
-  <div style="background:var(--light);border-radius:var(--radius-xl);padding:32px;width:100%;max-width:480px;box-shadow:var(--shadow-xl);">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
-      <h4 style="font-family:var(--font-heading);font-weight:700;margin:0;">Add Vaccination Record </h4>
-      <button onclick="hideAddModal()" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted);">&times;</button>
-    </div>
-    <div class="form-group"><label class="form-label">Vaccine Name *</label><input type="text" class="form-control" placeholder="e.g. Rabies"></div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-      <div class="form-group"><label class="form-label">Date Given *</label><input type="date" class="form-control"></div>
-      <div class="form-group"><label class="form-label">Expiration Date</label><input type="date" class="form-control"></div>
-    </div>
-    <div class="form-group"><label class="form-label">Vet / Clinic</label><input type="text" class="form-control" placeholder="Dr. Smith — City Vet"></div>
-    <div class="form-group"><label class="form-label">Notes</label><textarea class="form-control" rows="2" placeholder="Optional notes..."></textarea></div>
-    <div style="display:flex;gap:10px;">
-      <button onclick="hideAddModal()" class="btn btn-outline" style="flex:1;">Cancel</button>
-      <button onclick="saveRecord()" class="btn btn-primary" style="flex:1;">Save Record</button>
+  <!-- Mobile Bottom Nav -->
+  <nav class="dash-mobile-nav"></nav>
+
+  <!-- Add Record Modal -->
+  <div id="addVaccModal"
+    style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;align-items:center;justify-content:center;padding:20px;">
+    <div
+      style="background:var(--light);border-radius:var(--radius-xl);padding:32px;width:100%;max-width:480px;box-shadow:var(--shadow-xl);">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;">
+        <h4 style="font-family:var(--font-heading);font-weight:700;margin:0;">Add Vaccination Record </h4>
+        <button onclick="hideAddModal()"
+          style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted);">&times;</button>
+      </div>
+      <div class="form-group"><label class="form-label">Vaccine Name *</label><input type="text" class="form-control"
+          placeholder="e.g. Rabies"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-group"><label class="form-label">Date Given *</label><input type="date" class="form-control">
+        </div>
+        <div class="form-group"><label class="form-label">Expiration Date</label><input type="date"
+            class="form-control"></div>
+      </div>
+      <div class="form-group"><label class="form-label">Vet / Clinic</label><input type="text" class="form-control"
+          placeholder="Dr. Smith — City Vet"></div>
+      <div class="form-group"><label class="form-label">Notes</label><textarea class="form-control" rows="2"
+          placeholder="Optional notes..."></textarea></div>
+      <div style="display:flex;gap:10px;">
+        <button onclick="hideAddModal()" class="btn btn-outline" style="flex:1;">Cancel</button>
+        <button onclick="saveRecord()" class="btn btn-primary" style="flex:1;">Save Record</button>
+      </div>
     </div>
   </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-<script src="assets/js/animations.js"></script>
-<script>
-function showAddModal(){ document.getElementById('addVaccModal').style.display='flex'; }
-function hideAddModal(){ document.getElementById('addVaccModal').style.display='none'; }
-function saveRecord(){ hideAddModal(); showToast('Vaccination record saved! ','success'); }
-function selectPet(btn,pet){
-  document.querySelectorAll('[onclick*="selectPet"]').forEach(b=>b.className='btn btn-ghost btn-sm');
-  btn.className='btn btn-primary btn-sm';
-}
-function toggleReminder(cb){
-  const track=document.getElementById('toggleTrack');
-  const thumb=document.getElementById('toggleThumb');
-  if(cb.checked){ track.style.background='var(--primary)'; thumb.style.transform='translateX(22px)'; showToast('Reminders enabled ','success'); }
-  else { track.style.background='var(--bg-3)'; thumb.style.transform='translateX(0)'; showToast('Reminders disabled','success'); }
-}
-</script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script>
+    function showAddModal() { document.getElementById('addVaccModal').style.display = 'flex'; }
+    function hideAddModal() { document.getElementById('addVaccModal').style.display = 'none'; }
+    function saveRecord() { hideAddModal(); showToast('Vaccination record saved! ', 'success'); }
+    function selectPet(btn, pet) {
+      document.querySelectorAll('[onclick*="selectPet"]').forEach(b => b.className = 'btn btn-ghost btn-sm');
+      btn.className = 'btn btn-primary btn-sm';
+    }
+    function toggleReminder(cb) {
+      const track = document.getElementById('toggleTrack');
+      const thumb = document.getElementById('toggleThumb');
+      if (cb.checked) { track.style.background = 'var(--primary)'; thumb.style.transform = 'translateX(22px)'; showToast('Reminders enabled ', 'success'); }
+      else { track.style.background = 'var(--bg-3)'; thumb.style.transform = 'translateX(0)'; showToast('Reminders disabled', 'success'); }
+    }
+  </script>
 </body>
+
 </html>
