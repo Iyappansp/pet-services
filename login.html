@@ -12,12 +12,14 @@
   <link rel="stylesheet" href="assets/css/rtl.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <style>
-    body { overflow: hidden; }
-    @media (max-width: 767px) { body { overflow: auto; } }
     .input-eye { position:absolute;right:14px;top:50%;transform:translateY(-50%);cursor:pointer;font-size:1rem;color:var(--text-muted); }
   </style>
 </head>
 <body>
+<div class="auth-toggles">
+  <button class="nav-icon-btn" id="themeToggle" title="Toggle theme"><span id="themeIcon"></span></button>
+  <button class="nav-icon-btn" id="rtlToggle" title="Toggle RTL"><span id="rtlIcon">RTL</span></button>
+</div>
 <div class="auth-page">
   <!-- BG Shapes -->
   <div class="hero-bg-shape hero-shape-1" style="opacity:.3;"></div>
@@ -77,11 +79,7 @@
       New to PawCare Pro? <a href="signup.html" style="color:var(--primary);font-weight:700;">Create account →</a>
     </p>
 
-    <!-- Theme Toggle on auth pages -->
-    <div style="display:flex;justify-content:center;gap:10px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
-      <button class="nav-icon-btn" id="themeToggle" title="Toggle theme"><span id="themeIcon"></span></button>
-      <button class="nav-icon-btn" id="rtlToggle" title="Toggle RTL"><span id="rtlIcon">⇄</span></button>
-    </div>
+    <!-- Toggles moved to top corner -->
   </div>
 </div>
 

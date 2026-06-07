@@ -67,6 +67,9 @@
     <a href="home-2.html" class="mobile-nav-link" data-page="home-2">
       <span></span> Home 2
     </a>
+    <a href="about.html" class="mobile-nav-link" data-page="about">
+      <span></span> About
+    </a>
     <a href="services.html" class="mobile-nav-link" data-page="services">
       <span></span> Services
     </a>
@@ -79,9 +82,7 @@
     <a href="gps-tracking.html" class="mobile-nav-link" data-page="gps-tracking">
       <span></span> GPS Tracking
     </a>
-    <a href="about.html" class="mobile-nav-link" data-page="about">
-      <span></span> About
-    </a>
+
     <a href="contact.html" class="mobile-nav-link" data-page="contact">
       <span></span> Contact
     </a>

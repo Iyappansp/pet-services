@@ -21,9 +21,9 @@
     <h1 class="animate-fade-up" style="color:#fff;">Simple, Transparent<br><span style="color:var(--primary);">Pricing.</span></h1>
     <p class="section-subtitle animate-fade-up delay-1" style="color:rgba(255,255,255,0.85);">No hidden fees. No surprises. Just honest pricing for premium pet care.</p>
     <!-- Toggle Monthly/One-time -->
-    <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-full);padding:6px;margin-top:20px;" class="animate-fade-up delay-2">
-      <button class="btn btn-primary btn-sm" id="oneTimeBtn" onclick="togglePricing('onetime')">Per Visit</button>
-      <button class="btn btn-ghost btn-sm" id="monthlyBtn" onclick="togglePricing('monthly')" style="color:#fff;">Monthly Plan</button>
+    <div class="pricing-toggle-wrap animate-fade-up delay-2">
+      <button class="btn-toggle-pricing active" id="oneTimeBtn" onclick="togglePricing('onetime')">Per Visit</button>
+      <button class="btn-toggle-pricing" id="monthlyBtn" onclick="togglePricing('monthly')">Monthly Plan</button>
     </div>
   </div>
 </section>
@@ -198,8 +198,8 @@ function togglePricing(type) {
   document.getElementById('basicPrice').innerHTML = prices[type].basic;
   document.getElementById('premiumPrice').innerHTML = prices[type].premium;
   document.getElementById('vipPrice').innerHTML = prices[type].vip;
-  document.getElementById('oneTimeBtn').className = type === 'onetime' ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm';
-  document.getElementById('monthlyBtn').className = type === 'monthly' ? 'btn btn-primary btn-sm' : 'btn btn-ghost btn-sm';
+  document.getElementById('oneTimeBtn').classList.toggle('active', type === 'onetime');
+  document.getElementById('monthlyBtn').classList.toggle('active', type === 'monthly');
 }
 </script>
 </body>

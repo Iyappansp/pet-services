@@ -256,7 +256,7 @@
 
 /* Page header */
 .page-header {
-  padding: 80px 0 40px;
+  padding: calc(var(--nav-height) + 20px) 0 40px;
 }
 
 /* GPS page tracking info */
@@ -506,7 +506,7 @@
 
   /* Page header */
   .page-header {
-    padding: 100px 0 60px;
+    padding: calc(var(--nav-height) + 30px) 0 60px;
   }
 
   /* RTL tablet */
@@ -763,9 +763,14 @@ th {
     gap: 10px;
   }
 
-  .nav-actions .btn {
-    padding: 8px 14px;
+  .nav-actions .btn,
+  .nav-actions .btn-sm {
+    height: 34px;
+    padding: 0 14px;
     font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-icon-btn {

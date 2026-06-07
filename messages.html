@@ -130,6 +130,8 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      flex: 1;
+      min-width: 0;
     }
 
     .unread-badge {
@@ -316,7 +318,7 @@
                 <span class="chat-item-name">Emma Rodriguez</span>
                 <span class="chat-item-time" id="emmaTime">9:45 AM</span>
               </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; min-width:0;">
                 <span class="chat-item-preview" id="emmaPreview">Just dropped Max off! Let me know if you...</span>
                 <span class="unread-badge" id="emmaBadge">2</span>
               </div>
@@ -334,7 +336,7 @@
                 <span class="chat-item-name">Carlos Mendoza</span>
                 <span class="chat-item-time">Yesterday</span>
               </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; min-width:0;">
                 <span class="chat-item-preview">I will be there at 2:00 PM tomorrow...</span>
                 <span class="unread-badge" style="display:none;" id="carlosBadge">0</span>
               </div>
@@ -352,7 +354,7 @@
                 <span class="chat-item-name">Sophie Dubois</span>
                 <span class="chat-item-time">Jun 3</span>
               </div>
-              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; min-width:0;">
                 <span class="chat-item-preview">Could you tell me where the leash is...</span>
                 <span class="unread-badge" style="display:none;" id="sophieBadge">0</span>
               </div>

@@ -723,6 +723,14 @@ p {
   letter-spacing: 0.06em;
 }
 
+.nav-actions .btn-sm {
+  height: 38px;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* Mobile Toggle */
 .mobile-toggle {
   display: none;
@@ -1907,6 +1915,46 @@ p {
 /* ============================================================
    PRICING
    ============================================================ */
+/* Pricing custom toggle wrap & buttons */
+.pricing-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-full);
+  padding: 4px;
+  margin-top: 20px;
+  position: relative;
+  z-index: 2;
+}
+.btn-toggle-pricing {
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: none !important;
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  transition: var(--transition);
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: none !important;
+}
+.btn-toggle-pricing:hover {
+  color: var(--text-primary) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
+}
+.btn-toggle-pricing.active {
+  background: var(--primary) !important;
+  color: #fff !important;
+  box-shadow: var(--shadow-primary) !important;
+}
+
 .pricing-card {
   background: var(--light);
   border-radius: var(--radius-xl);
@@ -2006,6 +2054,30 @@ p {
   padding: 40px 20px;
   position: relative;
   overflow: hidden;
+}
+
+/* Auth pages theme/RTL toggles positioning */
+.auth-toggles {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  gap: 10px;
+  z-index: 1000;
+}
+[dir="rtl"] .auth-toggles {
+  right: auto;
+  left: 24px;
+}
+@media (max-width: 576px) {
+  .auth-toggles {
+    top: 16px;
+    right: 16px;
+  }
+  [dir="rtl"] .auth-toggles {
+    right: auto;
+    left: 16px;
+  }
 }
 
 .auth-card {
@@ -2695,4 +2767,43 @@ p {
   .story-card-img-wrap {
     height: 160px;
   }
+}
+
+/* ============================================================
+   ABOUT PAGE STATS CARDS
+   ============================================================ */
+.about-stat-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(76, 175, 80, 0.15);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  text-align: center;
+  transition: var(--transition);
+}
+.about-stat-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(76, 175, 80, 0.3);
+  box-shadow: var(--shadow-md);
+}
+.about-stat-icon-wrap {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+}
+.about-stat-icon-wrap.primary-icon { color: var(--primary); }
+.about-stat-icon-wrap.secondary-icon { color: var(--secondary-dark); }
+.about-stat-icon-wrap.white-icon { color: var(--dark-2); }
+.about-stat-number {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--text-primary);
+}
+.about-stat-label {
+  font-size: .85rem;
+  color: var(--text-secondary);
 }

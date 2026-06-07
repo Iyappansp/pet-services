@@ -16,7 +16,8 @@
     /* ---- Home-2 Specific ---- */
     .h2-hero {
       min-height: 100vh;
-      padding-top: var(--nav-height);
+      padding-top: calc(var(--nav-height) + 60px);
+      padding-bottom: 60px;
       background: linear-gradient(135deg, #0d2010 0%, #111827 50%, #1a1a06 100%);
       display: flex;
       align-items: center;
@@ -151,6 +152,14 @@
     }
     @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     .marquee-item { display: flex; align-items: center; gap: 10px; color: #fff; font-family: var(--font-heading); font-weight: 600; font-size: .875rem; }
+    
+    @media (max-width: 1200px) {
+      .h2-hero {
+        padding-top: calc(var(--nav-height) + 80px);
+        padding-bottom: 80px;
+        min-height: auto;
+      }
+    }
   </style>
 </head>
 <body>
