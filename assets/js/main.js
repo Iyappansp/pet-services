@@ -212,55 +212,111 @@
         <img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img">
       </a>
     </div>
-    <!-- User Info -->
-    <div style="padding:20px;border-bottom:1px solid var(--border);margin-bottom:8px;">
-      <div style="display:flex;align-items:center;gap:12px;">
-        <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div>
-          <div style="font-family:var(--font-heading);font-weight:700;font-size:.9rem;color:var(--text-primary);">Sarah Johnson</div>
-          <div style="font-size:.75rem;color:var(--text-muted);">Pet Parent</div>
-        </div>
-      </div>
-    </div>
     <!-- Nav -->
-    <a href="dashboard.html" class="dash-nav-item" data-dash-page="dashboard">
-      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
-      </span> Overview
-    </a>
-    <a href="booking.html" class="dash-nav-item" data-dash-page="booking">
-      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-      </span> Book a Visit
-    </a>
-    <a href="pet-profiles.html" class="dash-nav-item" data-dash-page="pet-profiles">
-      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 13.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5-3c-.83 0-1.5.67-1.5 1.5S7.17 13.5 8 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 0c-.83 0-1.5.67-1.5 1.5S15.17 13.5 16 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5 3c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 11c-2.21 0-4 1.79-4 4 0 2.5 2.5 4.5 4 5.5 1.5-1 4-3 4-5.5 0-2.21-1.79-4-4-4z"/></svg>
-      </span> My Pets
-    </a>
-    <a href="vaccination-records.html" class="dash-nav-item" data-dash-page="vaccination-records">
-      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg>
-      </span> Vaccinations
-    </a>
-    <a href="messages.html" class="dash-nav-item" data-dash-page="messages">
-      <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-      </span> Messages <span style="background:var(--primary);color:#fff;border-radius:10px;padding:1px 7px;font-size:.65rem;margin-left:auto;" id="sidebarMessagesBadge">3</span>
-    </a>
+    <div style="padding-top: 16px;">
+      <a href="dashboard.html" class="dash-nav-item" data-dash-page="dashboard">
+        <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"></rect><rect x="14" y="3" width="7" height="5"></rect><rect x="14" y="12" width="7" height="9"></rect><rect x="3" y="16" width="7" height="5"></rect></svg>
+        </span> Overview
+      </a>
+      <a href="booking.html" class="dash-nav-item" data-dash-page="booking">
+        <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </span> Book a Visit
+      </a>
+      <a href="pet-profiles.html" class="dash-nav-item" data-dash-page="pet-profiles">
+        <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.5 13.5c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5-3c-.83 0-1.5.67-1.5 1.5S7.17 13.5 8 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm8 0c-.83 0-1.5.67-1.5 1.5S15.17 13.5 16 13.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zm3.5 3c-.83 0-1.5.67-1.5 1.5s.67 1.5 1.5 1.5 1.5-.67 1.5-1.5-.67-1.5-1.5-1.5zM12 11c-2.21 0-4 1.79-4 4 0 2.5 2.5 4.5 4 5.5 1.5-1 4-3 4-5.5 0-2.21-1.79-4-4-4z"/></svg>
+        </span> My Pets
+      </a>
+      <a href="vaccination-records.html" class="dash-nav-item" data-dash-page="vaccination-records">
+        <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 11 11 13 15 9"></polyline></svg>
+        </span> Vaccinations
+      </a>
+      <a href="messages.html" class="dash-nav-item" data-dash-page="messages">
+        <span class="icon" style="display:inline-flex;align-items:center;justify-content:center;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </span> Messages <span style="background:var(--primary);color:#fff;border-radius:10px;padding:1px 7px;font-size:.65rem;margin-left:auto;" id="sidebarMessagesBadge">3</span>
+      </a>
+    </div>
   
     <div class="sidebar-footer">
-      <div style="display:flex; gap:10px; margin-bottom:12px; justify-content:center; align-items:center; width:100%;">
-        <!-- Theme Toggle -->
-        <button class="nav-icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="margin: 0;">
-          <span id="themeIcon"></span>
-        </button>
-        <!-- RTL Toggle -->
-        <button class="nav-icon-btn rtl-text-btn" id="rtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="margin: 0;">
-          <span id="rtlIcon">RTL</span>
-        </button>
-      </div>
       <a href="login.html" class="btn btn-outline btn-sm" style="width:100%;">Sign Out</a>
+    </div>
+  `;
+
+  const DASHBOARD_HEADER_HTML = `
+    <div class="dash-header-left">
+      <h3 class="dash-header-title" id="dashHeaderTitle" style="margin: 0; font-family: var(--font-heading); font-weight: 800; font-size: 1.5rem; color: var(--text-primary);">Dashboard</h3>
+    </div>
+    <div class="dash-header-right" style="display: flex; align-items: center; gap: 16px;">
+      <!-- Theme Toggle -->
+      <button class="nav-icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="margin: 0;">
+        <span id="themeIcon"></span>
+      </button>
+
+      <!-- RTL Toggle -->
+      <button class="nav-icon-btn rtl-text-btn" id="rtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="margin: 0;">
+        <span id="rtlIcon">RTL</span>
+      </button>
+
+      <!-- Notification Bell -->
+      <div class="dash-header-dropdown dash-notification-dropdown" style="position: relative;">
+        <button class="nav-icon-btn" id="dashNotificationBtn" title="Notifications" aria-label="Notifications" style="margin: 0; position: relative;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="notification-badge" style="position: absolute; top: 4px; right: 4px; width: 8px; height: 8px; background: var(--danger, #EF4444); border-radius: 50%;"></span>
+        </button>
+        <div class="dropdown-menu-dash" id="dashNotificationMenu" style="display: none; position: absolute; right: 0; top: 120%; background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 300px; z-index: 1000; padding: 10px 0;">
+          <div style="padding: 10px 16px 8px; border-bottom: 1px solid var(--border); font-weight: 700; font-family: var(--font-heading); font-size: 0.85rem; color: var(--text-primary); display: flex; justify-content: space-between; align-items: center;">
+            <span>Notifications</span>
+            <span style="font-size: 0.75rem; color: var(--primary); cursor: pointer;" id="markReadBtn">Mark read</span>
+          </div>
+          <div style="max-height: 240px; overflow-y: auto;" id="dashNotificationsList">
+            <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--text-primary);">
+              <div style="font-weight: 600;">Max's Walk Confirmed</div>
+              <div style="color: var(--text-muted); font-size: 0.75rem; margin-top: 2px;">Tomorrow at 9:00 AM with Emma</div>
+            </div>
+            <div style="padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.8rem; color: var(--text-primary);">
+              <div style="font-weight: 600;">New Message from Emma</div>
+              <div style="color: var(--text-muted); font-size: 0.75rem; margin-top: 2px;">"Max was such a good boy today!"</div>
+            </div>
+            <div style="padding: 12px 16px; font-size: 0.8rem; color: var(--text-primary);">
+              <div style="font-weight: 600;">Vaccination Due Soon</div>
+              <div style="color: var(--text-muted); font-size: 0.75rem; margin-top: 2px;">Max's Rabies vaccine expires in 15 days</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Dropdown -->
+      <div class="dash-header-dropdown dash-profile-dropdown" style="position: relative;">
+        <button id="dashProfileBtn" style="background: none; border: none; padding: 0; display: flex; align-items: center; gap: 10px; cursor: pointer;">
+          <div style="width: 38px; height: 38px; border-radius: 50%; overflow: hidden; border: 2px solid var(--primary);"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width: 100%; height: 100%; object-fit: cover;"></div>
+          <span class="dash-profile-name" style="font-family: var(--font-heading); font-weight: 600; font-size: 0.85rem; color: var(--text-primary); display: flex; align-items: center; gap: 4px;">
+            Sarah Johnson
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </span>
+        </button>
+        <div class="dropdown-menu-dash" id="dashProfileMenu" style="display: none; position: absolute; right: 0; top: 120%; background: var(--light); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); width: 180px; z-index: 1000; padding: 6px 0;">
+          <a href="pet-profiles.html" style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; transition: var(--transition);" class="dash-dropdown-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            My Pets
+          </a>
+          <a href="booking.html" style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; font-size: 0.85rem; color: var(--text-secondary); text-decoration: none; transition: var(--transition);" class="dash-dropdown-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            Book a Visit
+          </a>
+          <div style="border-top: 1px solid var(--border); margin: 6px 0;"></div>
+          <a href="login.html" id="dashSignOutBtn" style="display: flex; align-items: center; gap: 8px; padding: 10px 16px; font-size: 0.85rem; color: #EF4444; text-decoration: none; transition: var(--transition);" class="dash-dropdown-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            Sign Out
+          </a>
+        </div>
+      </div>
     </div>
   `;
 
@@ -328,8 +384,33 @@
     }
     mobileNav.innerHTML = DASHBOARD_MOBILE_NAV_HTML;
 
-    // Set Active Dashboard Links
+    // 4. Desktop Dashboard Header Injection
+    let mainContent = layout.querySelector('.dashboard-main');
+    if (mainContent) {
+      let dashHeader = mainContent.querySelector('.dashboard-header');
+      if (!dashHeader) {
+        dashHeader = document.createElement('header');
+        dashHeader.className = 'dashboard-header animate-fade-down';
+        mainContent.insertBefore(dashHeader, mainContent.firstChild);
+      }
+      dashHeader.innerHTML = DASHBOARD_HEADER_HTML;
+    }
+
+    // Set Active Dashboard Links and Dynamic Title
     const path = window.location.pathname.split('/').pop().replace('.html', '') || 'dashboard';
+
+    // Set Header Title based on current page
+    const titleEl = document.getElementById('dashHeaderTitle');
+    if (titleEl) {
+      const pageTitles = {
+        'dashboard': 'Overview',
+        'booking': 'Book a Visit',
+        'pet-profiles': 'My Pets',
+        'vaccination-records': 'Vaccination Records',
+        'messages': 'Messages'
+      };
+      titleEl.textContent = pageTitles[path] || 'Dashboard';
+    }
 
     // In sidebar
     sidebar.querySelectorAll('[data-dash-page]').forEach(link => {
@@ -353,6 +434,62 @@
     if (path === 'messages') {
       const sidebarBadge = document.getElementById('sidebarMessagesBadge');
       if (sidebarBadge) sidebarBadge.style.display = 'none';
+    }
+
+    // Notification Badge and Clear Action
+    const badge = document.querySelector('.notification-badge');
+    const markReadBtn = document.getElementById('markReadBtn');
+    const list = document.getElementById('dashNotificationsList');
+    
+    if (markReadBtn && badge && list) {
+      markReadBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        badge.style.display = 'none';
+        list.innerHTML = `
+          <div style="padding: 24px; text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+            No new notifications
+          </div>
+        `;
+      });
+    }
+
+    // Dropdown toggles with event delegation
+    if (!window.dashDropdownsInitialized) {
+      window.dashDropdownsInitialized = true;
+      document.addEventListener('click', function (e) {
+        const notifBtn = e.target.closest('#dashNotificationBtn');
+        const notifMenu = document.getElementById('dashNotificationMenu');
+        const profileBtn = e.target.closest('#dashProfileBtn');
+        const profileMenu = document.getElementById('dashProfileMenu');
+
+        if (notifBtn && notifMenu) {
+          e.preventDefault();
+          const isOpen = notifMenu.style.display === 'block';
+          closeAllDashDropdowns();
+          if (!isOpen) notifMenu.style.display = 'block';
+          return;
+        }
+
+        if (profileBtn && profileMenu) {
+          e.preventDefault();
+          const isOpen = profileMenu.style.display === 'block';
+          closeAllDashDropdowns();
+          if (!isOpen) profileMenu.style.display = 'block';
+          return;
+        }
+
+        // Close if clicked outside
+        if (!e.target.closest('.dash-notification-dropdown') && !e.target.closest('.dash-profile-dropdown')) {
+          closeAllDashDropdowns();
+        }
+      });
+    }
+
+    function closeAllDashDropdowns() {
+      const menus = document.querySelectorAll('.dropdown-menu-dash');
+      menus.forEach(m => {
+        m.style.display = 'none';
+      });
     }
   }
 

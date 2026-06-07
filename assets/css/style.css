@@ -1802,6 +1802,215 @@ p {
   display: none;
 }
 
+/* ============================================================
+   NEW FLOATING DASHBOARD HEADER & DROPDOWNS
+   ============================================================ */
+.dashboard-header {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 12px 24px;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.dash-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.dash-header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Profiles and dropdowns inside header */
+.dash-profile-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.dash-profile-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--primary);
+  transition: var(--transition);
+}
+
+.dash-profile-btn:hover .dash-profile-avatar {
+  transform: scale(1.05);
+}
+
+.dash-profile-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: var(--transition);
+}
+
+.dash-profile-btn:hover .dash-profile-name {
+  color: var(--primary);
+}
+
+/* Dropdown Menu Styles */
+.dropdown-menu-dash {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 200px;
+  z-index: 1000;
+  padding: 8px 0;
+  display: none;
+  animation: slide-down 0.2s ease-out;
+}
+
+.dropdown-menu-dash.show {
+  display: block !important;
+}
+
+/* Dropdown Item */
+.dash-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  font-size: 0.85rem;
+  color: var(--text-secondary) !important;
+  text-decoration: none !important;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.dash-dropdown-item:hover {
+  background: rgba(76, 175, 80, 0.08);
+  color: var(--primary) !important;
+}
+
+.dash-dropdown-item.logout-item {
+  color: #EF4444 !important;
+}
+
+.dash-dropdown-item.logout-item:hover {
+  background: rgba(239, 68, 68, 0.08);
+  color: #EF4444 !important;
+}
+
+.dropdown-divider-dash {
+  border-top: 1px solid var(--border);
+  margin: 6px 0;
+}
+
+/* Notifications Dropdown Customization */
+.dash-notification-dropdown .dropdown-menu-dash {
+  width: 320px;
+}
+
+.dropdown-header-dash {
+  padding: 10px 16px 8px;
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mark-read-btn {
+  font-size: 0.75rem;
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.mark-read-btn:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.notification-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.notification-item:last-child {
+  border-bottom: none;
+}
+
+.notification-item:hover {
+  background: rgba(76, 175, 80, 0.04);
+}
+
+.notif-title {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--text-primary);
+}
+
+.notif-time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  margin-top: 2px;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  background: #EF4444;
+  border-radius: 50%;
+  animation: pulse-dot 1.5s infinite;
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .dashboard-header {
+    display: none !important;
+  }
+}
+
+[dir="rtl"] .dropdown-menu-dash {
+  right: auto;
+  left: 0;
+}
+
 
 .dash-nav-item {
   display: flex;

@@ -307,3 +307,40 @@ body, .card, .service-card, .feature-card, .navbar,
   color: #fff !important;
   box-shadow: var(--shadow-primary) !important;
 }
+
+/* Dashboard Header Dark Mode Overrides */
+[data-theme="dark"] .dashboard-header {
+  background: var(--light);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+[data-theme="dark"] .dropdown-menu-dash {
+  background: var(--light);
+  border-color: var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+[data-theme="dark"] .dash-dropdown-item:hover {
+  background: rgba(102, 187, 106, 0.12);
+  color: var(--primary) !important;
+}
+
+[data-theme="dark"] .dash-dropdown-item.logout-item:hover {
+  background: rgba(239, 68, 68, 0.12) !important;
+}
+
+[data-theme="dark"] .dropdown-divider-dash,
+[data-theme="dark"] .dropdown-header-dash,
+[data-theme="dark"] .notification-item {
+  border-color: var(--border);
+}
+
+[data-theme="dark"] .notification-item:hover {
+  background: rgba(102, 187, 106, 0.06);
+}
+
+[data-theme="dark"] .dash-profile-name {
+  color: var(--text-primary);
+}
+
