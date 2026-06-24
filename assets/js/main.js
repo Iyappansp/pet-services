@@ -93,11 +93,11 @@
         <span style="font-family: var(--font-heading); font-size: 0.85rem; font-weight: 600; color: var(--text-secondary);">Preferences</span>
         <div style="display: flex; gap: 8px;">
           <!-- Theme Toggle inside menu -->
-          <button class="nav-icon-btn" id="menuThemeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="width: 40px; height: 40px; border-radius: 0px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-primary); transition: var(--transition);">
+          <button class="nav-icon-btn" id="menuThemeToggle" title="Toggle Dark Mode" aria-label="Toggle theme" style="width: 40px; height: 40px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-primary); transition: var(--transition);">
             <span id="menuThemeIcon"></span>
           </button>
           <!-- RTL Toggle inside menu -->
-          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="width: 40px; height: 40px; border-radius: 0px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
+          <button class="nav-icon-btn rtl-text-btn" id="menuRtlToggle" title="Toggle RTL" aria-label="Toggle direction" style="width: 40px; height: 40px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: var(--text-primary); transition: var(--transition);">
             <span id="menuRtlIcon">RTL</span>
           </button>
         </div>
@@ -106,7 +106,6 @@
         <a href="login.html" class="btn btn-outline" style="flex: 1; justify-content: center;">Login</a>
         <a href="dashboard.html" class="btn btn-primary" style="flex: 1; justify-content: center;">Dashboard</a>
       </div>
-      <a href="login.html" class="btn btn-outline" style="width: 100%; justify-content: center; background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.2); color: #EF4444;">Sign Out</a>
     </div>
   </div>
   `;
@@ -207,10 +206,13 @@
      ============================================================ */
   const DASHBOARD_SIDEBAR_HTML = `
     <!-- Sidebar Logo -->
-    <div class="sidebar-logo">
+    <div class="sidebar-logo" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
       <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
         <img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img">
       </a>
+      <button id="dashSidebarClose" class="mobile-menu-close" aria-label="Close sidebar" style="margin: 0; width: 32px; height: 32px; font-size: 1.2rem; border-radius: 50%; border: none; background: var(--bg-2); color: var(--text-primary); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
     </div>
     <!-- Nav -->
     <div style="padding-top: 16px;">
@@ -321,8 +323,11 @@
   `;
 
   const DASHBOARD_MOBILE_HEADER_HTML = `
-    <a href="index.html"><img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img"></a>
-    <div style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;color:var(--text-primary);">Dashboard</div>
+    <button class="nav-icon-btn" id="dashSidebarToggle" title="Open Sidebar" aria-label="Open sidebar" style="margin: 0; display: flex; align-items: center; justify-content: center; background: none; border: none; font-size: 1.5rem; color: var(--text-primary); cursor: pointer; width: 38px; height: 38px; border-radius: 50% !important;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+    <a href="index.html" style="margin-left: 8px;"><img src="assets/logo.png" alt="PawCare Pro Logo" class="logo-img"></a>
+    <div style="font-family:var(--font-heading);font-weight:700;font-size:1.1rem;color:var(--text-primary);margin-left:auto;margin-right:auto;">Dashboard</div>
     <div style="width:32px;height:32px;border-radius:50%;overflow:hidden;"><img src="assets/images/testimonial-sarah.png" alt="Sarah Johnson" style="width:100%;height:100%;object-fit:cover;"></div>
   `;
 
@@ -491,6 +496,52 @@
         m.style.display = 'none';
       });
     }
+
+    // 5. Mobile Sidebar Drawer Logic
+    let overlay = document.getElementById('dashSidebarOverlay');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'dashSidebarOverlay';
+      overlay.className = 'mobile-menu-overlay';
+      layout.parentNode.insertBefore(overlay, layout);
+    }
+
+    const dashSidebarToggle = document.getElementById('dashSidebarToggle');
+    const dashSidebarClose = document.getElementById('dashSidebarClose');
+
+    function openDashSidebar() {
+      if (sidebar) sidebar.classList.add('open');
+      if (overlay) overlay.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDashSidebar() {
+      if (sidebar) sidebar.classList.remove('open');
+      if (overlay) overlay.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    if (dashSidebarToggle) {
+      dashSidebarToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        openDashSidebar();
+      });
+    }
+
+    if (dashSidebarClose) {
+      dashSidebarClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        closeDashSidebar();
+      });
+    }
+
+    if (overlay) {
+      overlay.addEventListener('click', closeDashSidebar);
+    }
+
+    sidebar.querySelectorAll('.dash-nav-item').forEach(link => {
+      link.addEventListener('click', closeDashSidebar);
+    });
   }
 
   /* ============================================================

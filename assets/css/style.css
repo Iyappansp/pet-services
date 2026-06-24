@@ -251,7 +251,7 @@ p {
   font-weight: 600;
   letter-spacing: 0.01em;
   padding: 12px 28px;
-  border-radius: 0px;
+  border-radius: var(--radius-full);
   border: 2px solid transparent;
   transition: var(--transition) !important;
   white-space: nowrap;
@@ -682,7 +682,7 @@ p {
 .nav-icon-btn {
   width: 38px;
   height: 38px;
-  border-radius: 0px !important;
+  border-radius: 50% !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -706,7 +706,7 @@ p {
 .nav-icon-btn.rtl-text-btn {
   width: 38px;
   height: 38px;
-  border-radius: 0px !important;
+  border-radius: 50% !important;
   padding: 0;
   font-family: var(--font-heading);
   font-size: 0.72rem;
@@ -2874,8 +2874,12 @@ p {
 }
 
 /* Individual page backgrounds */
-.hero-bg-home::before {
-  background-image: url('../images/hero-home.png') !important;
+.hero-bg-home1::before {
+  background-image: url('../images/hero-home1.png') !important;
+}
+
+.hero-bg-home2::before {
+  background-image: url('../images/hero-home2.png') !important;
 }
 
 .hero-bg-services::before {
@@ -3015,4 +3019,22 @@ p {
 .about-stat-label {
   font-size: .85rem;
   color: var(--text-secondary);
+}
+
+/* ============================================================
+   TYPOGRAPHY HIERARCHY OVERRIDES
+   Enforce heading weights at 600 and paragraph weights at 450 (400-550 range)
+   ============================================================ */
+h1, h2, h3, h4, h5, h6,
+.section-title, .h2-hero h1, .hero-main h1,
+.benefit-card h5, .story-card h5, .process-step h6,
+.about-stat-number, .pricing-card h5, .sitter-card h5,
+.contact-info-card h5, .faq-question, .display-5, .display-4, .display-3 {
+  font-weight: 600 !important;
+}
+
+p, .section-subtitle, .benefit-card p, .story-card p, .process-step p,
+.about-stat-label, .pricing-card p, .sitter-card p, .contact-info-card p,
+.faq-answer, .trust-badge, .stat-label, .form-label {
+  font-weight: 450 !important;
 }
