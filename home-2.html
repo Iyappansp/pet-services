@@ -11,19 +11,33 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
-  <link rel="stylesheet" href="assets/css/responsive.css">
-  <style>
+  <link rel="stylesheet" href="assets/css/responsive.css">  <style>
     /* ---- Home-2 Specific ---- */
     .h2-hero {
       min-height: 100vh;
       padding-top: calc(var(--nav-height) + 60px);
       padding-bottom: 60px;
-      background: linear-gradient(135deg, #0d2010 0%, #111827 50%, #1a1a06 100%);
+      background: linear-gradient(135deg, #F0FDF4 0%, #F8FAFC 50%, #FFFBEB 100%);
       display: flex;
       align-items: center;
       position: relative;
       overflow: hidden;
     }
+    .h2-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(248, 250, 252, 0.9) 40%, rgba(248, 250, 252, 0.55) 100%) !important;
+      z-index: 1;
+      pointer-events: none;
+    }
+    [data-theme="dark"] .h2-hero {
+      background: linear-gradient(135deg, #0d2010 0%, #111827 50%, #1a1a06 100%) !important;
+    }
+    [data-theme="dark"] .h2-hero::after {
+      background: linear-gradient(to right, rgba(17, 24, 39, 0.85) 45%, rgba(17, 24, 39, 0.4) 100%) !important;
+    }
+
     .h2-hero-orb {
       position: absolute;
       border-radius: 50%;
@@ -44,15 +58,134 @@
       66%      { transform: translateY(-20px) translateX(-15px); opacity:.4; }
     }
     .floating-stat-card {
-      background: rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.12);
+      border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: var(--radius-lg);
       padding: 14px 18px;
-      color: #fff;
+      color: var(--text-primary);
       position: absolute;
       animation: float-bob 3s ease-in-out infinite alternate;
+      box-shadow: var(--shadow-md);
     }
+    [data-theme="dark"] .floating-stat-card {
+      background: rgba(30, 37, 48, 0.8) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: #fff !important;
+      box-shadow: 0 32px 80px rgba(0,0,0,.4) !important;
+    }
+
+    .h2-mockup-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: var(--shadow-xl);
+      color: var(--text-primary);
+      position: relative;
+    }
+    [data-theme="dark"] .h2-mockup-card {
+      background: rgba(30, 37, 48, 0.8) !important;
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4) !important;
+      color: var(--text-primary);
+    }
+    .h2-mockup-map {
+      background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+      border-radius: 16px;
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+    [data-theme="dark"] .h2-mockup-map {
+      background: linear-gradient(135deg, #0d2010, #1a3a1e) !important;
+    }
+
+    .h2-service-card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      height: 100%;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+    .h2-service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-xl);
+    }
+    [data-theme="dark"] .h2-service-card {
+      background: rgba(255, 255, 255, 0.03) !important;
+      backdrop-filter: blur(12px);
+      border-color: rgba(255, 255, 255, 0.08) !important;
+      box-shadow: none !important;
+    }
+    [data-theme="dark"] .h2-service-card:hover {
+      background: rgba(255, 255, 255, 0.05) !important;
+      border-color: rgba(76, 175, 80, 0.4) !important;
+    }
+
+    .bg-gradient-services {
+      background: var(--bg);
+      color: var(--text-primary);
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="dark"] .bg-gradient-services {
+      background: linear-gradient(180deg, #111827 0%, #0c121e 100%) !important;
+      color: #fff !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .h2-final-cta {
+      background: linear-gradient(135deg, #F0FDF4 0%, #F8FAFC 50%, #FFFBEB 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid var(--border);
+    }
+    [data-theme="dark"] .h2-final-cta {
+      background: linear-gradient(135deg, #0d2010 0%, #111827 50%, #1a1a06 100%) !important;
+      border-top: none !important;
+    }
+
+    .h2-service-card-purple-icon {
+      color: #7c3aed !important;
+    }
+    [data-theme="dark"] .h2-service-card-purple-icon {
+      color: #c084fc !important;
+    }
+
+    .h2-hero .btn-outline-white,
+    .h2-service-card .btn-outline-white,
+    .h2-final-cta .btn-outline-white {
+      color: var(--text-primary);
+      border-color: var(--border-2);
+    }
+    .h2-hero .btn-outline-white:hover,
+    .h2-service-card .btn-outline-white:hover,
+    .h2-final-cta .btn-outline-white:hover {
+      background: var(--text-primary);
+      color: var(--light);
+      border-color: var(--text-primary);
+    }
+    [data-theme="dark"] .h2-hero .btn-outline-white,
+    [data-theme="dark"] .h2-service-card .btn-outline-white,
+    [data-theme="dark"] .h2-final-cta .btn-outline-white {
+      color: #fff !important;
+      border-color: rgba(255, 255, 255, 0.6) !important;
+      background: transparent !important;
+    }
+    [data-theme="dark"] .h2-hero .btn-outline-white:hover,
+    [data-theme="dark"] .h2-service-card .btn-outline-white:hover,
+    [data-theme="dark"] .h2-final-cta .btn-outline-white:hover {
+      background: #fff !important;
+      color: var(--dark) !important;
+      border-color: #fff !important;
+    }
+
     .benefit-card {
       background: var(--light);
       border: 1px solid var(--border);
@@ -187,15 +320,15 @@
       <div class="col-lg-6">
         <div class="animate-fade-up" style="display:inline-flex;align-items:center;gap:8px;background:rgba(76,175,80,.15);border:1px solid rgba(76,175,80,.3);padding:7px 16px;border-radius:var(--radius-full);margin-bottom:24px;">
           <span style="width:8px;height:8px;background:var(--primary);border-radius:50%;animation:pulse-dot 1.5s infinite;"></span>
-          <span style="font-family:var(--font-heading);font-size:.78rem;font-weight:700;color:rgba(255,255,255,.9);letter-spacing:.05em;text-transform:uppercase;">Now Available in 12 Cities</span>
+          <span style="font-family:var(--font-heading);font-size:.78rem;font-weight:700;color:var(--text-primary);letter-spacing:.05em;text-transform:uppercase;">Now Available in 12 Cities</span>
         </div>
 
-        <h1 class="animate-fade-up delay-1" style="font-weight:900;letter-spacing:-.03em;color:#fff;margin-bottom:20px;line-height:1.1;">
+        <h1 class="animate-fade-up delay-1" style="font-weight:900;letter-spacing:-.03em;color:var(--text-primary);margin-bottom:20px;line-height:1.1;">
           Your Pet's Happiness
           <span style="display:block;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Is Our Full-Time Job.</span>
         </h1>
 
-        <p class="animate-fade-up delay-2" style="color:rgba(255,255,255,.65);font-size:1.05rem;max-width:480px;margin-bottom:32px;line-height:1.8;">
+        <p class="animate-fade-up delay-2" style="color:var(--text-secondary);font-size:1.05rem;max-width:480px;margin-bottom:32px;line-height:1.8;">
           GPS-tracked walks, photo updates, certified sitters, and a dashboard that puts you in control — all in one beautifully simple platform.
         </p>
 
@@ -207,18 +340,18 @@
         <!-- Mini stats -->
         <div class="d-flex gap-4 flex-wrap animate-fade-up delay-4">
           <div>
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:#fff;" data-count="2400" data-suffix="+">2400+</div>
-            <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Pet Families</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:var(--primary);" data-count="2400" data-suffix="+">2400+</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">Pet Families</div>
           </div>
-          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div style="width:1px;background:var(--border);"></div>
           <div>
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:#fff;" data-count="150" data-suffix="+">150+</div>
-            <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Vetted Sitters</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:var(--primary);" data-count="150" data-suffix="+">150+</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">Vetted Sitters</div>
           </div>
-          <div style="width:1px;background:rgba(255,255,255,.1);"></div>
+          <div style="width:1px;background:var(--border);"></div>
           <div>
-            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:#fff;" data-count="98" data-suffix="%">98%</div>
-            <div style="font-size:.75rem;color:rgba(255,255,255,.45);">Satisfaction</div>
+            <div style="font-family:var(--font-heading);font-weight:800;font-size:1.6rem;color:var(--primary);" data-count="98" data-suffix="%">98%</div>
+            <div style="font-size:.75rem;color:var(--text-muted);">Satisfaction</div>
           </div>
         </div>
       </div>
@@ -228,9 +361,9 @@
         <div style="position:relative;max-width:440px;margin:0 auto;">
 
           <!-- Main phone mockup card -->
-          <div style="background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:24px;box-shadow:0 32px 80px rgba(0,0,0,.4);">
+          <div class="h2-mockup-card">
             <!-- GPS Map -->
-            <div style="background:linear-gradient(135deg,#0d2010,#1a3a1e);border-radius:16px;height:200px;position:relative;overflow:hidden;margin-bottom:18px;">
+            <div class="h2-mockup-map">
               <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(76,175,80,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(76,175,80,.08) 1px,transparent 1px);background-size:32px 32px;"></div>
               <svg viewBox="0 0 400 180" style="position:absolute;inset:0;width:100%;height:100%;" xmlns="http://www.w3.org/2000/svg">
                 <path d="M 60 150 Q 140 80 200 95 Q 270 115 340 45" stroke="#4CAF50" stroke-width="3" stroke-dasharray="8 4" fill="none" style="animation:dash-animate 3s linear infinite;"/>
@@ -248,32 +381,32 @@
             <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
               <div style="width:42px;height:42px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"></path><path d="M12 2a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3"></path></svg></div>
               <div style="flex:1;">
-                <div style="font-family:var(--font-heading);font-weight:700;color:rgba(255,255,255,.9);font-size:.88rem;">Max's Evening Walk</div>
-                <div style="font-size:.72rem;color:rgba(255,255,255,.45);">Emma R. · Riverside Park</div>
+                <div style="font-family:var(--font-heading);font-weight:700;color:var(--text-primary);font-size:.88rem;">Max's Evening Walk</div>
+                <div style="font-size:.72rem;color:var(--text-muted);">Emma R. · Riverside Park</div>
               </div>
-              <span style="background:rgba(34,197,94,.2);color:#4ade80;font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:10px;"> Live</span>
+              <span style="background:rgba(34,197,94,.1);color:var(--success);font-size:.7rem;font-weight:700;padding:3px 8px;border-radius:10px;"> Live</span>
             </div>
 
             <!-- Stats row -->
             <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
-              <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:10px;text-align:center;">
-                <div style="font-family:var(--font-heading);font-weight:800;color:#fff;font-size:1rem;">2.4km</div>
-                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Distance</div>
+              <div style="background:var(--bg-2);border-radius:10px;padding:10px;text-align:center;">
+                <div style="font-family:var(--font-heading);font-weight:800;color:var(--text-primary);font-size:1rem;">2.4km</div>
+                <div style="font-size:.65rem;color:var(--text-muted);">Distance</div>
               </div>
-              <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:10px;text-align:center;">
-                <div style="font-family:var(--font-heading);font-weight:800;color:#fff;font-size:1rem;">35min</div>
-                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Duration</div>
+              <div style="background:var(--bg-2);border-radius:10px;padding:10px;text-align:center;">
+                <div style="font-family:var(--font-heading);font-weight:800;color:var(--text-primary);font-size:1rem;">35min</div>
+                <div style="font-size:.65rem;color:var(--text-muted);">Duration</div>
               </div>
-              <div style="background:rgba(255,255,255,.05);border-radius:10px;padding:10px;text-align:center;">
-                <div style="font-family:var(--font-heading);font-weight:800;color:#fff;font-size:1rem;"> 3</div>
-                <div style="font-size:.65rem;color:rgba(255,255,255,.4);">Photos</div>
+              <div style="background:var(--bg-2);border-radius:10px;padding:10px;text-align:center;">
+                <div style="font-family:var(--font-heading);font-weight:800;color:var(--text-primary);font-size:1rem;"> 3</div>
+                <div style="font-size:.65rem;color:var(--text-muted);">Photos</div>
               </div>
             </div>
           </div>
 
           <!-- Floating cards -->
           <div class="floating-stat-card" style="top:-24px;right:-24px;animation-delay:.4s;">
-            <div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-bottom:2px;">Rating</div>
+            <div style="font-size:.7rem;color:var(--text-muted);margin-bottom:2px;">Rating</div>
             <div style="font-family:var(--font-heading);font-weight:800;font-size:1.1rem;color:#FFC857;"> 4.9</div>
           </div>
 
@@ -331,32 +464,32 @@
 </div>
 
 <!-- ===================== WHAT WE OFFER SERVICES ===================== -->
-<section class="section-padding bg-gradient-dark" style="background: linear-gradient(180deg, #111827 0%, #0c121e 100%); color: #fff; border-bottom: 1px solid rgba(255,255,255,.05);">
+<section class="section-padding bg-gradient-services">
   <div class="container">
     <div class="text-center mb-5 animate-fade-up">
       <span class="section-label" style="background: rgba(76,175,80,.15); color: var(--primary); border: 1px solid rgba(76,175,80,.3);"> What We Offer</span>
-      <h2 class="section-title" style="color: #fff;">Our Premium Pet Care Services</h2>
-      <p class="section-subtitle" style="color: rgba(255,255,255,.65);">Detailed care packages tailored specifically to your pet's routine, health, and comfort.</p>
+      <h2 class="section-title">Our Premium Pet Care Services</h2>
+      <p class="section-subtitle" style="color: var(--text-secondary);">Detailed care packages tailored specifically to your pet's routine, health, and comfort.</p>
     </div>
 
     <div class="row g-4">
       <!-- Dog Walking Card -->
       <div class="col-md-6 col-lg-4 animate-fade-up">
-        <div style="background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; height: 100%; transition: var(--transition);" onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(76,175,80,.4)'; this.style.background='rgba(255,255,255,.05)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,.08)'; this.style.background='rgba(255,255,255,.03)';">
+        <div class="h2-service-card">
           <div style="height: 180px; overflow: hidden;"><img src="assets/images/service-dog-walking.png" alt="Dog Walking" style="width: 100%; height: 100%; object-fit: cover;"></div>
           <div style="padding: 24px;">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
               <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(76,175,80,.15); display: flex; align-items: center; justify-content: center; color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 14a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m0-12a3 3 0 0 1 3 3 3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1-3-3M5 16a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3m14 0a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3z"/></svg></div>
-              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: #fff; font-size: 1.15rem;">Dog Walking</h4>
+              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: var(--text-primary); font-size: 1.15rem;">Dog Walking</h4>
             </div>
-            <p style="font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 16px;">Professional, active dog walks tailored to your pet's energy levels and health requirements. Real-time GPS logs keep you informed.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: rgba(255,255,255,.75); display: grid; gap: 6px;">
+            <p style="font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Professional, active dog walks tailored to your pet's energy levels and health requirements. Real-time GPS logs keep you informed.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: var(--text-secondary); display: grid; gap: 6px;">
               <li style="display: flex; gap: 8px;">✓ Live GPS tracking and route history</li>
               <li style="display: flex; gap: 8px;">✓ Paw clean & fresh water refills</li>
               <li style="display: flex; gap: 8px;">✓ Treat administration & text updates</li>
               <li style="display: flex; gap: 8px;">✓ Detailed pee/poop report card</li>
             </ul>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); padding-top: 16px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px;">
               <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem;">From $18</span>
               <a href="dog-walking.html" class="btn btn-outline-white btn-sm" style="border-radius: var(--radius-full); padding: 8px 16px; font-size: .78rem;">Learn More</a>
             </div>
@@ -366,23 +499,23 @@
 
       <!-- Pet Sitting Card -->
       <div class="col-md-6 col-lg-4 animate-fade-up delay-1">
-        <div style="background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; height: 100%; transition: var(--transition);" onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(255,200,87,.4)'; this.style.background='rgba(255,255,255,.05)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,.08)'; this.style.background='rgba(255,255,255,.03)';">
+        <div class="h2-service-card">
           <div style="height: 180px; overflow: hidden;"><img src="assets/images/service-pet-sitting.png" alt="Pet Sitting" style="width: 100%; height: 100%; object-fit: cover;"></div>
           <div style="padding: 24px;">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
               <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,200,87,.15); display: flex; align-items: center; justify-content: center; color: var(--secondary);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
               </div>
-              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: #fff; font-size: 1.15rem;">Pet Sitting</h4>
+              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: var(--text-primary); font-size: 1.15rem;">Pet Sitting</h4>
             </div>
-            <p style="font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 16px;">In-home check-ins and companionship while you are away. Keeps your pet safe, fed, and happy in their own comfort zone.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: rgba(255,255,255,.75); display: grid; gap: 6px;">
+            <p style="font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">In-home check-ins and companionship while you are away. Keeps your pet safe, fed, and happy in their own comfort zone.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: var(--text-secondary); display: grid; gap: 6px;">
               <li style="display: flex; gap: 8px;">✓ Feeding, treats & fresh water refills</li>
               <li style="display: flex; gap: 8px;">✓ Playtime & indoor exercise sessions</li>
               <li style="display: flex; gap: 8px;">✓ Mail collection & plants watering</li>
               <li style="display: flex; gap: 8px;">✓ General home security check-ups</li>
             </ul>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); padding-top: 16px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px;">
               <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem;">From $25</span>
               <a href="pet-sitting.html" class="btn btn-outline-white btn-sm" style="border-radius: var(--radius-full); padding: 8px 16px; font-size: .78rem;">Learn More</a>
             </div>
@@ -392,23 +525,23 @@
 
       <!-- Puppy Visits Card -->
       <div class="col-md-6 col-lg-4 animate-fade-up delay-2">
-        <div style="background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; height: 100%; transition: var(--transition);" onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(255,127,80,.4)'; this.style.background='rgba(255,255,255,.05)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,.08)'; this.style.background='rgba(255,255,255,.03)';">
+        <div class="h2-service-card">
           <div style="height: 180px; overflow: hidden;"><img src="assets/images/service-puppy-care.png" alt="Puppy Visits" style="width: 100%; height: 100%; object-fit: cover;"></div>
           <div style="padding: 24px;">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
               <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(255,127,80,.15); display: flex; align-items: center; justify-content: center; color: var(--accent);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c0-2.2 1.8-4 4-4h8c2.2 0 4 1.8 4 4v4c0 3.3-2.7 6-6 6h-4c-3.3 0-6-2.7-6-6v-4z"></path><path d="M9 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="currentColor"></path><path d="M15 12a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" fill="currentColor"></path></svg>
               </div>
-              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: #fff; font-size: 1.15rem;">Puppy Visits</h4>
+              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: var(--text-primary); font-size: 1.15rem;">Puppy Visits</h4>
             </div>
-            <p style="font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 16px;">Specialized care visits designed for young puppies. Focuses on potty routine, feeding schedules, and puppy play time.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: rgba(255,255,255,.75); display: grid; gap: 6px;">
+            <p style="font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Specialized care visits designed for young puppies. Focuses on potty routine, feeding schedules, and puppy play time.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: var(--text-secondary); display: grid; gap: 6px;">
               <li style="display: flex; gap: 8px;">✓ Potty training reinforcement</li>
               <li style="display: flex; gap: 8px;">✓ Feeding, water and clean-ups</li>
               <li style="display: flex; gap: 8px;">✓ Basic commands practice & play</li>
               <li style="display: flex; gap: 8px;">✓ Sitter updates and advice logs</li>
             </ul>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); padding-top: 16px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px;">
               <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem;">From $20</span>
               <a href="services.html" class="btn btn-outline-white btn-sm" style="border-radius: var(--radius-full); padding: 8px 16px; font-size: .78rem;">Learn More</a>
             </div>
@@ -418,23 +551,23 @@
 
       <!-- Cat Care Card -->
       <div class="col-md-6 col-lg-4 animate-fade-up">
-        <div style="background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; height: 100%; transition: var(--transition);" onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(59,130,246,.4)'; this.style.background='rgba(255,255,255,.05)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,.08)'; this.style.background='rgba(255,255,255,.03)';">
+        <div class="h2-service-card">
           <div style="height: 180px; overflow: hidden;"><img src="assets/images/service-cat-care.png" alt="Cat Care" style="width: 100%; height: 100%; object-fit: cover;"></div>
           <div style="padding: 24px;">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
               <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(59,130,246,.15); display: flex; align-items: center; justify-content: center; color: var(--info);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.97 0-9-4.03-9-9 0-2.12.74-4.07 1.97-5.61L4.35 3.7c-.23-.62.43-1.18.99-.86l3.52 2.01C10.16 4.31 11.06 4 12 4c.94 0 1.84.31 2.64.85l3.52-2.01c.56-.32 1.22.24.99.86l-.62 2.69C19.76 7.93 20.5 9.88 20.5 12c0 4.97-4.03 9-9 9z"></path></svg>
               </div>
-              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: #fff; font-size: 1.15rem;">Cat Care</h4>
+              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: var(--text-primary); font-size: 1.15rem;">Cat Care</h4>
             </div>
-            <p style="font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 16px;">Dedicated feline visits focusing on keeping your cat's environment clean, their food fresh, and providing playtime.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: rgba(255,255,255,.75); display: grid; gap: 6px;">
+            <p style="font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Dedicated feline visits focusing on keeping your cat's environment clean, their food fresh, and providing playtime.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: var(--text-secondary); display: grid; gap: 6px;">
               <li style="display: flex; gap: 8px;">✓ Feeding & clean water bowl refreshes</li>
               <li style="display: flex; gap: 8px;">✓ Daily litter box scoop & sanitize</li>
               <li style="display: flex; gap: 8px;">✓ Brushing, petting, laser & feather play</li>
               <li style="display: flex; gap: 8px;">✓ Medication application (if requested)</li>
             </ul>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); padding-top: 16px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px;">
               <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem;">From $22</span>
               <a href="services.html" class="btn btn-outline-white btn-sm" style="border-radius: var(--radius-full); padding: 8px 16px; font-size: .78rem;">Learn More</a>
             </div>
@@ -444,23 +577,23 @@
 
       <!-- Overnight Care Card -->
       <div class="col-md-6 col-lg-4 animate-fade-up delay-1">
-        <div style="background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; height: 100%; transition: var(--transition);" onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(124,58,237,.4)'; this.style.background='rgba(255,255,255,.05)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,.08)'; this.style.background='rgba(255,255,255,.03)';">
+        <div class="h2-service-card">
           <div style="height: 180px; overflow: hidden;"><img src="assets/images/service-overnight-care.png" alt="Overnight Care" style="width: 100%; height: 100%; object-fit: cover;"></div>
           <div style="padding: 24px;">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
-              <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(124,58,237,.15); display: flex; align-items: center; justify-content: center; color: #a78bfa;">
+              <div class="h2-service-card-purple-icon" style="width: 44px; height: 44px; border-radius: 50%; background: rgba(124,58,237,.15); display: flex; align-items: center; justify-content: center;">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
               </div>
-              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: #fff; font-size: 1.15rem;">Overnight Care</h4>
+              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: var(--text-primary); font-size: 1.15rem;">Overnight Care</h4>
             </div>
-            <p style="font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 16px;">A dedicated pet care professional stays overnight in your home so your pet has constant security and comfort zone.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: rgba(255,255,255,.75); display: grid; gap: 6px;">
+            <p style="font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">A dedicated pet care professional stays overnight in your home so your pet has constant security and comfort zone.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: var(--text-secondary); display: grid; gap: 6px;">
               <li style="display: flex; gap: 8px;">✓ 12-hour evening/morning stay</li>
               <li style="display: flex; gap: 8px;">✓ Regular morning/evening walking</li>
               <li style="display: flex; gap: 8px;">✓ Bedtime routine & sleeping check-ins</li>
               <li style="display: flex; gap: 8px;">✓ House sitting services included</li>
             </ul>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); padding-top: 16px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px;">
               <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem;">From $75</span>
               <a href="services.html" class="btn btn-outline-white btn-sm" style="border-radius: var(--radius-full); padding: 8px 16px; font-size: .78rem;">Learn More</a>
             </div>
@@ -470,23 +603,23 @@
 
       <!-- Pet Taxi Card -->
       <div class="col-md-6 col-lg-4 animate-fade-up delay-2">
-        <div style="background: rgba(255,255,255,.03); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius-xl); overflow: hidden; height: 100%; transition: var(--transition);" onmouseover="this.style.transform='translateY(-6px)'; this.style.borderColor='rgba(76,175,80,.4)'; this.style.background='rgba(255,255,255,.05)';" onmouseout="this.style.transform='none'; this.style.borderColor='rgba(255,255,255,.08)'; this.style.background='rgba(255,255,255,.03)';">
+        <div class="h2-service-card">
           <div style="height: 180px; overflow: hidden;"><img src="assets/images/service-pet-taxi.png" alt="Pet Taxi" style="width: 100%; height: 100%; object-fit: cover;"></div>
           <div style="padding: 24px;">
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
               <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(76,175,80,.15); display: flex; align-items: center; justify-content: center; color: var(--primary);">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
-              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: #fff; font-size: 1.15rem;">Pet Taxi</h4>
+              <h4 style="font-family: var(--font-heading); font-weight: 600; margin: 0; color: var(--text-primary); font-size: 1.15rem;">Pet Taxi</h4>
             </div>
-            <p style="font-size: .85rem; color: rgba(255,255,255,.65); line-height: 1.6; margin-bottom: 16px;">Safe, secure, climate-controlled rides to the vet, groomer, daycare, or airport. Full support checking in.</p>
-            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: rgba(255,255,255,.75); display: grid; gap: 6px;">
+            <p style="font-size: .85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">Safe, secure, climate-controlled rides to the vet, groomer, daycare, or airport as well as the Full support checking in.</p>
+            <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: .8rem; color: var(--text-secondary); display: grid; gap: 6px;">
               <li style="display: flex; gap: 8px;">✓ Secure crates or seatbelt harnesses</li>
               <li style="display: flex; gap: 8px;">✓ Appointment check-in assistance</li>
               <li style="display: flex; gap: 8px;">✓ Pick-up, transit & drop-off text alerts</li>
               <li style="display: flex; gap: 8px;">✓ Door-to-door handoff service</li>
             </ul>
-            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,.06); padding-top: 16px;">
+            <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px;">
               <span style="font-family: var(--font-heading); font-weight: 700; color: var(--primary); font-size: 1.1rem;">From $30</span>
               <a href="services.html" class="btn btn-outline-white btn-sm" style="border-radius: var(--radius-full); padding: 8px 16px; font-size: .78rem;">Learn More</a>
             </div>
@@ -898,13 +1031,13 @@
 </section>
 
 <!-- ===================== FINAL CTA ===================== -->
-<section style="background:linear-gradient(135deg,#0d2010 0%,#111827 50%,#1a1a06 100%);padding:80px 0;position:relative;overflow:hidden;">
+<section class="h2-final-cta">
   <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(76,175,80,.06) 1px,transparent 1px);background-size:32px 32px;"></div>
   <div class="container text-center" style="position:relative;z-index:1;">
     <div class="animate-scale-in">
       <div style="font-size:3.5rem;margin-bottom:16px;">🐾</div>
-      <h2 style="font-family:var(--font-heading);font-weight:900;color:#fff;margin-bottom:14px;font-size:clamp(1.8rem,4vw,2.8rem);">Ready to Give Your Pet the Best?</h2>
-      <p style="color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 32px;font-size:1rem;">Book your first visit today. Fully insured, GPS-tracked, and backed by a 100% satisfaction guarantee.</p>
+      <h2 style="font-family:var(--font-heading);font-weight:900;color:var(--text-primary);margin-bottom:14px;font-size:clamp(1.8rem,4vw,2.8rem);">Ready to Give Your Pet the Best?</h2>
+      <p style="color:var(--text-secondary);max-width:480px;margin:0 auto 32px;font-size:1rem;">Book your first visit today. Fully insured, GPS-tracked, and backed by a 100% satisfaction guarantee.</p>
       <div class="d-flex gap-3 justify-content-center flex-wrap">
         <a href="booking.html" class="btn btn-primary btn-xl"> Book Your First Visit</a>
         <a href="signup.html" class="btn btn-outline-white btn-xl">Create Free Account</a>
